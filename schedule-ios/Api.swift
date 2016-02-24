@@ -1,5 +1,13 @@
+import Alamofire
 
 class Api {
+    
+    //============================================================================================
+    // FIELDS
+    //============================================================================================
+    static let instance = Api()
+    private let alaTransport = AlaTransport()
+    private let jsonProcessor = JSONProcessor()
     //============================================================================================
     // 1 Группы
     //============================================================================================
@@ -12,32 +20,36 @@ class Api {
     // 3 Обновления
     //============================================================================================
     static let UPDATE_OF_SCHEDULE = Command(id: 30, name: "groups/%@/updates/schedule", method: .GET)
-    
-    
-    
     //============================================================================================
     // SEND
     //============================================================================================
 
-    func send(request: Request, listner: ResponceListner) {
-        
+    func send(request r: Request, listener l: ResponseListener) {
+        send(request: r, listener: l, transport: alaTransport, processor: jsonProcessor)
     }
     
+    func send(request r: Request, listener l: ResponseListener, transport t: Transport, processor p: Processor){
+        t.send(request: r, processor: p, listener: l)
+    }
 
-    func groups() {
-        
-    }
-    
-    func groups(groupName: String, listner l: ResponceListner) {
+    func groups(listener l: ResponseListener) {
         let r = Request(command: Api.GROUPS)
-        send(r, listner: l)
+        send(request: r, listener: l)
     }
     
-    func scheduleOfGroup(id: Int) {
-        
+    func groups(groupName: String, listener l: ResponseListener) {
+        let r = Request(command: Api.GROUPS)
+        r.addParam("q", value: groupName)
+        send(request: r, listener: l)
     }
     
-    func updateOfGroup(id: Int) {
-        
+    func scheduleOfGroup(groupID: Int,  listener l: ResponseListener) {
+        let r = Request(command: Api.SCHEDULE, urlPaths: [groupID.description])
+        send(request: r, listener: l)
+    }
+    
+    func updateOfGroup(groupID: Int,  listener l: ResponseListener) {
+        let r = Request(command: Api.UPDATE_OF_SCHEDULE, urlPaths: [groupID.description])
+        send(request: r, listener: l)
     }
 }

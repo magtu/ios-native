@@ -13,6 +13,13 @@
 		8B1F3E461C76145B00865CDF /* schedule_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F3E441C76145B00865CDF /* schedule_ios.xcdatamodeld */; };
 		8B1F3E481C76145B00865CDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F3E471C76145B00865CDF /* Assets.xcassets */; };
 		8B1F3E4B1C76145B00865CDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F3E491C76145B00865CDF /* LaunchScreen.storyboard */; };
+		8BC0D3B81C7DF3B900FE597C /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0D3B71C7DF3B900FE597C /* Transport.swift */; };
+		8BC0D3BA1C7DF47500FE597C /* Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0D3B91C7DF47500FE597C /* Processor.swift */; };
+		8BC0D3BC1C7DF6ED00FE597C /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0D3BB1C7DF6ED00FE597C /* ApiError.swift */; };
+		8BC0D3BE1C7DF7B200FE597C /* AlaTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0D3BD1C7DF7B200FE597C /* AlaTransport.swift */; };
+		8BC0D3C21C7E0A4200FE597C /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0D3C11C7E0A4200FE597C /* ScheduleManager.swift */; };
+		8BC0D3C41C7E0A4F00FE597C /* GroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0D3C31C7E0A4F00FE597C /* GroupManager.swift */; };
+		8BC0D3C61C7E0A9F00FE597C /* GroupListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0D3C51C7E0A9F00FE597C /* GroupListener.swift */; };
 		8BD0C3A51C77773E008BD083 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD0C3A41C77773E008BD083 /* Api.swift */; };
 		8BD0C3A81C77782A008BD083 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD0C3A71C77782A008BD083 /* Command.swift */; };
 		8BD0C3AA1C777C63008BD083 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD0C3A91C777C63008BD083 /* Request.swift */; };
@@ -33,6 +40,13 @@
 		8B1F3E471C76145B00865CDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B1F3E4A1C76145B00865CDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B1F3E4C1C76145B00865CDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BC0D3B71C7DF3B900FE597C /* Transport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
+		8BC0D3B91C7DF47500FE597C /* Processor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Processor.swift; sourceTree = "<group>"; };
+		8BC0D3BB1C7DF6ED00FE597C /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		8BC0D3BD1C7DF7B200FE597C /* AlaTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlaTransport.swift; sourceTree = "<group>"; };
+		8BC0D3C11C7E0A4200FE597C /* ScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
+		8BC0D3C31C7E0A4F00FE597C /* GroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupManager.swift; sourceTree = "<group>"; };
+		8BC0D3C51C7E0A9F00FE597C /* GroupListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListener.swift; sourceTree = "<group>"; };
 		8BD0C3A41C77773E008BD083 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		8BD0C3A71C77782A008BD083 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		8BD0C3A91C777C63008BD083 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -82,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				8BD0C3A11C777710008BD083 /* api */,
+				8BC0D3C01C7E0A0B00FE597C /* schedule */,
+				8BC0D3BF1C7E09E700FE597C /* group */,
 				8B1F3E3D1C76145B00865CDF /* AppDelegate.swift */,
 				8B1F3E3F1C76145B00865CDF /* ViewController.swift */,
 				8B1F3E411C76145B00865CDF /* Main.storyboard */,
@@ -93,6 +109,23 @@
 			path = "schedule-ios";
 			sourceTree = "<group>";
 		};
+		8BC0D3BF1C7E09E700FE597C /* group */ = {
+			isa = PBXGroup;
+			children = (
+				8BC0D3C31C7E0A4F00FE597C /* GroupManager.swift */,
+				8BC0D3C51C7E0A9F00FE597C /* GroupListener.swift */,
+			);
+			name = group;
+			sourceTree = "<group>";
+		};
+		8BC0D3C01C7E0A0B00FE597C /* schedule */ = {
+			isa = PBXGroup;
+			children = (
+				8BC0D3C11C7E0A4200FE597C /* ScheduleManager.swift */,
+			);
+			name = schedule;
+			sourceTree = "<group>";
+		};
 		8BD0C3A11C777710008BD083 /* api */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +134,7 @@
 				8BD0C3A21C777721008BD083 /* transport */,
 				8BD0C3A41C77773E008BD083 /* Api.swift */,
 				8BE932B81C778D4B00416876 /* ResponceListner.swift */,
+				8BC0D3BB1C7DF6ED00FE597C /* ApiError.swift */,
 			);
 			name = api;
 			sourceTree = "<group>";
@@ -108,6 +142,8 @@
 		8BD0C3A21C777721008BD083 /* transport */ = {
 			isa = PBXGroup;
 			children = (
+				8BC0D3B71C7DF3B900FE597C /* Transport.swift */,
+				8BC0D3BD1C7DF7B200FE597C /* AlaTransport.swift */,
 			);
 			name = transport;
 			sourceTree = "<group>";
@@ -116,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				8BE932B61C778C3A00416876 /* JSONProcessor.swift */,
+				8BC0D3B91C7DF47500FE597C /* Processor.swift */,
 			);
 			name = processor;
 			sourceTree = "<group>";
@@ -260,14 +297,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BC0D3BC1C7DF6ED00FE597C /* ApiError.swift in Sources */,
 				8BE932B91C778D4B00416876 /* ResponceListner.swift in Sources */,
+				8BC0D3B81C7DF3B900FE597C /* Transport.swift in Sources */,
 				8B1F3E401C76145B00865CDF /* ViewController.swift in Sources */,
+				8BC0D3BE1C7DF7B200FE597C /* AlaTransport.swift in Sources */,
 				8BD0C3AA1C777C63008BD083 /* Request.swift in Sources */,
 				8B1F3E461C76145B00865CDF /* schedule_ios.xcdatamodeld in Sources */,
+				8BC0D3C61C7E0A9F00FE597C /* GroupListener.swift in Sources */,
 				8BD0C3A51C77773E008BD083 /* Api.swift in Sources */,
+				8BC0D3BA1C7DF47500FE597C /* Processor.swift in Sources */,
+				8BC0D3C41C7E0A4F00FE597C /* GroupManager.swift in Sources */,
 				8BE932B71C778C3A00416876 /* JSONProcessor.swift in Sources */,
 				8BD0C3A81C77782A008BD083 /* Command.swift in Sources */,
 				8B1F3E3E1C76145B00865CDF /* AppDelegate.swift in Sources */,
+				8BC0D3C21C7E0A4200FE597C /* ScheduleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

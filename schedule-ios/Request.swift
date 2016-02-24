@@ -1,6 +1,10 @@
+import Foundation
+
 class Request {
-    let urlPath: String
+
     let command: Command
+    let urlPath: String
+
     var params = [String: String]()
     
     init(command: Command) {
@@ -9,8 +13,9 @@ class Request {
     }
     init(command: Command, urlPaths: [String]){
         self.command = command
-        urlPath = command.name + urlPaths.map { return }
+        urlPath = NSString(format:command.name, urlPaths) as String
     }
+    
     func addParam(key: String, value: String) {
         params[key] = value
     }

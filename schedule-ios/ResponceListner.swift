@@ -1,3 +1,1 @@
-class ResponceListner {
-    
-}
+protocol ResponseListener {}

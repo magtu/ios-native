@@ -1,10 +1,4 @@
 import Alamofire
-
-enum Method: String {
-    case GET = "GET"
-    case POST = "POST"
-}
-
 class Command {
     let id: Int
     let name: String
