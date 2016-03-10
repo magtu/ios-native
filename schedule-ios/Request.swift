@@ -13,7 +13,7 @@ class Request {
     }
     init(command: Command, urlPaths: [String]){
         self.command = command
-        urlPath = NSString(format:command.name, urlPaths) as String
+        urlPath = NSString(format:command.name, urlPaths[0]) as String
     }
     
     func addParam(key: String, value: String) {

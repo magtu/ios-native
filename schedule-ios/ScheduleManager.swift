@@ -1,9 +1,28 @@
-//
-//  ScheduleManager.swift
-//  schedule-ios
-//
-//  Created by Developer on 24/02/16.
-//  Copyright © 2016 Developer. All rights reserved.
-//
-
 import Foundation
+
+class ScheduleManager: ScheduleListener {
+    // ============================================================================================
+    // EVENTS
+    // ============================================================================================
+    var onScheduleEvent: ObserverSet<()> = ObserverSet()
+    var onUpdateEvent:   ObserverSet<()> = ObserverSet()
+    // ============================================================================================
+    // API REQUEST
+    // ============================================================================================
+    func getSchedule(){
+        
+    }
+    
+    func getUpdate() {
+        
+    }
+    // ============================================================================================
+    // API RESPONSE
+    // ============================================================================================
+    func onSchedule(weeks: [WeekType: Week]){
+    
+    }
+    func onUpdate(updateAt: Double) {
+        
+    }
+}

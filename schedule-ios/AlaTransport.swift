@@ -1,4 +1,5 @@
 import Alamofire
+import SwiftyJSON
 
 class AlaTransport: Transport {
     let API = "api/"
@@ -9,15 +10,20 @@ class AlaTransport: Transport {
     
     func send(request request: Request, processor: Processor, listener: ResponseListener) {
         let url = DOMAIN_URL + API + VERSION + request.urlPath
-        
-        Alamofire.request(request.command.method, url, parameters: request.params).response { _, response, data, error in
-            if error != nil {print(error!.localizedDescription)}
+        print(url + (request.params.isEmpty ? "" : "?" + request.params.description))
+        Alamofire.request(request.command.method, url, parameters: request.params).responseJSON { response in
+
+            if response.result.isFailure {print(response.result.isFailure.description)}
             else {
-                if (!processor.process(request, status: ApiError(rawValue:response?.statusCode ?? ApiError.WTF.rawValue)!, response: data!, listener: listener)
-                    && (self.countOfResends <= self.LIMIT_RESEND)) {
-                    sleep(1)
-                    self.countOfResends++
-                    self.send(request: request, processor: processor, listener: listener)
+                if (!processor.process(
+                    request,
+                    response: response.data!,
+                    listener: listener)
+                    &&
+                    (self.countOfResends <= self.LIMIT_RESEND)) {
+                        sleep(1)
+                        self.countOfResends++
+                        self.send(request: request, processor: processor, listener: listener)
                 }
                 else {
                     //Все пиздец

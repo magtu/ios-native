@@ -1,4 +1,4 @@
-protocol GroupListner: ResponseListener {
-    func onGroup()
-    func onGroupFailed()
+protocol GroupsListner: ResponseListener {
+    func onGroups(groups: [Group])
+    func onGroupsFailed()
 }
