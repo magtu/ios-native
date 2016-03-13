@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D6B71D41C947198006EAB3E /* ScheduleOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B71D31C947197006EAB3E /* ScheduleOfDayViewController.swift */; };
+		4D6B71D71C94A1BA006EAB3E /* ScheduleAdapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B71D61C94A1BA006EAB3E /* ScheduleAdapterViewController.swift */; };
+		4DD1D7C01C95997000B3CED4 /* EventViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1D7BE1C95997000B3CED4 /* EventViewCell.swift */; };
+		4DD1D7C11C95997000B3CED4 /* EventViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD1D7BF1C95997000B3CED4 /* EventViewCell.xib */; };
+		4DD1DEF71C942E5F00DC1A15 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1DEF61C942E5F00DC1A15 /* SearchViewController.swift */; };
+		4DD1DEF91C942EFE00DC1A15 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1DEF81C942EFE00DC1A15 /* ScheduleViewController.swift */; };
+		4DD1DEFB1C94318700DC1A15 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1DEFA1C94318600DC1A15 /* NavigationViewController.swift */; };
+		4DD1DEFD1C94357000DC1A15 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1DEFC1C94357000DC1A15 /* TransitionViewController.swift */; };
 		8B1F3E3E1C76145B00865CDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F3E3D1C76145B00865CDF /* AppDelegate.swift */; };
 		8B1F3E401C76145B00865CDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F3E3F1C76145B00865CDF /* ViewController.swift */; };
 		8B1F3E431C76145B00865CDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F3E411C76145B00865CDF /* Main.storyboard */; };
@@ -37,6 +45,14 @@
 
 /* Begin PBXFileReference section */
 		192BFE2AF3026F2375A7D3E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4D6B71D31C947197006EAB3E /* ScheduleOfDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleOfDayViewController.swift; sourceTree = "<group>"; };
+		4D6B71D61C94A1BA006EAB3E /* ScheduleAdapterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleAdapterViewController.swift; sourceTree = "<group>"; };
+		4DD1D7BE1C95997000B3CED4 /* EventViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewCell.swift; sourceTree = "<group>"; };
+		4DD1D7BF1C95997000B3CED4 /* EventViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewCell.xib; sourceTree = "<group>"; };
+		4DD1DEF61C942E5F00DC1A15 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4DD1DEF81C942EFE00DC1A15 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		4DD1DEFA1C94318600DC1A15 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		4DD1DEFC1C94357000DC1A15 /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		643DE993E8114AA87192B1C1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		69C8D98054D5ECAFD4A84E11 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1F3E3A1C76145B00865CDF /* schedule-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schedule-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +80,7 @@
 		8BD0C3A41C77773E008BD083 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		8BD0C3A71C77782A008BD083 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		8BD0C3A91C777C63008BD083 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		8BE932B61C778C3A00416876 /* JSONProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessor.swift; sourceTree = "<group>"; };
+		8BE932B61C778C3A00416876 /* JSONProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8BE932B81C778D4B00416876 /* ResponceListner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponceListner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +96,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D6B71D51C94A167006EAB3E /* adapters */ = {
+			isa = PBXGroup;
+			children = (
+				4D6B71D61C94A1BA006EAB3E /* ScheduleAdapterViewController.swift */,
+			);
+			name = adapters;
+			sourceTree = "<group>";
+		};
+		4DD1DEF51C92D3D600DC1A15 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				4D6B71D51C94A167006EAB3E /* adapters */,
+				4DD1DEFE1C943DBE00DC1A15 /* models */,
+				4DD1DEF61C942E5F00DC1A15 /* SearchViewController.swift */,
+				4DD1DEF81C942EFE00DC1A15 /* ScheduleViewController.swift */,
+				4DD1DEFA1C94318600DC1A15 /* NavigationViewController.swift */,
+				4DD1DEFC1C94357000DC1A15 /* TransitionViewController.swift */,
+				4D6B71D31C947197006EAB3E /* ScheduleOfDayViewController.swift */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		4DD1DEFE1C943DBE00DC1A15 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				4DD1D7BE1C95997000B3CED4 /* EventViewCell.swift */,
+				4DD1D7BF1C95997000B3CED4 /* EventViewCell.xib */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
 		605E465E84E1931958A6AC2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,15 +156,16 @@
 		8B1F3E3C1C76145B00865CDF /* schedule-ios */ = {
 			isa = PBXGroup;
 			children = (
+				8B1F3E411C76145B00865CDF /* Main.storyboard */,
+				8B1F3E471C76145B00865CDF /* Assets.xcassets */,
+				8B1F3E491C76145B00865CDF /* LaunchScreen.storyboard */,
+				4DD1DEF51C92D3D600DC1A15 /* views */,
 				8BD0C3A11C777710008BD083 /* api */,
 				8BC0D3C01C7E0A0B00FE597C /* schedule */,
 				8BC0D3BF1C7E09E700FE597C /* group */,
 				8B98DD8D1C848309005D6A69 /* utils */,
 				8B1F3E3D1C76145B00865CDF /* AppDelegate.swift */,
 				8B1F3E3F1C76145B00865CDF /* ViewController.swift */,
-				8B1F3E411C76145B00865CDF /* Main.storyboard */,
-				8B1F3E471C76145B00865CDF /* Assets.xcassets */,
-				8B1F3E491C76145B00865CDF /* LaunchScreen.storyboard */,
 				8B1F3E4C1C76145B00865CDF /* Info.plist */,
 				8B1F3E441C76145B00865CDF /* schedule_ios.xcdatamodeld */,
 			);
@@ -284,6 +332,7 @@
 				8B1F3E4B1C76145B00865CDF /* LaunchScreen.storyboard in Resources */,
 				8B1F3E481C76145B00865CDF /* Assets.xcassets in Resources */,
 				8B1F3E431C76145B00865CDF /* Main.storyboard in Resources */,
+				4DD1D7C11C95997000B3CED4 /* EventViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,8 +394,12 @@
 				8BC0D3BC1C7DF6ED00FE597C /* ApiError.swift in Sources */,
 				8BE932B91C778D4B00416876 /* ResponceListner.swift in Sources */,
 				8B7DB6571C8B23AF007FACA6 /* Week.swift in Sources */,
+				4DD1DEFB1C94318700DC1A15 /* NavigationViewController.swift in Sources */,
+				4DD1DEF91C942EFE00DC1A15 /* ScheduleViewController.swift in Sources */,
 				8BC0D3B81C7DF3B900FE597C /* Transport.swift in Sources */,
 				8B1F3E401C76145B00865CDF /* ViewController.swift in Sources */,
+				4D6B71D71C94A1BA006EAB3E /* ScheduleAdapterViewController.swift in Sources */,
+				4DD1D7C01C95997000B3CED4 /* EventViewCell.swift in Sources */,
 				8B7DB6551C8B238C007FACA6 /* Event.swift in Sources */,
 				8B98DD8A1C848179005D6A69 /* ScheduleListener.swift in Sources */,
 				8BC0D3BE1C7DF7B200FE597C /* AlaTransport.swift in Sources */,
@@ -355,15 +408,18 @@
 				8B59D1651C90A501003084F8 /* ObserverSet.swift in Sources */,
 				8BC0D3C61C7E0A9F00FE597C /* GroupListener.swift in Sources */,
 				8B7DB6501C8B18B0007FACA6 /* Group.swift in Sources */,
+				4DD1DEF71C942E5F00DC1A15 /* SearchViewController.swift in Sources */,
 				8BD0C3A51C77773E008BD083 /* Api.swift in Sources */,
 				8BC0D3BA1C7DF47500FE597C /* Processor.swift in Sources */,
 				8BC0D3C41C7E0A4F00FE597C /* GroupManager.swift in Sources */,
 				8BE932B71C778C3A00416876 /* JSONProcessor.swift in Sources */,
 				8BD0C3A81C77782A008BD083 /* Command.swift in Sources */,
 				8B7DB6531C8B1CE5007FACA6 /* Day.swift in Sources */,
+				4D6B71D41C947198006EAB3E /* ScheduleOfDayViewController.swift in Sources */,
 				8B1F3E3E1C76145B00865CDF /* AppDelegate.swift in Sources */,
 				8BC0D3C21C7E0A4200FE597C /* ScheduleManager.swift in Sources */,
 				8B98DD8C1C8482DB005D6A69 /* UnwrappTrows.swift in Sources */,
+				4DD1DEFD1C94357000DC1A15 /* TransitionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

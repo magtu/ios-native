@@ -23,7 +23,6 @@ class Api {
     //============================================================================================
     // SEND
     //============================================================================================
-
     func send(request r: Request, listener l: ResponseListener) {
         send(request: r, listener: l, transport: alaTransport, processor: jsonProcessor)
     }
@@ -37,9 +36,9 @@ class Api {
         send(request: r, listener: l)
     }
     
-    func groups(groupName: String, listener l: ResponseListener) {
+    func groups(groupName: String?, listener l: ResponseListener) {
         let r = Request(command: Api.GROUPS)
-        r.addParam("q", value: groupName)
+        if groupName != nil {r.addParam("q", value: groupName!)}
         send(request: r, listener: l)
     }
     

@@ -7,7 +7,7 @@ class JSONProcessor: Processor {
         do {
             switch request.command.id {
             case Api.GROUPS.id:
-                try groups(response, listener: listener as! GroupListner)
+                try groups(response, listener: listener as! GroupsListner)
             case Api.SCHEDULE.id:
                 try schedule(response, listener: listener as! ScheduleListener)
             case Api.UPDATE_OF_SCHEDULE.id:
@@ -28,9 +28,9 @@ class JSONProcessor: Processor {
     // ============================================================================================
     // 01. GROUPS
     // ============================================================================================
-    func groups(json: JSON, listener: GroupListner) throws {
+    func groups(json: JSON, listener: GroupsListner) throws {
         let groups = try json.map{_, g in Group(id: try g["id"].int~!, name: try g["name"].string~!)}
-        listener.onGroup(groups)
+        listener.onGroups(groups)
     }
     // ============================================================================================
     // 02. SCHEDULE
@@ -75,7 +75,7 @@ extension JSON {
                                  course: try j["course"].string~!,
                                  typeID: try j["type_id"].int~!,
                                    type: try j["type"].string~!,
-                               subgroup: Subgroups(rawValue: try  j["subgroup"].int~!)!,
+                               subgroup: try j["subgroup"].int~!,
                               teacherID: try j["teacher_id"].int~!,
                                 teacher: try j["teacher"].string~!,
                                location: try j["location"].string~!)})
