@@ -1,22 +1,43 @@
 import UIKit
 
-class ScheduleAdapterViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDataSource {
+   var day: Day?
+   var table: UITableView!
+   var vc: ScheduleViewController!
+   var listOfSeparatorsToDelete: [Int] = []
+    
+    func bind(table: UITableView, vc: ScheduleViewController) {
+        self.table = table
+        table.dataSource = self
+        table.delegate = self
+        self.vc = vc
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if day != nil {return day!.events.count + 1 } else {return 0}
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if indexPath.row != 0  {
+                let cell = tableView.dequeueReusableCellWithIdentifier("eventCell") as! EventViewCell
+                    cell.create(day!.events[indexPath.row - 1])
+            
+                return cell
+        } else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! HeaderViewCell
+                cell.create(day!.name)
+                return cell
+        }
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    func loadCurDay(){
+        self.day = vc.cDay
+        table.reloadData()
     }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = (tableView.dequeueReusableCellWithIdentifier("cell") as! EventViewCell).create(<#T##event: Event##Event#>)
-        
-        return cell
+    
+    func deleteSeparatorIfNeed(cell: EventViewCell, row: Int) {
+        //TODO
     }
-
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0452611C95D525006DB326 /* HeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0452601C95D523006DB326 /* HeaderViewCell.swift */; };
+		4D0452631C95D5B5006DB326 /* HeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0452621C95D5B5006DB326 /* HeaderViewCell.xib */; };
 		4D6B71D41C947198006EAB3E /* ScheduleOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B71D31C947197006EAB3E /* ScheduleOfDayViewController.swift */; };
 		4D6B71D71C94A1BA006EAB3E /* ScheduleAdapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B71D61C94A1BA006EAB3E /* ScheduleAdapterViewController.swift */; };
 		4DD1D7C01C95997000B3CED4 /* EventViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1D7BE1C95997000B3CED4 /* EventViewCell.swift */; };
@@ -45,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		192BFE2AF3026F2375A7D3E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4D0452601C95D523006DB326 /* HeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewCell.swift; sourceTree = "<group>"; };
+		4D0452621C95D5B5006DB326 /* HeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewCell.xib; sourceTree = "<group>"; };
 		4D6B71D31C947197006EAB3E /* ScheduleOfDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleOfDayViewController.swift; sourceTree = "<group>"; };
 		4D6B71D61C94A1BA006EAB3E /* ScheduleAdapterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleAdapterViewController.swift; sourceTree = "<group>"; };
 		4DD1D7BE1C95997000B3CED4 /* EventViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewCell.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 			children = (
 				4DD1D7BE1C95997000B3CED4 /* EventViewCell.swift */,
 				4DD1D7BF1C95997000B3CED4 /* EventViewCell.xib */,
+				4D0452601C95D523006DB326 /* HeaderViewCell.swift */,
+				4D0452621C95D5B5006DB326 /* HeaderViewCell.xib */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 			files = (
 				8B1F3E4B1C76145B00865CDF /* LaunchScreen.storyboard in Resources */,
 				8B1F3E481C76145B00865CDF /* Assets.xcassets in Resources */,
+				4D0452631C95D5B5006DB326 /* HeaderViewCell.xib in Resources */,
 				8B1F3E431C76145B00865CDF /* Main.storyboard in Resources */,
 				4DD1D7C11C95997000B3CED4 /* EventViewCell.xib in Resources */,
 			);
@@ -400,6 +407,7 @@
 				8B1F3E401C76145B00865CDF /* ViewController.swift in Sources */,
 				4D6B71D71C94A1BA006EAB3E /* ScheduleAdapterViewController.swift in Sources */,
 				4DD1D7C01C95997000B3CED4 /* EventViewCell.swift in Sources */,
+				4D0452611C95D525006DB326 /* HeaderViewCell.swift in Sources */,
 				8B7DB6551C8B238C007FACA6 /* Event.swift in Sources */,
 				8B98DD8A1C848179005D6A69 /* ScheduleListener.swift in Sources */,
 				8BC0D3BE1C7DF7B200FE597C /* AlaTransport.swift in Sources */,

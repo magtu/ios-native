@@ -4,6 +4,7 @@ class EventViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var groupLabel: UILabel!
     @IBOutlet weak var separator: UIView!
     var event: Event!
@@ -21,6 +22,7 @@ class EventViewCell: UITableViewCell {
         timeLabel.text = event.eventIndex.1
         nameLabel.text = event.course
         typeLabel.text = event.type
+        locationLabel.text = event.location
         groupLabel.text = event.subgroup.1
         
     }

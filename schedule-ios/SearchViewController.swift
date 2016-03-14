@@ -1,6 +1,6 @@
 import UIKit
 
-class SearchViewController: UIViewController, UISearchBarDelegate, GroupsListner {
+class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, GroupsListner {
     //============================================================================================
     // FIELDS
     //============================================================================================
@@ -21,6 +21,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, GroupsListner
         GroupManager.instanse.onGroupsEventFailed.add(self, SearchViewController.onGroupsFailed)
         
         loadGroups()
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,6 +35,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, GroupsListner
         
         return cell
 }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        GroupManager.instanse.selectedGroup = searchingGroups[indexPath.row]
+        let vc = storyboard!.instantiateViewControllerWithIdentifier("ScheduleViewController")
+        navigationController?.setViewControllers([vc], animated: true)
+    }
     //============================================================================================
     // VIEW HANDLER
     //============================================================================================
@@ -47,7 +53,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, GroupsListner
     //============================================================================================
     // API HANDLER
     //============================================================================================
-    func onGroups(loadedGroups: [Group]) {groups = loadedGroups}
+    func onGroups(loadedGroups: [Group]) {groups = loadedGroups; GroupManager.instanse.selectedGroup = groups[1]
+        let vc = storyboard!.instantiateViewControllerWithIdentifier("ScheduleViewController")
+        navigationController?.setViewControllers([vc], animated: true)
+}
     func onGroupsFailed() {}
     //============================================================================================
     // METHODS

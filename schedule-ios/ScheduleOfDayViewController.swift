@@ -33,7 +33,7 @@ class ScheduleOfDayViewController: UIViewController {
         UIView.commitAnimations()
     }
     
-    @IBAction func rightSwipeHandle(sender: AnyObject) {
+    @IBAction func backSwipeHandle(sender: AnyObject) {
 
         }
     

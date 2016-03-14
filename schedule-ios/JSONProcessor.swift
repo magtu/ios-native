@@ -3,7 +3,7 @@ import SwiftyJSON
 class JSONProcessor: Processor {
     func process(request:Request, response: NSData, listener: ResponseListener)->Bool{
         let response = JSON(data: response)
-        
+        print(response)
         do {
             switch request.command.id {
             case Api.GROUPS.id:
@@ -48,7 +48,7 @@ class JSONProcessor: Processor {
                     default : fatalError("Bad format of week name")
                     }
                     }(),
-                days: try w["days"].map {_,d in//ХУЙНЯ
+                days: try w["days"].map {_,d in
                         Day(id: try d["day_id"].int~!, name: try d["day"].string~!,
                             events: try {
                                 let events = try d["events"].events~!

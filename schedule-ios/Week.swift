@@ -6,7 +6,7 @@ class Week {
     init (id: Int, type: WeekType, days: [Day]) {self.id = id; self.type = type; self.days = days}
 }
 
-enum WeekType: Int {
-    case ODD = 1
-    case EVEN = 2
+enum WeekType: String {
+    case ODD = "Нечетная"
+    case EVEN = "Четная"
 }
