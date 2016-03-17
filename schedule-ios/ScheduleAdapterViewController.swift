@@ -19,7 +19,11 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row != 0  {
                 let cell = tableView.dequeueReusableCellWithIdentifier("eventCell") as! EventViewCell
-                    cell.create(day!.events[indexPath.row - 1])
+                let row = indexPath.row - 1
+                    cell.create(day!.events[row])
+            if listOfSeparatorsToDelete.contains(row) {
+                cell.rmSeparator()
+            }
             
                 return cell
         } else {
@@ -29,8 +33,22 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
         }
     }
 
-    func loadCurDay(){
+    func loadCDay(){
         self.day = vc.cDay
+        listOfSeparatorsToDelete.removeAll()
+        
+        let e = day!.events
+        if !e.isEmpty{
+            var ni: Int
+            for i in 0 ... e.count - 2 {
+                ni = i + 1
+                if e[i].eventIndex.0 == e[ni].eventIndex.0 {
+                    listOfSeparatorsToDelete.append(i)}
+                
+            }
+            
+        }
+        
         table.reloadData()
     }
     

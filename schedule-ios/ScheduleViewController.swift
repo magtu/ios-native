@@ -34,7 +34,7 @@ class ScheduleViewController: UIViewController {
         UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
         UIView.setAnimationDuration(NSTimeInterval(1))
         UIView.setAnimationTransition(transition, forView: table, cache: false)
-        adapter.loadCurDay()
+        adapter.loadCDay()
         UIView.commitAnimations()
     }
     
@@ -71,12 +71,13 @@ class ScheduleViewController: UIViewController {
     // ============================================================================================
     func onLoadSchedule() {
         //calculate current weekDay
-        cDay = ScheduleManager.instanse.weeks[.ODD]!.days[0]
+        cDay = ScheduleManager.instanse.weeks[.ODD]!.days[3]
+        cWeekType = .ODD
         let calendar = NSCalendar.currentCalendar()
         let dateComponent = calendar.components([.WeekOfYear, .Day, .Month, .Year], fromDate: NSDate(timeIntervalSinceNow: 0))
         print("weekOfYear \(dateComponent.weekOfYear)")
         
-        adapter.loadCurDay()
-//        adapter.loadCurDay(schedule[WeekType.ODD]!.days[0])
+        adapter.loadCDay()
+//        adapter.loadCDay(schedule[WeekType.ODD]!.days[0])
     }
 }

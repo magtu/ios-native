@@ -17,11 +17,11 @@
 		4DD1DEF91C942EFE00DC1A15 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1DEF81C942EFE00DC1A15 /* ScheduleViewController.swift */; };
 		4DD1DEFB1C94318700DC1A15 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1DEFA1C94318600DC1A15 /* NavigationViewController.swift */; };
 		4DD1DEFD1C94357000DC1A15 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1DEFC1C94357000DC1A15 /* TransitionViewController.swift */; };
+		8B1C47951C9AEA17005DB2F5 /* TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1C47941C9AEA17005DB2F5 /* TimeProvider.swift */; };
 		8B1F3E3E1C76145B00865CDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F3E3D1C76145B00865CDF /* AppDelegate.swift */; };
 		8B1F3E401C76145B00865CDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F3E3F1C76145B00865CDF /* ViewController.swift */; };
 		8B1F3E431C76145B00865CDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F3E411C76145B00865CDF /* Main.storyboard */; };
 		8B1F3E461C76145B00865CDF /* schedule_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F3E441C76145B00865CDF /* schedule_ios.xcdatamodeld */; };
-		8B1F3E481C76145B00865CDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F3E471C76145B00865CDF /* Assets.xcassets */; };
 		8B1F3E4B1C76145B00865CDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F3E491C76145B00865CDF /* LaunchScreen.storyboard */; };
 		8B59D1651C90A501003084F8 /* ObserverSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B59D1641C90A501003084F8 /* ObserverSet.swift */; };
 		8B7DB6501C8B18B0007FACA6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DB64F1C8B18B0007FACA6 /* Group.swift */; };
@@ -59,12 +59,12 @@
 		4DD1DEFC1C94357000DC1A15 /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		643DE993E8114AA87192B1C1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		69C8D98054D5ECAFD4A84E11 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B1C47941C9AEA17005DB2F5 /* TimeProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeProvider.swift; sourceTree = "<group>"; };
 		8B1F3E3A1C76145B00865CDF /* schedule-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schedule-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1F3E3D1C76145B00865CDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B1F3E3F1C76145B00865CDF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8B1F3E421C76145B00865CDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B1F3E451C76145B00865CDF /* schedule_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = schedule_ios.xcdatamodel; sourceTree = "<group>"; };
-		8B1F3E471C76145B00865CDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B1F3E4A1C76145B00865CDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B1F3E4C1C76145B00865CDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B59D1641C90A501003084F8 /* ObserverSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverSet.swift; sourceTree = "<group>"; };
@@ -163,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				8B1F3E411C76145B00865CDF /* Main.storyboard */,
-				8B1F3E471C76145B00865CDF /* Assets.xcassets */,
 				8B1F3E491C76145B00865CDF /* LaunchScreen.storyboard */,
 				4DD1DEF51C92D3D600DC1A15 /* views */,
 				8BD0C3A11C777710008BD083 /* api */,
@@ -201,6 +200,7 @@
 			children = (
 				8B98DD8B1C8482DB005D6A69 /* UnwrappTrows.swift */,
 				8B59D1641C90A501003084F8 /* ObserverSet.swift */,
+				8B1C47941C9AEA17005DB2F5 /* TimeProvider.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -336,7 +336,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B1F3E4B1C76145B00865CDF /* LaunchScreen.storyboard in Resources */,
-				8B1F3E481C76145B00865CDF /* Assets.xcassets in Resources */,
 				4D0452631C95D5B5006DB326 /* HeaderViewCell.xib in Resources */,
 				8B1F3E431C76145B00865CDF /* Main.storyboard in Resources */,
 				4DD1D7C11C95997000B3CED4 /* EventViewCell.xib in Resources */,
@@ -414,6 +413,7 @@
 				8BD0C3AA1C777C63008BD083 /* Request.swift in Sources */,
 				8B1F3E461C76145B00865CDF /* schedule_ios.xcdatamodeld in Sources */,
 				8B59D1651C90A501003084F8 /* ObserverSet.swift in Sources */,
+				8B1C47951C9AEA17005DB2F5 /* TimeProvider.swift in Sources */,
 				8BC0D3C61C7E0A9F00FE597C /* GroupListener.swift in Sources */,
 				8B7DB6501C8B18B0007FACA6 /* Group.swift in Sources */,
 				4DD1DEF71C942E5F00DC1A15 /* SearchViewController.swift in Sources */,

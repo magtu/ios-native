@@ -53,7 +53,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     //============================================================================================
     // API HANDLER
     //============================================================================================
-    func onGroups(loadedGroups: [Group]) {groups = loadedGroups; GroupManager.instanse.selectedGroup = groups[1]
+    func onGroups(loadedGroups: [Group]) {
+        groups = loadedGroups
+        GroupManager.instanse.selectedGroup = groups.filter{$0.name == "ЭАВбп-13-1"}.first!
         let vc = storyboard!.instantiateViewControllerWithIdentifier("ScheduleViewController")
         navigationController?.setViewControllers([vc], animated: true)
 }
