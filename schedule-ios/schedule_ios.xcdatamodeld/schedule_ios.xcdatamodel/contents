@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="Day" representedClassName=".Day" syncable="YES">
+        <attribute name="day_" attributeType="String" syncable="YES"/>
+        <attribute name="day_id_" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="events_" toMany="YES" deletionRule="Cascade" destinationEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="Event" representedClassName=".Event" syncable="YES">
+        <attribute name="course_" attributeType="String" syncable="YES"/>
+        <attribute name="course_id_" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="event_index_" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="location_" attributeType="String" syncable="YES"/>
+        <attribute name="subgroup_" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="teacher_" attributeType="String" syncable="YES"/>
+        <attribute name="teacher_id_" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type_" attributeType="String" syncable="YES"/>
+        <attribute name="type_id_" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Week" representedClassName=".Week" syncable="YES">
+        <attribute name="week_" attributeType="String" syncable="YES"/>
+        <attribute name="week_id_" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="days_" toMany="YES" deletionRule="Cascade" destinationEntity="Day" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Day" positionX="-396" positionY="18" width="128" height="90"/>
+        <element name="Event" positionX="-281" positionY="153" width="128" height="180"/>
+        <element name="Week" positionX="-540" positionY="-99" width="128" height="90"/>
+    </elements>
 </model>

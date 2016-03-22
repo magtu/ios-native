@@ -3,7 +3,7 @@ import SwiftyJSON
 class JSONProcessor: Processor {
     func process(request:Request, response: NSData, listener: ResponseListener)->Bool{
         let response = JSON(data: response)
-        print(response)
+       // print(response)
         do {
             switch request.command.id {
             case Api.GROUPS.id:

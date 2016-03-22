@@ -12,7 +12,8 @@ class ScheduleViewController: UIViewController {
     var cWeekType: WeekType! {
         get {return self.weekType}
         set {self.weekType = newValue; weekLabel.text = newValue.rawValue}
-        }
+    }
+    var isRestingTime = false
     // ============================================================================================
     // LIFECYCLE
     // ============================================================================================
@@ -20,6 +21,7 @@ class ScheduleViewController: UIViewController {
         super.viewDidLoad()
         
         ScheduleManager.instanse.onScheduleEvent.add(self, ScheduleViewController.onLoadSchedule)
+        ScheduleManager.instanse.onTimeUpdateEvent.add(self, ScheduleViewController.onTimeUpdate)
        
         table.estimatedRowHeight = 88
         table.rowHeight = UITableViewAutomaticDimension
@@ -35,6 +37,7 @@ class ScheduleViewController: UIViewController {
         UIView.setAnimationDuration(NSTimeInterval(1))
         UIView.setAnimationTransition(transition, forView: table, cache: false)
         adapter.loadCDay()
+        onTimeUpdate()
         UIView.commitAnimations()
     }
     
@@ -55,7 +58,7 @@ class ScheduleViewController: UIViewController {
         else {
             cWeekType = cWeekType == .ODD ? .EVEN : .ODD
             cDay = getDay(1)
-        }
+        } 
         curl(.CurlUp)
     }
     
@@ -65,19 +68,25 @@ class ScheduleViewController: UIViewController {
     // ============================================================================================
     // MANAGER REQUEST
     // ============================================================================================
-    func loadSchedule() {ScheduleManager.instanse.getSchedule()}
+    func loadSchedule() {ScheduleManager.instanse.onSchedule([.ODD: Week(id: 1, type: .ODD, days: [])])}//ScheduleManager.instanse.getSchedule()}
     // ============================================================================================
     // MANAGER RESPONSE
     // ============================================================================================
     func onLoadSchedule() {
-        //calculate current weekDay
-        cDay = ScheduleManager.instanse.weeks[.ODD]!.days[3]
-        cWeekType = .ODD
-        let calendar = NSCalendar.currentCalendar()
-        let dateComponent = calendar.components([.WeekOfYear, .Day, .Month, .Year], fromDate: NSDate(timeIntervalSinceNow: 0))
-        print("weekOfYear \(dateComponent.weekOfYear)")
-        
+        (cDay, cWeekType) = ScheduleManager.instanse.cDayWType
         adapter.loadCDay()
-//        adapter.loadCDay(schedule[WeekType.ODD]!.days[0])
     }
+    func onTimeUpdate() {
+        if ScheduleManager.instanse.cDayWType.day === cDay {
+            let t = TimeProvider.cDayTimeStamp
+            let cEvent = cDay.events.filter{t >= $0.eventFields.startAt && t <= $0.eventFields.endAt}.first
+            if let e = cEvent {
+                adapter.updateCEvent(e.eventFields.indx, part: Float(t - e.eventFields.startAt) / 5400)
+            }
+            else  {
+                adapter.rmCEvent()
+            }
+        }
+    }
+    
 }

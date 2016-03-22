@@ -1,7 +1,18 @@
-class Day {
-let id: Int
-let name: String
-let events: [Event]
+import CoreData
 
-init(id: Int, name: String, events: [Event]){ self.id = id; self.name = name; self.events = events }
+class Day : NSManagedObject{
+    @NSManaged var day_id_: Int16
+    @NSManaged var day_   : String
+    @NSManaged var events_: NSSet
+    
+    var id: Int  {return Int(day_id_)}
+    var name: String {return day_}
+    var events: [Event] {return events_.allObjects as! [Event]}
+    
+   convenience init(id: Int, name: String, events: [Event]){
+        self.init(entity: NSEntityDescription.entityForName("Day", inManagedObjectContext:DBManager.context)!, insertIntoManagedObjectContext: DBManager.context)
+        day_id_ = Int16(id)
+        day_ = name
+        events_ = NSSet(array: events)
+    }
 }

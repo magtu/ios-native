@@ -2,20 +2,37 @@ import Foundation
 
 class ScheduleManager: ScheduleListener {
     static let instanse = ScheduleManager()
+    let updateEventTimer = Timer()
+    init() {
+        updateEventTimer.onTimerEvent.add(self, ScheduleManager.onTimerTick)
+        updateEventTimer.start(1)
+    }
     // ============================================================================================
     // EVENTS
     // ============================================================================================
-    var onScheduleEvent: ObserverSet<()>               = ObserverSet()
-    var onUpdateEvent:   ObserverSet<Double>           = ObserverSet()
-    var weeks: [WeekType: Week]!
+    var onScheduleEvent: ObserverSet<()>     = ObserverSet()
+    var onUpdateEvent:   ObserverSet<Double> = ObserverSet()
+    var onTimeUpdateEvent: ObserverSet<()>   = ObserverSet()
     // ============================================================================================
-    // EVENTS
+    // FIELDS
+    // ============================================================================================
+    private var weeks: [WeekType: Week]!
+    var cDayWType: (day: Day!, weekType: WeekType!){
+        let cur  = TimeProvider.cDayWType
+        let week = weeks[cur.weekType]!
+        let day  = week.days.filter{$0.id == cur.dayID}.first!
+        return (day, cur.weekType)
+    }
+    // ============================================================================================
+    // METHODS
     // ============================================================================================
     func getDay(cDayID: Int, weekType: WeekType) -> Day {
         return weeks[weekType]!.days.filter{cDayID == $0.id}.first!
-
     }
     
+    private func onTimerTick() {
+        onTimeUpdateEvent.notify()
+    }
     // ============================================================================================
     // API REQUEST
     // ============================================================================================
@@ -25,8 +42,13 @@ class ScheduleManager: ScheduleListener {
     // API RESPONSE
     // ============================================================================================
     func onSchedule(weeks: [WeekType: Week]){
-        self.weeks = weeks
-        onScheduleEvent.notify()
+      //  DBManager.saveContext()
+        if let fechedResult = DBManager.fetchWeeks() {
+            self.weeks = fechedResult
+            onScheduleEvent.notify()
+        }
+        //TODO Failed fech
+        
     }
     func onUpdate(updateAt: Double){onUpdateEvent.notify(updateAt)}
 }
