@@ -13,10 +13,16 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     //============================================================================================
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+               
         tableView.rowHeight = UITableViewAutomaticDimension
         searchBar.delegate = self
         
+        let textFieldInsideSearchBar = searchBar.valueForKey("searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = UIColor.whiteColor()
+        
+        let textFieldInsideSearchBarLabel = textFieldInsideSearchBar!.valueForKey("placeholderLabel") as? UILabel
+        textFieldInsideSearchBarLabel?.textColor = UIColor.whiteColor()
+
         GroupManager.instanse.onGroupsEvent.add(self, SearchViewController.onGroups)
         GroupManager.instanse.onGroupsEventFailed.add(self, SearchViewController.onGroupsFailed)
         
@@ -37,8 +43,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
 }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         GroupManager.instanse.selectedGroup = searchingGroups[indexPath.row]
-        let vc = storyboard!.instantiateViewControllerWithIdentifier("ScheduleViewController")
-        navigationController?.setViewControllers([vc], animated: true)
+      //  let vc = storyboard!.instantiateViewControllerWithIdentifier("ScheduleViewController")
+      //  navigationController?.setViewControllers([vc], animated: true)
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("ScheduleViewController") as! ScheduleViewController
+        presentViewController(nextViewController, animated:true, completion:nil)
     }
     //============================================================================================
     // VIEW HANDLER

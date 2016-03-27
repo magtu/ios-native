@@ -45,6 +45,7 @@ class Event: NSManagedObject {
         type: String, subgroup:Int, teacherID: Int, teacher: String, location: String)
     {
         self.init(entity: NSEntityDescription.entityForName("Event", inManagedObjectContext:DBManager.context)!, insertIntoManagedObjectContext: DBManager.context)
+        event_index_ = Int16(eventIndex)
         teacher_id_ = Int16(teacherID)
         teacher_ = teacher
         location_ = location

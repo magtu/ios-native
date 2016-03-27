@@ -19,11 +19,14 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row != 0  {
-            return eventCells[indexPath.row-1]
+            let cell = eventCells[indexPath.row-1]
+        //    cell.selectionStyle = UITableViewCellSelectionStyle.Blue
+            return cell
             
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! HeaderViewCell
             cell.create(day!.name)
+          //  cell.selected = false
             return cell
         }
     }

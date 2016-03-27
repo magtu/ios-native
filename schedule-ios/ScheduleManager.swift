@@ -1,11 +1,11 @@
 import Foundation
+import CoreData
 
 class ScheduleManager: ScheduleListener {
     static let instanse = ScheduleManager()
     let updateEventTimer = Timer()
     init() {
         updateEventTimer.onTimerEvent.add(self, ScheduleManager.onTimerTick)
-        updateEventTimer.start(1)
     }
     // ============================================================================================
     // EVENTS
@@ -42,11 +42,12 @@ class ScheduleManager: ScheduleListener {
     // API RESPONSE
     // ============================================================================================
     func onSchedule(weeks: [WeekType: Week]){
-      //  DBManager.saveContext()
-        if let fechedResult = DBManager.fetchWeeks() {
-            self.weeks = fechedResult
+      //  DBManager.saveContext(weeks)
+        //if let fechedResult = DBManager.fetchWeeks() {
+            self.weeks = weeks
             onScheduleEvent.notify()
-        }
+            updateEventTimer.start(1)
+    //    }
         //TODO Failed fech
         
     }

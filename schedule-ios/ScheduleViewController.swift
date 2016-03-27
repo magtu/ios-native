@@ -1,28 +1,43 @@
 import UIKit
-
-class ScheduleViewController: UIViewController {
+class ScheduleViewController: UIViewController, UITabBarDelegate {
     // ============================================================================================
     // FIELDS
     // ============================================================================================
     @IBOutlet weak var table: UITableView! 
     @IBOutlet weak var weekLabel: UILabel!
+    @IBOutlet weak var tabBar: UITabBar!
+
     var cDay: Day!
     var adapter: ScheduleAdapterViewController!
     var weekType: WeekType!
     var cWeekType: WeekType! {
         get {return self.weekType}
-        set {self.weekType = newValue; weekLabel.text = newValue.rawValue}
+        set {
+            self.weekType = newValue
+            weekLabel.text = nil//newValue.rawValue
+            tabBar.selectedItem = tabBar.items![newValue == .EVEN ? 0 : 1]}
     }
     var isRestingTime = false
     // ============================================================================================
     // LIFECYCLE
     // ============================================================================================
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ScheduleManager.instanse.onScheduleEvent.add(self, ScheduleViewController.onLoadSchedule)
         ScheduleManager.instanse.onTimeUpdateEvent.add(self, ScheduleViewController.onTimeUpdate)
        
+        
+        let appearance = UITabBarItem.appearance()
+        let attributes = [NSFontAttributeName:UIFont(name: "American Typewriter", size: 20) as! AnyObject]
+        appearance.setTitleTextAttributes(attributes, forState: .Normal)
+
+
+        
+        tabBar.delegate = self
+
+        table.layer.cornerRadius = 10
         table.estimatedRowHeight = 88
         table.rowHeight = UITableViewAutomaticDimension
         adapter = ScheduleAdapterViewController()
@@ -32,11 +47,12 @@ class ScheduleViewController: UIViewController {
     }
     
     func curl(transition: UIViewAnimationTransition){
+                adapter.loadCDay()
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
         UIView.setAnimationDuration(NSTimeInterval(1))
         UIView.setAnimationTransition(transition, forView: table, cache: false)
-        adapter.loadCDay()
+
         onTimeUpdate()
         UIView.commitAnimations()
     }
@@ -62,13 +78,37 @@ class ScheduleViewController: UIViewController {
         curl(.CurlUp)
     }
     
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        if item.tag == 0 && cWeekType != .EVEN {
+            cWeekType = .EVEN
+            cDay = getDay(cDay.id)
+            curl(.FlipFromLeft)
+        }
+        else if item.tag == 1 && cWeekType != .ODD {
+            cWeekType = .ODD
+            cDay = getDay(cDay.id)
+            curl(.FlipFromRight)
+        }        
+    }
+   
     func getDay(ID: Int) -> Day {
        return ScheduleManager.instanse.getDay(ID, weekType: cWeekType)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "transitionView" {
+            let storyBoard = UIStoryboard(name: "Main", bundle:nil)
+            let vc = storyBoard.instantiateViewControllerWithIdentifier("TransitionViewController") as! TransitionViewController
+            vc.groupName = GroupManager.instanse.selectedGroup.name
+            presentViewController(vc, animated:true, completion:nil)
+        }
     }
     // ============================================================================================
     // MANAGER REQUEST
     // ============================================================================================
-    func loadSchedule() {ScheduleManager.instanse.onSchedule([.ODD: Week(id: 1, type: .ODD, days: [])])}//ScheduleManager.instanse.getSchedule()}
+    func loadSchedule() {ScheduleManager.instanse.getSchedule()}
+    //ScheduleManager.instanse.onSchedule([.ODD: Week(id: 1, type: .ODD, days: [])])}
+    
     // ============================================================================================
     // MANAGER RESPONSE
     // ============================================================================================
