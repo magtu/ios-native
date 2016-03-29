@@ -1,6 +1,36 @@
-class Group {
-    let id: Int
-    let name: String
+import CoreData
+class Group: NSManagedObject {
+    @NSManaged var id_: Int16
+    @NSManaged var name_: String
+    @NSManaged var weeks_: NSOrderedSet
     
-    init(id: Int, name: String) {self.id = id; self.name = name}
+    var id: Int        {return Int(id_)}
+    var name: String   {return name_}
+    var weeks: [Week]  {return weeks_.array as! [Week]}
+    
+    convenience init (id: Int, name: String, weeks: [Week]) {
+        do {
+            
+            let r = NSFetchRequest(entityName: "Group")
+            let sortDescr = NSSortDescriptor(key: "id_", ascending: true)
+            r.sortDescriptors = [sortDescr]
+            let fechedGroups: [Group]
+            do {
+                fechedGroups = try DBManager.context.executeFetchRequest(r) as! [Group]
+                fechedGroups.forEach{DBManager.context.deleteObject($0 as NSManagedObject)
+                //if let oldSimilarGroup = (fechedGroups.filter{$0.id == id}.first) {
+//                    DBManager.context.deleteObject(oldSimilarGroup as NSManagedObject)
+                }
+            }
+            catch {
+                print("EXCEPTION -> GROUP -> removing from db")
+            }
+        }
+        self.init(entity: NSEntityDescription.entityForName("Group", inManagedObjectContext:DBManager.context)!, insertIntoManagedObjectContext: DBManager.context)
+        id_ = Int16(id)
+        name_ = name
+        weeks_ = NSOrderedSet(array: weeks)
+        
+        DBManager.saveContext()
+    }
 }

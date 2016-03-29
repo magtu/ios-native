@@ -8,30 +8,11 @@ enum DBEntytieNames: String {
 }
 
 class DBManager:NSFetchedResultsController, NSFetchedResultsControllerDelegate {
-    private static var Weeks: [WeekType:Week]?
     private static var fetchResultController: NSFetchedResultsController!
     static var context:NSManagedObjectContext {return (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext}
     
-    static func saveContext(weeks: [WeekType:Week]) -> Bool {
-        //TODO: rm old Weeks /   подмена контекстов?
+    static func saveContext() -> Bool {
         do {
-            let r = NSFetchRequest(entityName: "Week")
-            let sortDescr = NSSortDescriptor(key: "week_id_", ascending: true)
-            r.sortDescriptors = [sortDescr]
-            fetchResultController = NSFetchedResultsController(fetchRequest: r, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-            let fechedWeeks: [Week]
-            do {
-                fechedWeeks = try context.executeFetchRequest(r) as! [Week]
-            }
-            if fechedWeeks.count > 2 {
-                let e = fechedWeeks.indexOf(weeks[.EVEN]!)
-                let o = fechedWeeks.indexOf(weeks[.ODD]!)
-                for i in 0 ..< fechedWeeks.count {
-                    if (i != e || i != o) {
-                        DBManager.context.deleteObject(fechedWeeks[i] as NSManagedObject)
-                }
-                }
-            }
             try DBManager.context.save()
             return true
         }
@@ -41,21 +22,32 @@ class DBManager:NSFetchedResultsController, NSFetchedResultsControllerDelegate {
         }
     }
     
-    static func fetchWeeks() -> [WeekType: Week]?{
-        let r = NSFetchRequest(entityName: "Week")
-        let sortDescr = NSSortDescriptor(key: "week_id_", ascending: true)
-        r.sortDescriptors = [sortDescr]
-        fetchResultController = NSFetchedResultsController(fetchRequest: r, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        let fechedWeeks: [Week]
+    static func fetchCurrentGroup() -> Group?{
+        let r = NSFetchRequest(entityName: "Group")
+        let fechedGroup: Group
         do {
-            fechedWeeks = try context.executeFetchRequest(r) as! [Week]
+            fechedGroup = (try context.executeFetchRequest(r) as! [Group]).first!
         }
         catch {
             print("EXCEPTION:" + String(error))
             return nil
         }
-        fechedWeeks.forEach{print($0.type)}
         
-        return [fechedWeeks[0].type: fechedWeeks[0], fechedWeeks[1].type: fechedWeeks[1]]
+        return fechedGroup
+    }
+    
+    static func fetchGroup(id: Int) -> Group?{
+        let r = NSFetchRequest(entityName: "Group")
+        r.predicate = NSPredicate(format: "id_ = %d", id)
+        let fechedGroup: Group
+        do {
+            fechedGroup = (try context.executeFetchRequest(r) as! [Group]).first!
+        }
+        catch {
+            print("EXCEPTION:" + String(error))
+            return nil
+        }
+        
+        return fechedGroup
     }
 }

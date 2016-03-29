@@ -3,16 +3,16 @@ import CoreData
 class Day : NSManagedObject{
     @NSManaged var day_id_: Int16
     @NSManaged var day_   : String
-    @NSManaged var events_: NSSet
+    @NSManaged var events_: NSOrderedSet
     
     var id: Int  {return Int(day_id_)}
     var name: String {return day_}
-    var events: [Event] {return events_.allObjects as! [Event]}
+    var events: [Event] {return events_.array as! [Event]}
     
    convenience init(id: Int, name: String, events: [Event]){
         self.init(entity: NSEntityDescription.entityForName("Day", inManagedObjectContext:DBManager.context)!, insertIntoManagedObjectContext: DBManager.context)
         day_id_ = Int16(id)
         day_ = name
-        events_ = NSSet(array: events)
+        events_ = NSOrderedSet(array: events)
     }
 }

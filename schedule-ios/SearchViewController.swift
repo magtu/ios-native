@@ -1,13 +1,13 @@
 import UIKit
 
-class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, GroupsListner {
+class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate {
     //============================================================================================
     // FIELDS
     //============================================================================================
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    var groups: [Group] = []
-    var searchingGroups: [Group] = []
+    var groups: [SearchingGroup] = []
+    var searchingGroups: [SearchingGroup] = []
     //============================================================================================
     // INIT
     //============================================================================================
@@ -25,6 +25,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
 
         GroupManager.instanse.onGroupsEvent.add(self, SearchViewController.onGroups)
         GroupManager.instanse.onGroupsEventFailed.add(self, SearchViewController.onGroupsFailed)
+        GroupManager.instanse.onGetSchOfSelGroupEvent.add(self, SearchViewController.readyGoToSchedule)
         
         loadGroups()
 
@@ -43,13 +44,15 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
 }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         GroupManager.instanse.selectedGroup = searchingGroups[indexPath.row]
+        Api.instance.scheduleOfGroup(GroupManager.instanse.selectedGroup.id, listener: GroupManager.instanse)
+        
+        
+        
       //  let vc = storyboard!.instantiateViewControllerWithIdentifier("ScheduleViewController")
       //  navigationController?.setViewControllers([vc], animated: true)
-        
-        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("ScheduleViewController") as! ScheduleViewController
-        presentViewController(nextViewController, animated:true, completion:nil)
     }
+    
+    
     //============================================================================================
     // VIEW HANDLER
     //============================================================================================
@@ -61,18 +64,25 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         tableView.reloadData()
     }
     //============================================================================================
-    // API HANDLER
+    // GROUP MANAGER HANDLER
     //============================================================================================
-    func onGroups(loadedGroups: [Group]) {
+    func onGroups(loadedGroups: [SearchingGroup]) {
         groups = loadedGroups
-        GroupManager.instanse.selectedGroup = groups.filter{$0.name == "ЭАВбп-13-1"}.first!
+   /*     GroupManager.instanse.selectedGroup = groups.filter{$0.name == "ЭАВбп-13-1"}.first!
         let vc = storyboard!.instantiateViewControllerWithIdentifier("ScheduleViewController")
-        navigationController?.setViewControllers([vc], animated: true)
+        navigationController?.setViewControllers([vc], animated: true)*/
 }
+    
+    func readyGoToSchedule() {
+        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("ScheduleViewController") as! ScheduleViewController
+        presentViewController(nextViewController, animated:true, completion:nil)
+    }
     func onGroupsFailed() {}
     //============================================================================================
     // METHODS
     //============================================================================================
     private func loadGroups() {GroupManager.instanse.getGroups()}
+
 }
     

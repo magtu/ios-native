@@ -9,7 +9,7 @@ class JSONProcessor: Processor {
             case Api.GROUPS.id:
                 try groups(response, listener: listener as! GroupsListner)
             case Api.SCHEDULE.id:
-                try schedule(response, listener: listener as! ScheduleListener)
+                try schedule(response, listener: listener as! GroupsListner)
             case Api.UPDATE_OF_SCHEDULE.id:
                 try update(response, listener: listener as! ScheduleListener)
                 
@@ -29,34 +29,19 @@ class JSONProcessor: Processor {
     // 01. GROUPS
     // ============================================================================================
     func groups(json: JSON, listener: GroupsListner) throws {
-        let groups = try json.map{_, g in Group(id: try g["id"].int~!, name: try g["name"].string~!)}
+        let groups = try json.map{_, g in SearchingGroup(id: try g["id"].int~!, name: try g["name"].string~!)}
         listener.onGroups(groups)
     }
     // ============================================================================================
     // 02. SCHEDULE
     // ============================================================================================
-    func schedule(json: JSON, listener: ScheduleListener) throws {
-        let schedule = try json.map{_, w in
-            Week(id:try w["week_id"].int~!,
-                type: try {
-                    let weekName = try w["week"].string~!
-                    switch weekName {
-                    case "Нечетная":
-                        return .ODD
-                    case   "Четная":
-                        return .EVEN
-                    default : fatalError("Bad format of week name")
-                    }
-                    }(),
-                days: try w["days"].map {_,d in
-                        Day(id: try d["day_id"].int~!, name: try d["day"].string~!,
-                            events: try {
-                                let events = try d["events"].events~!
-                                return events
-                                }()
-                        )
-                })}
-        listener.onSchedule([schedule[0].type : schedule[0], schedule[1].type : schedule[1]])
+    func schedule(json: JSON, listener: GroupsListner) throws {
+        listener.onGetSchOfSelGroup( 
+            Group(
+            id: GroupManager.instanse.selectedGroup.id,
+            name: GroupManager.instanse.selectedGroup.name,
+            weeks: try json.weeks~!)
+        )
     }
 // ============================================================================================
 // 03. UPDATE
@@ -67,10 +52,52 @@ func update(json: JSON, listener: ScheduleListener) throws {
 }
 
 extension JSON {
+    var weeks: [Week]? {
+        do {
+            return (try self.map{_, j in
+                Week(id:try j["week_id"].int~!,
+                    type: try {
+                        let weekName = try j["week"].string~!
+                        switch weekName {
+                        case "Нечетная":
+                            return .ODD
+                        case   "Четная":
+                            return .EVEN
+                        default : fatalError("Bad format of week name")
+                       }
+                }(),
+                    days: try j["days"].days~!
+                )
+            }
+            )
+        }
+        catch {
+            print("EXCEPTION: json -> weeks")
+            return nil
+        }
+    }
+    
+    var days: [Day]?{
+        do {
+            return (try self.map {_,j in
+                return Day(id: try j["day_id"].int~!,
+                           name: try j["day"].string~!,
+                           events: try {
+                            let events = try j["events"].events~!
+                            return events
+                        }()
+                )
+                })
+        }
+        catch {
+            print("EXCEPTION: json -> days")
+            return nil
+        }
+    }
     var events: [Event]? {
         do {
             return (try self.map {_, j in
-                return Event(eventIndex: try j["event_index"].int~! ,
+                return Event(eventIndex: try j["event_index"].int~!,
                                courseID: try j["course_id"].int~!,
                                  course: try j["course"].string~!,
                                  typeID: try j["type_id"].int~!,
@@ -81,6 +108,7 @@ extension JSON {
                                location: try j["location"].string~!)})
         }
         catch {
+            print("EXCEPTION: json -> events")
             return nil
         }
     }

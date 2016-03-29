@@ -5,13 +5,15 @@ class GroupManager: GroupsListner{
     // FIELDS
     // ============================================================================================
     static let instanse = GroupManager()
-    var groups: [Group] = []
-    var selectedGroup: Group!
+    var groups: [SearchingGroup] = []
+    var selectedGroup: SearchingGroup!
+    lazy var currentGroup: Group? = {return DBManager.fetchCurrentGroup()}()
     // ============================================================================================
     // EVENTS
     // ============================================================================================
-    var onGroupsEvent = ObserverSet<[Group]>()
+    var onGroupsEvent = ObserverSet<[SearchingGroup]>()
     var onGroupsEventFailed: ObserverSet<()> = ObserverSet()
+    var onGetSchOfSelGroupEvent: ObserverSet<()> = ObserverSet()
     // ============================================================================================
     // API REQUEST
     // ============================================================================================
@@ -19,7 +21,12 @@ class GroupManager: GroupsListner{
     // ============================================================================================
     // API RESPONSE
     // ============================================================================================
-    func onGroups(groups:[Group]){
+    func onGetSchOfSelGroup(group: Group) {
+        currentGroup = group
+        onGetSchOfSelGroupEvent.notify()
+    }
+    
+    func onGroups(groups:[SearchingGroup]){
         self.groups = groups
         onGroupsEvent.notify(groups)
     }

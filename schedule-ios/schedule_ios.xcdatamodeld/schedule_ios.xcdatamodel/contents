@@ -3,7 +3,7 @@
     <entity name="Day" representedClassName=".Day" syncable="YES">
         <attribute name="day_" attributeType="String" syncable="YES"/>
         <attribute name="day_id_" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="events_" toMany="YES" deletionRule="Cascade" destinationEntity="Event" syncable="YES"/>
+        <relationship name="events_" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName=".Event" syncable="YES">
         <attribute name="course_" attributeType="String" syncable="YES"/>
@@ -16,14 +16,25 @@
         <attribute name="type_" attributeType="String" syncable="YES"/>
         <attribute name="type_id_" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="Group" representedClassName=".Group" syncable="YES">
+        <attribute name="id_" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="name_" attributeType="String" syncable="YES"/>
+        <relationship name="weeks_" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Week" syncable="YES"/>
+    </entity>
+    <entity name="SelectedGroups" representedClassName=".SelectedGrops" syncable="YES">
+        <attribute name="currentGroup_" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="groups_" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Group" syncable="YES"/>
+    </entity>
     <entity name="Week" representedClassName=".Week" syncable="YES">
         <attribute name="week_" attributeType="String" syncable="YES"/>
         <attribute name="week_id_" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="days_" toMany="YES" deletionRule="Cascade" destinationEntity="Day" syncable="YES"/>
+        <relationship name="days_" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Day" syncable="YES"/>
     </entity>
     <elements>
         <element name="Day" positionX="-396" positionY="18" width="128" height="90"/>
         <element name="Event" positionX="-281" positionY="153" width="128" height="180"/>
+        <element name="Group" positionX="-414" positionY="54" width="128" height="90"/>
         <element name="Week" positionX="-540" positionY="-99" width="128" height="90"/>
+        <element name="SelectedGroups" positionX="-414" positionY="54" width="128" height="75"/>
     </elements>
 </model>

@@ -1,4 +1,5 @@
 protocol GroupsListner: ResponseListener {
-    func onGroups(groups: [Group])
+    func onGroups(groups: [SearchingGroup])
     func onGroupsFailed()
+    func onGetSchOfSelGroup(groups: Group)
 }

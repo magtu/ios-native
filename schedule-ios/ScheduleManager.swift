@@ -33,23 +33,13 @@ class ScheduleManager: ScheduleListener {
     private func onTimerTick() {
         onTimeUpdateEvent.notify()
     }
-    // ============================================================================================
-    // API REQUEST
-    // ============================================================================================
-    func getSchedule(){Api.instance.scheduleOfGroup(GroupManager.instanse.selectedGroup.id, listener: self)}
-    func getUpdate(groupID:Int){Api.instance.updateOfGroup(groupID, listener: self)}
-    // ============================================================================================
-    // API RESPONSE
-    // ============================================================================================
-    func onSchedule(weeks: [WeekType: Week]){
-      //  DBManager.saveContext(weeks)
-        //if let fechedResult = DBManager.fetchWeeks() {
-            self.weeks = weeks
-            onScheduleEvent.notify()
-            updateEventTimer.start(1)
-    //    }
-        //TODO Failed fech
-        
+    func getSchedule(){
+        let group = GroupManager.instanse.currentGroup!
+        weeks = [group.weeks[0].type : group.weeks[0], group.weeks[1].type : group.weeks[1]]
+        onScheduleEvent.notify()
+        updateEventTimer.start(1)
     }
+    
+    func getUpdate(groupID:Int){Api.instance.updateOfGroup(groupID, listener: self)}
     func onUpdate(updateAt: Double){onUpdateEvent.notify(updateAt)}
 }

@@ -3,9 +3,9 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     // ============================================================================================
     // FIELDS
     // ============================================================================================
-    @IBOutlet weak var table: UITableView! 
-    @IBOutlet weak var weekLabel: UILabel!
+    @IBOutlet weak var table: UITableView!
     @IBOutlet weak var tabBar: UITabBar!
+    @IBOutlet weak var footerView: TableFooter!
 
     var cDay: Day!
     var adapter: ScheduleAdapterViewController!
@@ -13,9 +13,9 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     var cWeekType: WeekType! {
         get {return self.weekType}
         set {
-            self.weekType = newValue
-            weekLabel.text = nil//newValue.rawValue
-            tabBar.selectedItem = tabBar.items![newValue == .EVEN ? 0 : 1]}
+                self.weekType = newValue
+                tabBar.selectedItem = tabBar.items![newValue == .EVEN ? 0 : 1]
+            }
     }
     var isRestingTime = false
     // ============================================================================================
@@ -27,14 +27,11 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         
         ScheduleManager.instanse.onScheduleEvent.add(self, ScheduleViewController.onLoadSchedule)
         ScheduleManager.instanse.onTimeUpdateEvent.add(self, ScheduleViewController.onTimeUpdate)
-       
         
         let appearance = UITabBarItem.appearance()
         let attributes = [NSFontAttributeName:UIFont(name: "American Typewriter", size: 20) as! AnyObject]
         appearance.setTitleTextAttributes(attributes, forState: .Normal)
 
-
-        
         tabBar.delegate = self
 
         table.layer.cornerRadius = 10
@@ -47,14 +44,14 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     }
     
     func curl(transition: UIViewAnimationTransition){
-                adapter.loadCDay()
+        adapter.loadCDay()
+        onTimeUpdate()
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
         UIView.setAnimationDuration(NSTimeInterval(1))
-        UIView.setAnimationTransition(transition, forView: table, cache: false)
-
-        onTimeUpdate()
+        UIView.setAnimationTransition(transition, forView: table.superview!, cache: false)
         UIView.commitAnimations()
+
     }
     
     @IBAction func backSwipeHandle(sender: AnyObject) {
