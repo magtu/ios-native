@@ -6,7 +6,7 @@ class GroupManager: GroupsListner{
     // ============================================================================================
     static let instanse = GroupManager()
     var groups: [SearchingGroup] = []
-    var selectedGroup: SearchingGroup!
+    var selectedSearchingGroup: SearchingGroup!
     lazy var currentGroup: Group? = {return DBManager.fetchCurrentGroup()}()
     // ============================================================================================
     // EVENTS

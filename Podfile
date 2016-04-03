@@ -5,3 +5,4 @@ use_frameworks!
 pod 'Alamofire', '~> 3.0'
 pod 'SwiftyJSON'
 pod 'Alamofire-SwiftyJSON', :podspec => 'https://raw.githubusercontent.com/pdutourgeerling/Alamofire-SwiftyJSON-Podspec/master/Alamofire3-SwiftyJSON.podspec'
+pod 'ReachabilitySwift', :git => 'https://github.com/ashleymills/Reachability.swift'

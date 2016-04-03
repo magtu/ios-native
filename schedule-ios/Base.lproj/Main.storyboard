@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EEl-GQ-WzN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EEl-GQ-WzN">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,9 +20,6 @@
                         <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
-                    <connections>
-                        <segue destination="hhw-NF-txO" kind="relationship" relationship="rootViewController" id="S89-Bu-cLX"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKv-Tv-xag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,8 +37,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Список групп пуст" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hka-XB-TY9">
+                                <rect key="frame" x="85" y="273" width="150" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aZf-qk-UMp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Группа..." translucent="NO" id="ktO-iM-AaS">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -78,19 +81,49 @@
                                     <outlet property="delegate" destination="hhw-NF-txO" id="GSH-fT-rhb"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="c7y-gC-Dhc">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMx-vP-tSy">
+                                <rect key="frame" x="122" y="302" width="76" height="30"/>
+                                <state key="normal" title=" Загрузить"/>
+                                <connections>
+                                    <action selector="loadgroupsClick:" destination="hhw-NF-txO" eventType="touchUpInside" id="OTs-e8-zBd"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5Rr-zQ-on9">
                                 <rect key="frame" x="142" y="266" width="37" height="37"/>
-                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="color" red="0.050980392159999999" green="0.1960784314" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNP-sa-CmM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.047058823530000002" green="0.1176470588" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem id="DWC-2C-f92">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="mzb-Cf-TCc">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="backClick:" destination="hhw-NF-txO" id="R9L-Ow-8Fp"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aZf-qk-UMp" firstAttribute="top" secondItem="q2H-Iu-6dP" secondAttribute="bottom" id="5CP-Vl-Cle"/>
+                            <constraint firstItem="QMx-vP-tSy" firstAttribute="centerX" secondItem="Hka-XB-TY9" secondAttribute="centerX" id="1Iv-NW-EYy"/>
                             <constraint firstItem="wF6-pG-FME" firstAttribute="top" secondItem="aZf-qk-UMp" secondAttribute="bottom" id="7g5-RT-y2c"/>
                             <constraint firstAttribute="trailing" secondItem="aZf-qk-UMp" secondAttribute="trailing" id="8Og-iS-Hfl"/>
                             <constraint firstItem="aZf-qk-UMp" firstAttribute="leading" secondItem="0Qr-b6-xry" secondAttribute="leading" id="9Gz-Pw-ZuY"/>
-                            <constraint firstItem="c7y-gC-Dhc" firstAttribute="centerX" secondItem="0Qr-b6-xry" secondAttribute="centerX" id="FSU-gf-nTv"/>
-                            <constraint firstItem="c7y-gC-Dhc" firstAttribute="centerY" secondItem="0Qr-b6-xry" secondAttribute="centerY" id="aMp-pO-4g0"/>
+                            <constraint firstItem="5Rr-zQ-on9" firstAttribute="centerX" secondItem="0Qr-b6-xry" secondAttribute="centerX" id="HtS-Dy-70k"/>
+                            <constraint firstAttribute="trailing" secondItem="YNP-sa-CmM" secondAttribute="trailing" id="Q44-Hq-dWk"/>
+                            <constraint firstItem="Hka-XB-TY9" firstAttribute="centerX" secondItem="0Qr-b6-xry" secondAttribute="centerX" id="QwG-LX-m1A"/>
+                            <constraint firstItem="YNP-sa-CmM" firstAttribute="leading" secondItem="0Qr-b6-xry" secondAttribute="leading" id="T2u-tA-ah6"/>
+                            <constraint firstItem="5Rr-zQ-on9" firstAttribute="centerY" secondItem="0Qr-b6-xry" secondAttribute="centerY" id="Yjo-OC-QOI"/>
+                            <constraint firstItem="QMx-vP-tSy" firstAttribute="top" secondItem="Hka-XB-TY9" secondAttribute="bottom" constant="8" id="a2w-JE-PIl"/>
+                            <constraint firstItem="Hka-XB-TY9" firstAttribute="centerY" secondItem="0Qr-b6-xry" secondAttribute="centerY" id="nat-yp-tWa"/>
+                            <constraint firstItem="aZf-qk-UMp" firstAttribute="top" secondItem="YNP-sa-CmM" secondAttribute="bottom" id="qh9-bB-iGq"/>
+                            <constraint firstItem="YNP-sa-CmM" firstAttribute="top" secondItem="q2H-Iu-6dP" secondAttribute="bottom" id="tVs-12-9CN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Выбор группы" id="IFd-mt-1F8"/>
@@ -98,6 +131,10 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="actIndicator" destination="5Rr-zQ-on9" id="iw7-s7-km6"/>
+                        <outlet property="groupEmptyLabel" destination="Hka-XB-TY9" id="RfU-GY-P10"/>
+                        <outlet property="loadGroupsButton" destination="QMx-vP-tSy" id="TOQ-Zs-PfB"/>
+                        <outlet property="navBar" destination="YNP-sa-CmM" id="wfG-Ng-ZrJ"/>
                         <outlet property="searchBar" destination="ktO-iM-AaS" id="hUH-j9-lAH"/>
                         <outlet property="tableView" destination="aZf-qk-UMp" id="Mfd-kk-k3o"/>
                     </connections>
@@ -309,7 +346,7 @@
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="JOo-lQ-x64">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <segue destination="ahJ-X8-UdC" kind="show" identifier="transitionView" id="VEG-ZC-jdX"/>
+                                                <action selector="onMenuClick:" destination="A6O-a5-kZP" id="pwh-af-Aih"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -394,19 +431,38 @@
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
                                 <state key="normal" title="Выбор группы"/>
                                 <connections>
-                                    <segue destination="hhw-NF-txO" kind="presentation" modalTransitionStyle="crossDissolve" id="Mqb-AX-zk5"/>
+                                    <segue destination="hhw-NF-txO" kind="show" id="Mqb-AX-zk5"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9e-Xs-JjB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.047058823530000002" green="0.1176470588" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem id="Vy0-4h-svU">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="WpI-5y-zyL">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="onNavBackClick:" destination="ahJ-X8-UdC" id="3Hf-GY-4Uc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="374-xG-RV8" firstAttribute="top" secondItem="E9e-Xs-JjB" secondAttribute="bottom" constant="99" id="4wQ-wR-WFU"/>
+                            <constraint firstItem="E9e-Xs-JjB" firstAttribute="centerX" secondItem="374-xG-RV8" secondAttribute="centerX" id="DkO-5f-Caf"/>
                             <constraint firstItem="OdI-ZJ-6kP" firstAttribute="top" secondItem="374-xG-RV8" secondAttribute="bottom" constant="60" id="Ega-Ih-wmf"/>
                             <constraint firstItem="WYf-4z-pic" firstAttribute="centerX" secondItem="bpM-j6-eeu" secondAttribute="centerX" id="GRa-eJ-cqu"/>
+                            <constraint firstItem="E9e-Xs-JjB" firstAttribute="leading" secondItem="AHU-lp-K3y" secondAttribute="leading" id="Gsb-Xh-h8Y"/>
+                            <constraint firstItem="E9e-Xs-JjB" firstAttribute="top" secondItem="CjO-Lo-8WG" secondAttribute="bottom" id="LkU-w3-AIK"/>
                             <constraint firstItem="374-xG-RV8" firstAttribute="centerX" secondItem="AHU-lp-K3y" secondAttribute="centerX" id="Nyl-5Q-7fJ"/>
                             <constraint firstItem="bpM-j6-eeu" firstAttribute="centerX" secondItem="OdI-ZJ-6kP" secondAttribute="centerX" id="j47-PI-ebn"/>
                             <constraint firstItem="WYf-4z-pic" firstAttribute="top" secondItem="bpM-j6-eeu" secondAttribute="bottom" constant="50" id="jk8-Gc-OTw"/>
                             <constraint firstItem="bpM-j6-eeu" firstAttribute="top" secondItem="OdI-ZJ-6kP" secondAttribute="bottom" constant="50" id="qBU-FU-4bR"/>
-                            <constraint firstItem="374-xG-RV8" firstAttribute="top" secondItem="CjO-Lo-8WG" secondAttribute="bottom" constant="143" id="qUX-E7-tOE"/>
                             <constraint firstItem="OdI-ZJ-6kP" firstAttribute="centerX" secondItem="374-xG-RV8" secondAttribute="centerX" id="uie-N2-ekz"/>
                         </constraints>
                     </view>
@@ -422,7 +478,4 @@
             <point key="canvasLocation" x="902" y="512"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="S89-Bu-cLX"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -10,16 +10,13 @@ class Group: NSManagedObject {
     
     convenience init (id: Int, name: String, weeks: [Week]) {
         do {
-            
             let r = NSFetchRequest(entityName: "Group")
             let sortDescr = NSSortDescriptor(key: "id_", ascending: true)
             r.sortDescriptors = [sortDescr]
             let fechedGroups: [Group]
             do {
-                fechedGroups = try DBManager.context.executeFetchRequest(r) as! [Group]
-                fechedGroups.forEach{DBManager.context.deleteObject($0 as NSManagedObject)
-                //if let oldSimilarGroup = (fechedGroups.filter{$0.id == id}.first) {
-//                    DBManager.context.deleteObject(oldSimilarGroup as NSManagedObject)
+                    fechedGroups = try DBManager.context.executeFetchRequest(r) as! [Group]
+                    fechedGroups.forEach{DBManager.context.deleteObject($0 as NSManagedObject)
                 }
             }
             catch {

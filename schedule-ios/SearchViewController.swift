@@ -4,16 +4,22 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     //============================================================================================
     // FIELDS
     //============================================================================================
+    
+    @IBOutlet weak var actIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadGroupsButton: UIButton!
+    @IBOutlet weak var groupEmptyLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var groups: [SearchingGroup] = []
     var searchingGroups: [SearchingGroup] = []
+    
+    @IBOutlet weak var navBar: UINavigationBar!
     //============================================================================================
     // INIT
     //============================================================================================
     override func viewDidLoad() {
         super.viewDidLoad()
-               
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         searchBar.delegate = self
         
@@ -22,13 +28,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         
         let textFieldInsideSearchBarLabel = textFieldInsideSearchBar!.valueForKey("placeholderLabel") as? UILabel
         textFieldInsideSearchBarLabel?.textColor = UIColor.whiteColor()
-
+        
         GroupManager.instanse.onGroupsEvent.add(self, SearchViewController.onGroups)
-        GroupManager.instanse.onGroupsEventFailed.add(self, SearchViewController.onGroupsFailed)
         GroupManager.instanse.onGetSchOfSelGroupEvent.add(self, SearchViewController.readyGoToSchedule)
         
         loadGroups()
-
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,18 +45,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         cell.textLabel?.text = searchingGroups[indexPath.row].name
         
         return cell
-}
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        GroupManager.instanse.selectedGroup = searchingGroups[indexPath.row]
-        Api.instance.scheduleOfGroup(GroupManager.instanse.selectedGroup.id, listener: GroupManager.instanse)
-        
-        
-        
-      //  let vc = storyboard!.instantiateViewControllerWithIdentifier("ScheduleViewController")
-      //  navigationController?.setViewControllers([vc], animated: true)
     }
-    
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        GroupManager.instanse.selectedSearchingGroup = searchingGroups[indexPath.row]
+        Api.instance.scheduleOfGroup(GroupManager.instanse.selectedSearchingGroup.id, listener: GroupManager.instanse)
+    }
     //============================================================================================
     // VIEW HANDLER
     //============================================================================================
@@ -63,26 +60,53 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         }
         tableView.reloadData()
     }
+    @IBAction func loadgroupsClick(sender: UIButton) {
+        loadGroups()
+    }
+    @IBAction func backClick(sender: AnyObject) {
+        navBack(true)
+    }
     //============================================================================================
     // GROUP MANAGER HANDLER
     //============================================================================================
     func onGroups(loadedGroups: [SearchingGroup]) {
+        unblockTable()
         groups = loadedGroups
-   /*     GroupManager.instanse.selectedGroup = groups.filter{$0.name == "ЭАВбп-13-1"}.first!
-        let vc = storyboard!.instantiateViewControllerWithIdentifier("ScheduleViewController")
-        navigationController?.setViewControllers([vc], animated: true)*/
-}
+    }
     
     func readyGoToSchedule() {
-        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("ScheduleViewController") as! ScheduleViewController
-        presentViewController(nextViewController, animated:true, completion:nil)
+        navTo(.ScheduleViewController)
     }
-    func onGroupsFailed() {}
     //============================================================================================
     // METHODS
     //============================================================================================
-    private func loadGroups() {GroupManager.instanse.getGroups()}
+    private func loadGroups() {
+        InternetManager.isConnectedToNetwork() ? {blockTableforLoad();GroupManager.instanse.getGroups()}()
+            : {blockTableWithoutInternet();
+                showAlert("Нет соединения с интернетом", btnhndrs: ["Повторить": {self.loadGroups()}])}()
+    }
+    private func unblockTable(){
+        actIndicator.hidden = true
+        actIndicator.stopAnimating()
+        tableView.hidden = false
+        groupEmptyLabel.hidden = true
+        loadGroupsButton.hidden = true
 
+    }
+    private func blockTableforLoad() {
+        actIndicator.hidden = false
+        actIndicator.startAnimating()
+        tableView.hidden = true
+        groupEmptyLabel.hidden = true
+        loadGroupsButton.hidden = true
+    }
+    
+    private func blockTableWithoutInternet() {
+        actIndicator.hidden = true
+        actIndicator.stopAnimating()
+        tableView.hidden = true
+        groupEmptyLabel.hidden = false
+        loadGroupsButton.hidden = false
+    }
 }
     

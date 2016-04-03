@@ -24,9 +24,9 @@ class DBManager:NSFetchedResultsController, NSFetchedResultsControllerDelegate {
     
     static func fetchCurrentGroup() -> Group?{
         let r = NSFetchRequest(entityName: "Group")
-        let fechedGroup: Group
+        let fechedGroup: Group?
         do {
-            fechedGroup = (try context.executeFetchRequest(r) as! [Group]).first!
+            fechedGroup = (try context.executeFetchRequest(r) as? [Group])?.first
         }
         catch {
             print("EXCEPTION:" + String(error))

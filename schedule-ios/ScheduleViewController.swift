@@ -92,20 +92,21 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
        return ScheduleManager.instanse.getDay(ID, weekType: cWeekType)
     }
     
+    @IBAction func onMenuClick(sender: AnyObject) {
+        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
+        let vc = storyBoard.instantiateViewControllerWithIdentifier("TransitionViewController") as! TransitionViewController
+        AppDelegate.nc.pushViewController(vc, animated: true)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "transitionView" {
-            let storyBoard = UIStoryboard(name: "Main", bundle:nil)
-            let vc = storyBoard.instantiateViewControllerWithIdentifier("TransitionViewController") as! TransitionViewController
-            vc.groupName = GroupManager.instanse.selectedGroup.name
-            presentViewController(vc, animated:true, completion:nil)
-        }
+        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
+        let vc = storyBoard.instantiateViewControllerWithIdentifier("TransitionViewController") as! TransitionViewController
+        AppDelegate.nc.pushViewController(vc, animated: true)
     }
     // ============================================================================================
     // MANAGER REQUEST
     // ============================================================================================
-    func loadSchedule() {ScheduleManager.instanse.getSchedule()}
-    //ScheduleManager.instanse.onSchedule([.ODD: Week(id: 1, type: .ODD, days: [])])}
-    
+    func loadSchedule() {ScheduleManager.instanse.getSchedule()}    
     // ============================================================================================
     // MANAGER RESPONSE
     // ============================================================================================

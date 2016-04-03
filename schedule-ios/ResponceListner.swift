@@ -1,1 +1,4 @@
-protocol ResponseListener {}
+import Foundation
+protocol ResponseListener {
+   
+}

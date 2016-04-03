@@ -36,7 +36,7 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
         var listOfSeparatorsToDelete: [Int] = []
         
         let e = day!.events
-        if !e.isEmpty{
+        if e.count > 1 {
             var ni: Int
             for i in 0 ... e.count - 2 {
                 ni = i + 1

@@ -38,8 +38,8 @@ class JSONProcessor: Processor {
     func schedule(json: JSON, listener: GroupsListner) throws {
         listener.onGetSchOfSelGroup( 
             Group(
-            id: GroupManager.instanse.selectedGroup.id,
-            name: GroupManager.instanse.selectedGroup.name,
+            id: GroupManager.instanse.selectedSearchingGroup.id,
+            name: GroupManager.instanse.selectedSearchingGroup.name,
             weeks: try json.weeks~!)
         )
     }
