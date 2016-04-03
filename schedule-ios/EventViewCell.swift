@@ -22,7 +22,7 @@ class EventViewCell: UITableViewCell {
         self.event = event
         timeLabel.text = event.eventFields.str
         nameLabel.text = event.course
-        typeLabel.text = event.type
+        typeLabel.text = event.type.lowercaseString
         locationLabel.text = event.location
         groupLabel.text = event.subgroup.str
     }
@@ -30,7 +30,9 @@ class EventViewCell: UITableViewCell {
     func rmSeparator() {
         separator.hidden = true
     }
-    
+    func rmTime() {
+        timeLabel.hidden = true
+    }
     func updateEvent(part: Float) {
         progress.progress = part
     }

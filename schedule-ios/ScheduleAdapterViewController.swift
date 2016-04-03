@@ -20,31 +20,17 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row != 0  {
             let cell = eventCells[indexPath.row-1]
-        //    cell.selectionStyle = UITableViewCellSelectionStyle.Blue
             return cell
             
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! HeaderViewCell
             cell.create(day!.name)
-          //  cell.selected = false
             return cell
         }
     }
     
     func loadCDay(){
         self.day = vc.cDay
-        var listOfSeparatorsToDelete: [Int] = []
-        
-        let e = day!.events
-        if e.count > 1 {
-            var ni: Int
-            for i in 0 ... e.count - 2 {
-                ni = i + 1
-                if e[i].eventFields.0 == e[ni].eventFields.0 {
-                    listOfSeparatorsToDelete.append(i)}
-            }
-        }
-        
         eventCells = day!.events.map{
             let c = self.table.dequeueReusableCellWithIdentifier("eventCell") as! EventViewCell
             c.create($0)
@@ -52,8 +38,18 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
             return c
         }
         
-        listOfSeparatorsToDelete.forEach{eventCells[$0].rmSeparator()}
-        
+        let e = day!.events
+        if e.count > 1 {
+            var ni: Int
+            for i in 0 ... e.count - 2 {
+                ni = i + 1
+                if e[i].eventFields.0 == e[ni].eventFields.0 {
+                    eventCells[i].rmSeparator()
+                    eventCells[ni].rmTime()
+                }
+            }
+        }
+                
         table.reloadData()
     }
     

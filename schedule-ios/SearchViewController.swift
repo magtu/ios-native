@@ -5,6 +5,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     // FIELDS
     //============================================================================================
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var actIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loadGroupsButton: UIButton!
     @IBOutlet weak var groupEmptyLabel: UILabel!
@@ -12,13 +13,15 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     var groups: [SearchingGroup] = []
     var searchingGroups: [SearchingGroup] = []
-    
-    @IBOutlet weak var navBar: UINavigationBar!
     //============================================================================================
     // INIT
     //============================================================================================
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if AppDelegate.nc.viewControllers.count == 1 {
+            backButton.hidden = true
+        }
         
         tableView.rowHeight = UITableViewAutomaticDimension
         searchBar.delegate = self
@@ -75,7 +78,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     }
     
     func readyGoToSchedule() {
-        navTo(.ScheduleViewController)
+        setTo(.ScheduleViewController)
     }
     //============================================================================================
     // METHODS

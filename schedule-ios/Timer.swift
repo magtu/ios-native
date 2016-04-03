@@ -9,7 +9,7 @@ class Timer: NSObject {
     
     func start(interval: Double){
         timer = NSTimer.scheduledTimerWithTimeInterval(interval,
-            target:self, selector: Selector("fire"), userInfo: nil, repeats: true)
+            target:self, selector: #selector(Timer.fire), userInfo: nil, repeats: true)
     }
     
     func fire() {onTimerEvent.notify()}

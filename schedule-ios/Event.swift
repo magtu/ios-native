@@ -48,6 +48,7 @@ class Event: NSManagedObject {
         event_index_ = Int16(eventIndex)
         teacher_id_ = Int16(teacherID)
         teacher_ = teacher
+        subgroup_ = Int16(subgroup)
         location_ = location
         course_id_ = Int16(courseID)
         course_ = course

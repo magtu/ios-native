@@ -6,8 +6,17 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var footerView: TableFooter!
-
-    var cDay: Day!
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var navItem: UINavigationItem!
+    @IBOutlet weak var pageControl: UIPageControl!
+    var day: Day!
+    var cDay: Day! {
+        get {return self.day}
+        set {
+            self.day = newValue
+            pageControl.currentPage = day.id - 1
+        }
+    }
     var adapter: ScheduleAdapterViewController!
     var weekType: WeekType!
     var cWeekType: WeekType! {
@@ -17,7 +26,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
                 tabBar.selectedItem = tabBar.items![newValue == .EVEN ? 0 : 1]
             }
     }
-    var isRestingTime = false
+    
     // ============================================================================================
     // LIFECYCLE
     // ============================================================================================
@@ -25,17 +34,19 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navItem.title = GroupManager.instanse.currentGroup!.name
+        
         ScheduleManager.instanse.onScheduleEvent.add(self, ScheduleViewController.onLoadSchedule)
         ScheduleManager.instanse.onTimeUpdateEvent.add(self, ScheduleViewController.onTimeUpdate)
         
         let appearance = UITabBarItem.appearance()
-        let attributes = [NSFontAttributeName:UIFont(name: "American Typewriter", size: 20) as! AnyObject]
+        let attributes = [NSFontAttributeName:UIFont(name: "System Bold", size: 20) as! AnyObject]
         appearance.setTitleTextAttributes(attributes, forState: .Normal)
 
         tabBar.delegate = self
 
         table.layer.cornerRadius = 10
-        table.estimatedRowHeight = 88
+        table.estimatedRowHeight = 86
         table.rowHeight = UITableViewAutomaticDimension
         adapter = ScheduleAdapterViewController()
         adapter.bind(table, vc: self)
@@ -51,7 +62,6 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         UIView.setAnimationDuration(NSTimeInterval(1))
         UIView.setAnimationTransition(transition, forView: table.superview!, cache: false)
         UIView.commitAnimations()
-
     }
     
     @IBAction func backSwipeHandle(sender: AnyObject) {
@@ -93,15 +103,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     }
     
     @IBAction func onMenuClick(sender: AnyObject) {
-        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
-        let vc = storyBoard.instantiateViewControllerWithIdentifier("TransitionViewController") as! TransitionViewController
-        AppDelegate.nc.pushViewController(vc, animated: true)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
-        let vc = storyBoard.instantiateViewControllerWithIdentifier("TransitionViewController") as! TransitionViewController
-        AppDelegate.nc.pushViewController(vc, animated: true)
+        navTo(.SearchViewController)
     }
     // ============================================================================================
     // MANAGER REQUEST
@@ -112,6 +114,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     // ============================================================================================
     func onLoadSchedule() {
         (cDay, cWeekType) = ScheduleManager.instanse.cDayWType
+        
         adapter.loadCDay()
     }
     func onTimeUpdate() {
