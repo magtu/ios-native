@@ -216,13 +216,6 @@
 			name = models;
 			sourceTree = "<group>";
 		};
-		8B7DB6511C8B1CCF007FACA6 /* models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = models;
-			sourceTree = "<group>";
-		};
 		8B98DD8D1C848309005D6A69 /* utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,7 +242,6 @@
 		8BC0D3C01C7E0A0B00FE597C /* schedule */ = {
 			isa = PBXGroup;
 			children = (
-				8B7DB6511C8B1CCF007FACA6 /* models */,
 				8BC0D3C11C7E0A4200FE597C /* ScheduleManager.swift */,
 				8B98DD891C848179005D6A69 /* ScheduleListener.swift */,
 			);

@@ -25,6 +25,8 @@ class EventViewCell: UITableViewCell {
         typeLabel.text = event.type.lowercaseString
         locationLabel.text = event.location
         groupLabel.text = event.subgroup.str
+        separator.hidden = false
+        timeLabel.hidden = false
     }
     
     func rmSeparator() {

@@ -3,6 +3,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     // ============================================================================================
     // FIELDS
     // ============================================================================================
+    @IBOutlet weak var cDayLabel: UILabel!
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var footerView: TableFooter!
@@ -15,6 +16,8 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         set {
             self.day = newValue
             pageControl.currentPage = day.id - 1
+            
+            
         }
     }
     var adapter: ScheduleAdapterViewController!
@@ -39,9 +42,11 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         ScheduleManager.instanse.onScheduleEvent.add(self, ScheduleViewController.onLoadSchedule)
         ScheduleManager.instanse.onTimeUpdateEvent.add(self, ScheduleViewController.onTimeUpdate)
         
-        let appearance = UITabBarItem.appearance()
-        let attributes = [NSFontAttributeName:UIFont(name: "System Bold", size: 20) as! AnyObject]
-        appearance.setTitleTextAttributes(attributes, forState: .Normal)
+        
+       
+        //let appearance = UITabBarItem.appearance()
+      //  let attributes = [NSFontAttributeName:UIFont(name: "System Bold", size: 20) as! AnyObject]
+        //appearance.setTitleTextAttributes(attributes, forState: .Normal)
 
         tabBar.delegate = self
 
