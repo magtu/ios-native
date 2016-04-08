@@ -22,9 +22,17 @@ class JSONProcessor: Processor {
         return true
     }
     func processFailed(request:Request,  listener: ResponseListener){
-        
+        switch request.command.id {
+            case Api.GROUPS.id:
+                (listener as! GroupsListner).onGroupsFailed()
+            case Api.SCHEDULE.id:
+                (listener as! GroupsListner).onGetSchOfSelGroupFailed()
+            case Api.UPDATE_OF_SCHEDULE.id:
+                (listener as! ScheduleListener).onUpdateFailed()
+            
+            default:break
+        }
     }
-    
     // ============================================================================================
     // 01. GROUPS
     // ============================================================================================

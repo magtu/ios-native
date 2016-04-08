@@ -32,8 +32,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             textFieldInsideSearchBarLabel?.textColor = UIColor.whiteColor()
         */
         GroupManager.instanse.onGroupsEvent.add(self, SearchViewController.onGroups)
+        GroupManager.instanse.onGroupsEventFailed.add(self, SearchViewController.onGroupsFailed)
         GroupManager.instanse.onGetSchOfSelGroupEvent.add(self, SearchViewController.readyGoToSchedule)
-        
+        GroupManager.instanse.onInternetConnectionEventFailed.add(self, SearchViewController.onInternetConnectionFailed)
+        GroupManager.instanse.onGetSchOfSelGroupEventFailed.add(self, SearchViewController.getSchOfSelGroupEventFailed)
         loadGroups()
     }
     
@@ -43,14 +45,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        
         cell.textLabel?.text = searchingGroups[indexPath.row].name
-        
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        GroupManager.instanse.selectedSearchingGroup = searchingGroups[indexPath.row]
-        Api.instance.scheduleOfGroup(GroupManager.instanse.selectedSearchingGroup.id, listener: GroupManager.instanse)
+        blockTableforLoad()
+        GroupManager.instanse.getSchOfSelGroup(searchingGroups[indexPath.row].id)        
     }
     //============================================================================================
     // VIEW HANDLER
@@ -76,6 +76,22 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         groups = loadedGroups
     }
     
+    func onGroupsFailed() {
+        blockTableFailed("Нет списка групп")
+        showAlert("Проблема с сервером", btnhndrs: ["Повторить": {self.loadGroups()}])
+    }
+    
+    func onInternetConnectionFailed() {
+        blockTableFailed("Нет соединения с интернетом")
+    }
+    
+    func getSchOfSelGroupEventFailed() {
+        unblockTable()
+        showAlert("Не удалось загрузить расписание", btnhndrs: ["Повторить": {
+            self.blockTableforLoad()
+            GroupManager.instanse.getSchOfSelGroup(GroupManager.instanse.selectedSearchingGroup.id)}])
+    }
+    
     func readyGoToSchedule() {
         setTo(.ScheduleViewController)
     }
@@ -83,19 +99,20 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     // METHODS
     //============================================================================================
     private func loadGroups() {
-        InternetManager.isConnectedToNetwork() ? {blockTableforLoad();GroupManager.instanse.getGroups()}()
-            : {blockTableWithoutInternet();
-                showAlert("Нет соединения с интернетом", btnhndrs: ["Повторить": {self.loadGroups()}])}()
+        blockTableforLoad()
+        GroupManager.instanse.getGroups()
     }
+    
     private func unblockTable(){
+        searchBar.hidden = false
         actIndicator.hidden = true
         actIndicator.stopAnimating()
         tableView.hidden = false
         groupEmptyLabel.hidden = true
         loadGroupsButton.hidden = true
-
     }
     private func blockTableforLoad() {
+        searchBar.hidden = true
         actIndicator.hidden = false
         actIndicator.startAnimating()
         tableView.hidden = true
@@ -103,7 +120,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         loadGroupsButton.hidden = true
     }
     
-    private func blockTableWithoutInternet() {
+    private func blockTableFailed(reason: String) {
+        groupEmptyLabel.text = reason
+        searchBar.hidden = true
         actIndicator.hidden = true
         actIndicator.stopAnimating()
         tableView.hidden = true

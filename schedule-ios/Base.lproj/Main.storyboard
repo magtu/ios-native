@@ -104,7 +104,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <searchBar contentMode="redraw" text="" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktO-iM-AaS">
+                            <searchBar contentMode="redraw" text="" placeholder="Название..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktO-iM-AaS">
                                 <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                 <color key="barTintColor" red="0.050980392156862744" green="0.19607843137254902" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <offsetWrapper key="searchTextPositionAdjustment" horizontal="0.0" vertical="0.0"/>
@@ -164,11 +164,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Q4-MT-TGa" userLabel="Costyl">
-                                <rect key="frame" x="0.0" y="-20" width="320" height="47"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Q4-MT-TGa" userLabel=" Costyl">
+                                <rect key="frame" x="0.0" y="-20" width="320" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="q05-Or-ql4"/>
+                                    <constraint firstAttribute="height" constant="20" id="q05-Or-ql4"/>
                                 </constraints>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Xj5-lj-Mqk">

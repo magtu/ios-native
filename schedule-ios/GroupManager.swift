@@ -14,16 +14,28 @@ class GroupManager: GroupsListner{
     var onGroupsEvent = ObserverSet<[SearchingGroup]>()
     var onGroupsEventFailed: ObserverSet<()> = ObserverSet()
     var onGetSchOfSelGroupEvent: ObserverSet<()> = ObserverSet()
+    var onGetSchOfSelGroupEventFailed: ObserverSet<()> = ObserverSet()
+    var onInternetConnectionEventFailed: ObserverSet<()> = ObserverSet()
     // ============================================================================================
     // API REQUEST
     // ============================================================================================
-    func getGroups(name: String? = nil){Api.instance.groups(name, listener: self)}
+    func getGroups(name: String? = nil){
+        Api.instance.groups(name, listener: self)
+    }
+    func getSchOfSelGroup(id: Int) {
+        GroupManager.instanse.selectedSearchingGroup = groups.filter{$0.id == id}.first!
+        Api.instance.scheduleOfGroup(GroupManager.instanse.selectedSearchingGroup.id, listener: GroupManager.instanse)
+    }
     // ============================================================================================
     // API RESPONSE
     // ============================================================================================
     func onGetSchOfSelGroup(group: Group) {
         currentGroup = group
         onGetSchOfSelGroupEvent.notify()
+    }
+    
+    func onGetSchOfSelGroupFailed(){
+        onGetSchOfSelGroupEventFailed.notify()
     }
     
     func onGroups(groups:[SearchingGroup]){
@@ -33,5 +45,9 @@ class GroupManager: GroupsListner{
     
     func onGroupsFailed(){
         onGroupsEventFailed.notify()
+    }
+    
+    func onInternetConnectionFailed() {
+        onInternetConnectionEventFailed.notify()
     }
 }

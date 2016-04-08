@@ -29,7 +29,7 @@ class ScheduleManager: ScheduleListener {
     func getDay(cDayID: Int, weekType: WeekType) -> Day {
         return weeks[weekType]!.days.filter{cDayID == $0.id}.first!
     }
-    
+    func onUpdateFailed(){}
     private func onTimerTick() {
         onTimeUpdateEvent.notify()
     }
@@ -42,4 +42,7 @@ class ScheduleManager: ScheduleListener {
     
     func getUpdate(groupID:Int){Api.instance.updateOfGroup(groupID, listener: self)}
     func onUpdate(updateAt: Double){onUpdateEvent.notify(updateAt)}
+    func onInternetConnectionFailed() {
+        
+    }
 }
