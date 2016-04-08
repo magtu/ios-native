@@ -13,7 +13,7 @@ class AlaTransport: Transport {
         print(url + (request.params.isEmpty ? "" : "?" + request.params.description))
         Alamofire.request(request.command.method, url, parameters: request.params).responseJSON { response in
             
-            if response.result.isFailure {print(response.result.isFailure.description)}
+            if response.result.isFailure {print("EXCEPTION: RESPONSE FAILURE")}
             else {
                 if (!processor.process(
                     request,

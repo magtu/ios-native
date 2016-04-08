@@ -67,7 +67,11 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         UIView.commitAnimations()
     }
     
-    @IBAction func backSwipeHandle(sender: AnyObject) {
+    private func isTapSwipeOnNavBar(sender: UISwipeGestureRecognizer) -> Bool {
+        return (navBar.bounds.size.height >= sender.locationInView(view).y) ? true : false
+    }
+    @IBAction func backSwipeHandle(sender: UISwipeGestureRecognizer) {
+        if isTapSwipeOnNavBar(sender) {return}
         if cDay.id - 1 > 0 {
             cDay = getDay(cDay.id - 1)
         }
@@ -77,7 +81,8 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         }
         curl(.CurlDown)
     }
-    @IBAction func frontSwipeHandle(sender: AnyObject) {
+    @IBAction func frontSwipeHandle(sender: UISwipeGestureRecognizer) {
+        if isTapSwipeOnNavBar(sender) {return}
         if cDay.id + 1 < 8 {
             cDay = getDay(cDay.id + 1)
         }
