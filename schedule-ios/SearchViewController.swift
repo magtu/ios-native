@@ -4,7 +4,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     //============================================================================================
     // FIELDS
     //============================================================================================
-    
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var actIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loadGroupsButton: UIButton!
@@ -13,6 +12,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     var groups: [SearchingGroup] = []
     var searchingGroups: [SearchingGroup] = []
+    @IBOutlet weak var navBar: UINavigationBar!
     //============================================================================================
     // INIT
     //============================================================================================
@@ -24,14 +24,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         }
         
         tableView.rowHeight = UITableViewAutomaticDimension
+        
         searchBar.delegate = self
-        
         let textFieldInsideSearchBar = searchBar.valueForKey("searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = UIColor.whiteColor()
-        
-        let textFieldInsideSearchBarLabel = textFieldInsideSearchBar!.valueForKey("placeholderLabel") as? UILabel
-        textFieldInsideSearchBarLabel?.textColor = UIColor.whiteColor()
-        
+            textFieldInsideSearchBar?.textColor = UIColor.blackColor()
+       /* let textFieldInsideSearchBarLabel = textFieldInsideSearchBar!.valueForKey("placeholderLabel") as? UILabel
+            textFieldInsideSearchBarLabel?.textColor = UIColor.whiteColor()
+        */
         GroupManager.instanse.onGroupsEvent.add(self, SearchViewController.onGroups)
         GroupManager.instanse.onGetSchOfSelGroupEvent.add(self, SearchViewController.readyGoToSchedule)
         

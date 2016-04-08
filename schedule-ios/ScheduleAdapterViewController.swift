@@ -25,7 +25,7 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
             
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! HeaderViewCell
-            cell.create(day!.name)
+            cell.create(day!.name, showCDayIndicator: ScheduleManager.instanse.cDayWType.day == day)
             return cell
         }
     }

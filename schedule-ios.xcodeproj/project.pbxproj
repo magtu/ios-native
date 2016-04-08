@@ -11,6 +11,7 @@
 		4D0452631C95D5B5006DB326 /* HeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0452621C95D5B5006DB326 /* HeaderViewCell.xib */; };
 		4D3456CF1CB0310F0095B2FB /* InternetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3456CE1CB0310F0095B2FB /* InternetManager.swift */; };
 		4D3456D11CB035F80095B2FB /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3456D01CB035F80095B2FB /* NotificationCenter.swift */; };
+		4D65CFC51CB8215F00DE9260 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65CFC41CB8215A00DE9260 /* Color.swift */; };
 		4D6B71D71C94A1BA006EAB3E /* ScheduleAdapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B71D61C94A1BA006EAB3E /* ScheduleAdapterViewController.swift */; };
 		4D77DC1D1CA83B2300E41B4B /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77DC1C1CA83B2300E41B4B /* TableFooterView.swift */; };
 		4D8358FE1CB1B06700A023E6 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D8358FD1CB1B06600A023E6 /* icons.xcassets */; };
@@ -56,6 +57,7 @@
 		4D0452621C95D5B5006DB326 /* HeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewCell.xib; sourceTree = "<group>"; };
 		4D3456CE1CB0310F0095B2FB /* InternetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetManager.swift; sourceTree = "<group>"; };
 		4D3456D01CB035F80095B2FB /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		4D65CFC41CB8215A00DE9260 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4D6B71D61C94A1BA006EAB3E /* ScheduleAdapterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleAdapterViewController.swift; sourceTree = "<group>"; };
 		4D77DC1C1CA83B2300E41B4B /* TableFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableFooterView.swift; sourceTree = "<group>"; };
 		4D8358FD1CB1B06600A023E6 /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				4D8B14531C9D0AE0008E9428 /* Timer.swift */,
 				4D3456CE1CB0310F0095B2FB /* InternetManager.swift */,
 				4D3456D01CB035F80095B2FB /* NotificationCenter.swift */,
+				4D65CFC41CB8215A00DE9260 /* Color.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				8B98DD8A1C848179005D6A69 /* ScheduleListener.swift in Sources */,
 				8BC0D3BE1C7DF7B200FE597C /* AlaTransport.swift in Sources */,
 				8BD0C3AA1C777C63008BD083 /* Request.swift in Sources */,
+				4D65CFC51CB8215F00DE9260 /* Color.swift in Sources */,
 				8B1F3E461C76145B00865CDF /* schedule_ios.xcdatamodeld in Sources */,
 				8B46A9991CAA77350082975B /* SearchingGroup.swift in Sources */,
 				8B59D1651C90A501003084F8 /* ObserverSet.swift in Sources */,

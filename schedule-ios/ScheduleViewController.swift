@@ -3,7 +3,6 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     // ============================================================================================
     // FIELDS
     // ============================================================================================
-    @IBOutlet weak var cDayLabel: UILabel!
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var footerView: TableFooter!
@@ -41,12 +40,10 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         
         ScheduleManager.instanse.onScheduleEvent.add(self, ScheduleViewController.onLoadSchedule)
         ScheduleManager.instanse.onTimeUpdateEvent.add(self, ScheduleViewController.onTimeUpdate)
-        
-        
        
-        //let appearance = UITabBarItem.appearance()
-      //  let attributes = [NSFontAttributeName:UIFont(name: "System Bold", size: 20) as! AnyObject]
-        //appearance.setTitleTextAttributes(attributes, forState: .Normal)
+        let appearance = UITabBarItem.appearance()
+        let attributes = [NSFontAttributeName:UIFont(name: ".SFUIDisplay-Light", size: 18) as! AnyObject]
+        appearance.setTitleTextAttributes(attributes, forState: .Normal)
 
         tabBar.delegate = self
 
@@ -66,6 +63,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
         UIView.setAnimationDuration(NSTimeInterval(1))
         UIView.setAnimationTransition(transition, forView: table.superview!, cache: false)
+        
         UIView.commitAnimations()
     }
     
