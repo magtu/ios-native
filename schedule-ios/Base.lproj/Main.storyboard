@@ -425,6 +425,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Xj5-lj-Mqk" id="nmh-nh-MA5"/>
+                        <outlet property="contentView" destination="3Yg-U4-l7b" id="TmZ-lP-9zY"/>
                         <outlet property="footerView" destination="frB-8m-fKK" id="yC4-N6-TDX"/>
                         <outlet property="navBar" destination="lAb-xx-GhD" id="gbz-pc-Fec"/>
                         <outlet property="navItem" destination="jWj-xl-z1x" id="JAH-NU-cit"/>

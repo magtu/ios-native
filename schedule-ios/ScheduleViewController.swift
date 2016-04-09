@@ -9,6 +9,9 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var day: Day!
     var cDay: Day! {
         get {return self.day}
@@ -37,7 +40,10 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         
         ScheduleManager.instanse.onScheduleEvent.add(self, ScheduleViewController.onLoadSchedule)
         ScheduleManager.instanse.onUpdateEventTimer.add(self, ScheduleViewController.onUpdateEventTimer)
-       
+        ScheduleManager.instanse.onLoadingScheduleEvent.add(self, ScheduleViewController.blockUIForloading)
+        ScheduleManager.instanse.onLoadingScheduleFailedEvent.add(self, ScheduleViewController.unblockUIWithLoadingFailed)
+        
+        
         let appearance = UITabBarItem.appearance()
         
         let attributes = [NSFontAttributeName:UIFont.systemFontOfSize(18) ]
@@ -121,6 +127,24 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     @IBAction func onMenuClick(sender: AnyObject) {
         navTo(.SearchViewController)
     }
+    
+    
+    func blockUIForloading(){
+        contentView.hidden = true
+        activityIndicator.startAnimating()
+        activityIndicator.hidden = false
+    }
+    
+    func unblockUI() {
+        contentView.hidden = false
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true
+    }
+    
+    func unblockUIWithLoadingFailed() {
+        unblockUI()
+        showAlert("Не удалось обновить расписание" ,btnhndrs: [:], needCancelBtn: true, cancelBtn: "Ok")
+    }
     // ============================================================================================
     // MANAGER REQUEST
     // ============================================================================================
@@ -129,6 +153,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     // MANAGER RESPONSE
     // ============================================================================================
     func onLoadSchedule() {
+        unblockUI()
         (cDay, cWeekType) = ScheduleManager.instanse.cDayWType
         adapter.loadCDay()
     }

@@ -8,8 +8,8 @@ class Timer: NSObject {
     init(interval: Double = 10){self.interval = interval}
     
     func start(interval: Double){
-        timer = NSTimer.scheduledTimerWithTimeInterval(interval,
-            target:self, selector: #selector(Timer.fire), userInfo: nil, repeats: true)
+   //     timer = NSTimer.scheduledTimerWithTimeInterval(interval,
+   //         target:self, selector: #selector(Timer.fire), userInfo: nil, repeats: true)
     }
     
     func fire() {onTimerEvent.notify()}
