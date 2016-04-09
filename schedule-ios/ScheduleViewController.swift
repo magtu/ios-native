@@ -11,6 +11,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingLabel: UILabel!
     
     var day: Day!
     var cDay: Day! {
@@ -128,14 +129,17 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         navTo(.SearchViewController)
     }
     
-    
     func blockUIForloading(){
         contentView.hidden = true
+        loadingLabel.hidden = false
         activityIndicator.startAnimating()
         activityIndicator.hidden = false
+        tabBar.hidden = true
     }
     
     func unblockUI() {
+        tabBar.hidden = false
+        loadingLabel.hidden = true
         contentView.hidden = false
         activityIndicator.stopAnimating()
         activityIndicator.hidden = true

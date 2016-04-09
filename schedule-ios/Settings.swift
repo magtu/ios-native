@@ -5,12 +5,13 @@ class Settings {
     static var scheduleUpdateTimeStamp: Double {
         get {
             let defaults = NSUserDefaults.standardUserDefaults()
-             return Double(defaults.stringForKey(LAST_SCHEDULE_UPDATE_TIMESTAMP) ?? "0") ?? 0
+            print("curTNMTP: ") ;print(Double(defaults.stringForKey(LAST_SCHEDULE_UPDATE_TIMESTAMP) ?? "0") ?? 0)
+            return Double(defaults.stringForKey(LAST_SCHEDULE_UPDATE_TIMESTAMP) ?? "0") ?? 0
         }
         set {
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setObject(String(newValue), forKey: LAST_SCHEDULE_UPDATE_TIMESTAMP)
-            print("newTimestamp: \(newValue)")
+            print("setNewTMSTP: \(newValue)")
         }
     }
 }

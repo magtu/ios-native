@@ -40,6 +40,13 @@ class ScheduleManager: ScheduleListener {
     private func updateEventTimerTick() {
         onUpdateEventTimer.notify()
     }
+    private func getNewCSchedule(){
+        let group = GroupManager.instanse.currentGroup!
+        weeks = [group.weeks[0].type : group.weeks[0], group.weeks[1].type : group.weeks[1]]
+    }
+    private func getTimestampOfCGroupSchedule(){
+        Api.instance.updateOfGroup(GroupManager.instanse.currentGroup!.id, listener: self)
+    }
     // ============================================================================================
     // REQUEST
     // ============================================================================================
@@ -47,21 +54,17 @@ class ScheduleManager: ScheduleListener {
         return weeks[weekType]!.days.filter{cDayID == $0.id}.first!
     }
     func getSchedule(){
-        let group = GroupManager.instanse.currentGroup!
-        weeks = [group.weeks[0].type : group.weeks[0], group.weeks[1].type : group.weeks[1]]
+        getNewCSchedule()
         onScheduleEvent.notify()
         updateEventTimer.start(1)
         getTimestampOfCGroupSchedule()
     }
-    
-    func getTimestampOfCGroupSchedule(){
-        Api.instance.updateOfGroup(GroupManager.instanse.currentGroup!.id, listener: self)
-    }
     // ============================================================================================
     // RESPONSE
     // ============================================================================================
+    private var updatetmstp: Double?
     func onUpdateSchedule(updateAt: Double){
-        print("newTMSP\(updateAt)")
+        print("serverTMSP: \(updateAt)")
         let cTimeStamp = Settings.scheduleUpdateTimeStamp
         if cTimeStamp == updateAt {return}
         //first load
@@ -69,18 +72,26 @@ class ScheduleManager: ScheduleListener {
             Settings.scheduleUpdateTimeStamp = updateAt
         }
         else {
+            updatetmstp = updateAt
             onLoadingScheduleEvent.notify()
-            GroupManager.instanse.getSchOfSelGroup(GroupManager.instanse.currentGroup!.id)
+            GroupManager.instanse.getSchOfSelGroup(GroupManager.instanse.currentGroup!.id,
+                                                   name: GroupManager.instanse.currentGroup!.name)
         }
     }
     
     func loadingScheduleComplite() {
-        let group = GroupManager.instanse.currentGroup!
-        weeks = [group.weeks[0].type : group.weeks[0], group.weeks[1].type : group.weeks[1]]
-        onScheduleEvent.notify()
+        if updatetmstp != nil {
+            getNewCSchedule()
+            Settings.scheduleUpdateTimeStamp = updatetmstp!
+            updatetmstp = nil
+            onScheduleEvent.notify()
+        }
     }
     func loadingScheduleFailed() {
-        onLoadingScheduleFailedEvent.notify()
+        if updatetmstp != nil {
+            updatetmstp = nil
+            onLoadingScheduleFailedEvent.notify()
+        }
     }
     func onUpdateScheduleFailed(){
         print("ScheduleManager.onUpdateScheduleFailed()")

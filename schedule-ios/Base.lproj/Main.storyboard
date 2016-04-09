@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EEl-GQ-WzN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EEl-GQ-WzN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -192,12 +192,37 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <subviews>
                                     <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" translatesAutoresizingMaskIntoConstraints="NO" id="sW8-Od-a65">
-                                        <rect key="frame" x="109" y="41" width="103" height="37"/>
+                                        <rect key="frame" x="109" y="35" width="103" height="37"/>
                                         <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="currentPageIndicatorTintColor" red="0.050980392159999999" green="0.1960784314" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                     </pageControl>
+                                    <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAb-xx-GhD">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" red="0.047058823529411764" green="0.11764705882352941" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="barTintColor" red="0.050980392159999999" green="0.1960784314" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                        <textAttributes key="titleTextAttributes">
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </textAttributes>
+                                        <items>
+                                            <navigationItem title="ASD" id="jWj-xl-z1x">
+                                                <barButtonItem key="leftBarButtonItem" image="Today-50" style="plain" id="SMa-fB-vIg">
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="toCDayClick:" destination="A6O-a5-kZP" id="UYk-Zc-JKd"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" systemItem="search" id="JOo-lQ-x64">
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="onMenuClick:" destination="A6O-a5-kZP" id="pwh-af-Aih"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gHd-8g-c7I">
-                                        <rect key="frame" x="18" y="78" width="284" height="421"/>
+                                        <rect key="frame" x="18" y="57" width="284" height="457"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -355,51 +380,31 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAb-xx-GhD">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" red="0.047058823529411764" green="0.11764705882352941" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="barTintColor" red="0.050980392159999999" green="0.1960784314" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
-                                        <textAttributes key="titleTextAttributes">
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </textAttributes>
-                                        <items>
-                                            <navigationItem title="ASD" id="jWj-xl-z1x">
-                                                <barButtonItem key="leftBarButtonItem" image="Today-50" style="plain" id="SMa-fB-vIg">
-                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <connections>
-                                                        <action selector="toCDayClick:" destination="A6O-a5-kZP" id="UYk-Zc-JKd"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" systemItem="search" id="JOo-lQ-x64">
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <connections>
-                                                        <action selector="onMenuClick:" destination="A6O-a5-kZP" id="pwh-af-Aih"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="gHd-8g-c7I" secondAttribute="trailing" constant="18" id="1jw-6T-aRn"/>
-                                    <constraint firstItem="gHd-8g-c7I" firstAttribute="top" secondItem="sW8-Od-a65" secondAttribute="bottom" id="2UQ-Gd-J3t"/>
-                                    <constraint firstAttribute="bottom" secondItem="gHd-8g-c7I" secondAttribute="bottom" constant="20" id="9TA-Mq-Y4T"/>
+                                    <constraint firstAttribute="bottom" secondItem="gHd-8g-c7I" secondAttribute="bottom" constant="5" id="9TA-Mq-Y4T"/>
                                     <constraint firstAttribute="trailing" secondItem="lAb-xx-GhD" secondAttribute="trailing" id="FDe-K6-u1B"/>
                                     <constraint firstItem="gHd-8g-c7I" firstAttribute="leading" secondItem="3Yg-U4-l7b" secondAttribute="leading" constant="18" id="Kn8-rI-3t9"/>
                                     <constraint firstItem="lAb-xx-GhD" firstAttribute="leading" secondItem="3Yg-U4-l7b" secondAttribute="leading" id="Lxt-gi-1XY"/>
                                     <constraint firstItem="lAb-xx-GhD" firstAttribute="top" secondItem="3Yg-U4-l7b" secondAttribute="top" id="OfH-jf-6o8"/>
                                     <constraint firstItem="sW8-Od-a65" firstAttribute="centerX" secondItem="3Yg-U4-l7b" secondAttribute="centerX" id="WlH-7k-Bzt"/>
-                                    <constraint firstItem="gHd-8g-c7I" firstAttribute="top" secondItem="sW8-Od-a65" secondAttribute="bottom" id="Zzv-I5-pim"/>
-                                    <constraint firstItem="sW8-Od-a65" firstAttribute="top" secondItem="3Yg-U4-l7b" secondAttribute="top" constant="41" id="dXg-5y-CoU"/>
+                                    <constraint firstItem="gHd-8g-c7I" firstAttribute="top" secondItem="sW8-Od-a65" secondAttribute="bottom" constant="-15" id="Zzv-I5-pim"/>
+                                    <constraint firstItem="sW8-Od-a65" firstAttribute="top" secondItem="3Yg-U4-l7b" secondAttribute="top" constant="35" id="dXg-5y-CoU"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="hTH-tP-vka" appends="YES" id="SEH-cj-jig"/>
                                     <outletCollection property="gestureRecognizers" destination="dV8-sV-qTO" appends="YES" id="eyw-7Z-lLY"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Обновляю..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gN6-pB-7Xt">
+                                <rect key="frame" x="112" y="310" width="97" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -411,11 +416,13 @@
                             <constraint firstItem="3Yg-U4-l7b" firstAttribute="leading" secondItem="PAI-B4-Kv0" secondAttribute="leading" id="LQi-sA-Y4T"/>
                             <constraint firstItem="1Q4-MT-TGa" firstAttribute="leading" secondItem="PAI-B4-Kv0" secondAttribute="leading" id="Mfq-FT-6WH"/>
                             <constraint firstItem="3Yg-U4-l7b" firstAttribute="top" secondItem="jjg-Bd-jso" secondAttribute="bottom" id="Ory-bh-flQ"/>
+                            <constraint firstItem="gN6-pB-7Xt" firstAttribute="centerX" secondItem="PAI-B4-Kv0" secondAttribute="centerX" id="R1i-uO-MYI"/>
                             <constraint firstItem="Pgf-E8-Nht" firstAttribute="top" secondItem="VXX-lB-mZ9" secondAttribute="bottom" id="TGR-Cx-SLV"/>
                             <constraint firstItem="1Q4-MT-TGa" firstAttribute="top" secondItem="jjg-Bd-jso" secondAttribute="bottom" constant="-20" id="UM9-wP-IF2"/>
                             <constraint firstItem="Xj5-lj-Mqk" firstAttribute="centerY" secondItem="PAI-B4-Kv0" secondAttribute="centerY" id="kak-Y3-baf"/>
                             <constraint firstItem="3Yg-U4-l7b" firstAttribute="top" secondItem="jjg-Bd-jso" secondAttribute="bottom" id="lOg-hi-TOs"/>
                             <constraint firstItem="VXX-lB-mZ9" firstAttribute="leading" secondItem="PAI-B4-Kv0" secondAttribute="leading" id="ojh-y9-zNQ"/>
+                            <constraint firstItem="gN6-pB-7Xt" firstAttribute="top" secondItem="Xj5-lj-Mqk" secondAttribute="bottom" constant="8" id="vkE-DM-LzH"/>
                             <constraint firstAttribute="trailing" secondItem="3Yg-U4-l7b" secondAttribute="trailing" id="xz7-D2-ftg"/>
                         </constraints>
                     </view>
@@ -428,6 +435,7 @@
                         <outlet property="activityIndicator" destination="Xj5-lj-Mqk" id="nmh-nh-MA5"/>
                         <outlet property="contentView" destination="3Yg-U4-l7b" id="TmZ-lP-9zY"/>
                         <outlet property="footerView" destination="frB-8m-fKK" id="yC4-N6-TDX"/>
+                        <outlet property="loadingLabel" destination="gN6-pB-7Xt" id="OD4-lb-Rzt"/>
                         <outlet property="navBar" destination="lAb-xx-GhD" id="gbz-pc-Fec"/>
                         <outlet property="navItem" destination="jWj-xl-z1x" id="JAH-NU-cit"/>
                         <outlet property="pageControl" destination="sW8-Od-a65" id="FdJ-26-lcs"/>

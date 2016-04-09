@@ -6,7 +6,7 @@ class GroupManager: GroupsListner{
     // ============================================================================================
     static let instanse = GroupManager()
     var groups: [SearchingGroup] = []
-    var selectedSearchingGroup: SearchingGroup!
+    var selectedGroup: (id: Int, name:String)!
     lazy var currentGroup: Group? = {return DBManager.fetchCurrentGroup()}()
     // ============================================================================================
     // EVENTS
@@ -22,9 +22,9 @@ class GroupManager: GroupsListner{
     func getGroups(name: String? = nil){
         Api.instance.groups(name, listener: self)
     }
-    func getSchOfSelGroup(id: Int) {
-        GroupManager.instanse.selectedSearchingGroup = groups.filter{$0.id == id}.first!
-        Api.instance.scheduleOfGroup(GroupManager.instanse.selectedSearchingGroup.id, listener: GroupManager.instanse)
+    func getSchOfSelGroup(id: Int, name: String) {
+        selectedGroup = (id, name)
+        Api.instance.scheduleOfGroup(selectedGroup.id, listener: GroupManager.instanse)
     }
     // ============================================================================================
     // API RESPONSE

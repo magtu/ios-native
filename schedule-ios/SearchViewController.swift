@@ -51,7 +51,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         view.endEditing(true)
         blockTableforLoad()
-        GroupManager.instanse.getSchOfSelGroup(searchingGroups[indexPath.row].id)        
+        GroupManager.instanse.getSchOfSelGroup(searchingGroups[indexPath.row].id, name: searchingGroups[indexPath.row].name)
     }
     //============================================================================================
     // VIEW HANDLER
@@ -90,7 +90,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         unblockTable()
         showAlert("Не удалось загрузить расписание", btnhndrs: ["Повторить": {
             self.blockTableforLoad()
-            GroupManager.instanse.getSchOfSelGroup(GroupManager.instanse.selectedSearchingGroup.id)}])
+            GroupManager.instanse.getSchOfSelGroup(GroupManager.instanse.selectedGroup.id,
+                name: GroupManager.instanse.selectedGroup.name)}])
     }
     
     func readyGoToSchedule() {
