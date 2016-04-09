@@ -53,6 +53,6 @@ class Event: NSManagedObject {
         course_id_ = Int16(courseID)
         course_ = course
         type_id_ = Int16(typeID)
-        type_ = type
+        type_ = type//String(type.characters.prefix(1)).uppercaseString + String(type.characters.dropFirst())
     }
 }
