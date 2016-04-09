@@ -93,6 +93,16 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         curl(.CurlUp)
     }
     
+    @IBAction func toCDayClick(sender: UIBarButtonItem) {
+        let now = ScheduleManager.instanse.cDayWType
+        if (now.day === cDay && now.weekType == cWeekType) {return}
+        
+        let t: UIViewAnimationTransition = cDay.id > now.day.id ? .CurlDown : .CurlUp
+        (cDay, cWeekType) = now
+        curl(t)
+    }
+    
+    
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         if item.tag == 0 && cWeekType != .EVEN {
             cWeekType = .EVEN
@@ -122,7 +132,6 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     // ============================================================================================
     func onLoadSchedule() {
         (cDay, cWeekType) = ScheduleManager.instanse.cDayWType
-        
         adapter.loadCDay()
     }
     func onTimeUpdate() {

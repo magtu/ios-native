@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EEl-GQ-WzN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EEl-GQ-WzN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -191,32 +191,32 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Yg-U4-l7b">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <subviews>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" translatesAutoresizingMaskIntoConstraints="NO" id="sW8-Od-a65">
+                                    <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" translatesAutoresizingMaskIntoConstraints="NO" id="sW8-Od-a65">
                                         <rect key="frame" x="109" y="41" width="103" height="37"/>
                                         <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="currentPageIndicatorTintColor" red="0.050980392159999999" green="0.1960784314" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                     </pageControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gHd-8g-c7I">
-                                        <rect key="frame" x="15" y="78" width="290" height="421"/>
+                                        <rect key="frame" x="18" y="78" width="284" height="421"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="frB-8m-fKK" customClass="TableFooter" customModule="schedule_ios" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="158" width="290" height="44"/>
+                                            <rect key="frame" x="0.0" y="158" width="284" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.050980392159999999" green="0.1960784314" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="headerCell" id="tIz-y9-8F5" customClass="HeaderViewCell" customModule="schedule_ios" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="290" height="44"/>
+                                                <rect key="frame" x="0.0" y="28" width="284" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tIz-y9-8F5" id="XuW-W4-4b7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Воскресение" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DV-zn-clo">
-                                                            <rect key="frame" x="8" y="11" width="274" height="22"/>
+                                                            <rect key="frame" x="8" y="11" width="268" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -246,26 +246,26 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="86" id="54Q-Yd-jvl" customClass="EventViewCell" customModule="schedule_ios" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="72" width="290" height="86"/>
+                                                <rect key="frame" x="0.0" y="72" width="284" height="86"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54Q-Yd-jvl" id="G3a-lN-gnS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="86"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="86"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="409-1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RrR-e6-T1p">
-                                                            <rect key="frame" x="241" y="12" width="41" height="17"/>
+                                                            <rect key="frame" x="235" y="12" width="41" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Методы управления знаниями" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPH-VI-oSb">
-                                                            <rect key="frame" x="56" y="12" width="165" height="36"/>
+                                                            <rect key="frame" x="56" y="12" width="159" height="36"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEf-Us-u5q">
-                                                            <rect key="frame" x="0.0" y="84" width="290" height="2"/>
+                                                            <rect key="frame" x="0.0" y="84" width="284" height="2"/>
                                                             <color key="backgroundColor" red="0.050980392159999999" green="0.1960784314" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="2" id="fIS-Sb-jqs"/>
@@ -282,11 +282,8 @@
                                                             <color key="progressTintColor" red="0.064394665379999994" green="0.33350207739999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         </progressView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лекция" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9i-WO-YGQ">
-                                                            <rect key="frame" x="56" y="48" width="165" height="16"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="165" id="rcE-kC-cIf"/>
-                                                            </constraints>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Лекция" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9i-WO-YGQ">
+                                                            <rect key="frame" x="56" y="48" width="142" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.064394665379999994" green="0.33350207739999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -299,14 +296,14 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSy-IS-OXG" userLabel=" leftborder">
-                                                            <rect key="frame" x="288" y="0.0" width="2" height="86"/>
+                                                            <rect key="frame" x="282" y="0.0" width="2" height="86"/>
                                                             <color key="backgroundColor" red="0.050980392159999999" green="0.1960784314" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="2" id="7iu-5z-4o5"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вся группа" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6m-KU-fLf">
-                                                            <rect key="frame" x="206" y="48" width="76" height="17"/>
+                                                            <rect key="frame" x="200" y="48" width="76" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -319,6 +316,7 @@
                                                         <constraint firstAttribute="trailingMargin" secondItem="RrR-e6-T1p" secondAttribute="trailing" id="95u-9V-IJe"/>
                                                         <constraint firstAttribute="trailing" secondItem="KEf-Us-u5q" secondAttribute="trailing" id="BvM-GK-h2h"/>
                                                         <constraint firstAttribute="leadingMargin" secondItem="mRW-ta-avi" secondAttribute="leading" id="F4t-cQ-EIQ"/>
+                                                        <constraint firstItem="i6m-KU-fLf" firstAttribute="leading" secondItem="o9i-WO-YGQ" secondAttribute="trailing" constant="2" id="Gim-qe-doq"/>
                                                         <constraint firstAttribute="bottom" secondItem="NSy-IS-OXG" secondAttribute="bottom" id="LEF-3O-jON"/>
                                                         <constraint firstAttribute="bottom" secondItem="KEf-Us-u5q" secondAttribute="bottom" id="QVd-gS-3xg"/>
                                                         <constraint firstItem="rPH-VI-oSb" firstAttribute="leading" secondItem="mRW-ta-avi" secondAttribute="trailing" constant="10" id="QXb-xg-W3j"/>
@@ -361,6 +359,12 @@
                                         </textAttributes>
                                         <items>
                                             <navigationItem title="ASD" id="jWj-xl-z1x">
+                                                <barButtonItem key="leftBarButtonItem" image="Today-50" style="plain" id="SMa-fB-vIg">
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="toCDayClick:" destination="A6O-a5-kZP" id="UYk-Zc-JKd"/>
+                                                    </connections>
+                                                </barButtonItem>
                                                 <barButtonItem key="rightBarButtonItem" systemItem="search" id="JOo-lQ-x64">
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <connections>
@@ -374,11 +378,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gHd-8g-c7I" secondAttribute="trailing" constant="15" id="1jw-6T-aRn"/>
+                                    <constraint firstAttribute="trailing" secondItem="gHd-8g-c7I" secondAttribute="trailing" constant="18" id="1jw-6T-aRn"/>
                                     <constraint firstItem="gHd-8g-c7I" firstAttribute="top" secondItem="sW8-Od-a65" secondAttribute="bottom" id="2UQ-Gd-J3t"/>
                                     <constraint firstAttribute="bottom" secondItem="gHd-8g-c7I" secondAttribute="bottom" constant="20" id="9TA-Mq-Y4T"/>
                                     <constraint firstAttribute="trailing" secondItem="lAb-xx-GhD" secondAttribute="trailing" id="FDe-K6-u1B"/>
-                                    <constraint firstItem="gHd-8g-c7I" firstAttribute="leading" secondItem="3Yg-U4-l7b" secondAttribute="leading" constant="15" id="Kn8-rI-3t9"/>
+                                    <constraint firstItem="gHd-8g-c7I" firstAttribute="leading" secondItem="3Yg-U4-l7b" secondAttribute="leading" constant="18" id="Kn8-rI-3t9"/>
                                     <constraint firstItem="lAb-xx-GhD" firstAttribute="leading" secondItem="3Yg-U4-l7b" secondAttribute="leading" id="Lxt-gi-1XY"/>
                                     <constraint firstItem="lAb-xx-GhD" firstAttribute="top" secondItem="3Yg-U4-l7b" secondAttribute="top" id="OfH-jf-6o8"/>
                                     <constraint firstItem="sW8-Od-a65" firstAttribute="centerX" secondItem="3Yg-U4-l7b" secondAttribute="centerX" id="WlH-7k-Bzt"/>
@@ -440,5 +444,6 @@
     </scenes>
     <resources>
         <image name="Back-50" width="25" height="25"/>
+        <image name="Today-50" width="25" height="25"/>
     </resources>
 </document>
