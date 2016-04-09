@@ -18,7 +18,7 @@ class AlaTransport: Transport {
         print(url + (request.params.isEmpty ? "" : "?" + request.params.description))
         Alamofire.request(request.command.method, url, parameters: request.params).responseJSON { response in
             
-            if response.result.isFailure {print("EXCEPTION: RESPONSE FAILURE")}
+            if response.result.isFailure {processor.processFailed(request, listener: listener)}
             else {
                 if !processor.process(request, response: response.data!, listener: listener) {
                     if (self.countOfResends < self.LIMIT_RESEND) {

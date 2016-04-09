@@ -49,6 +49,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        view.endEditing(true)
         blockTableforLoad()
         GroupManager.instanse.getSchOfSelGroup(searchingGroups[indexPath.row].id)        
     }
