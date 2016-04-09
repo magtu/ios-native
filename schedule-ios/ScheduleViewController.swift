@@ -15,8 +15,6 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         set {
             self.day = newValue
             pageControl.currentPage = day.id - 1
-            
-            
         }
     }
     var adapter: ScheduleAdapterViewController!
@@ -32,14 +30,13 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     // ============================================================================================
     // LIFECYCLE
     // ============================================================================================
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navItem.title = GroupManager.instanse.currentGroup!.name
         
         ScheduleManager.instanse.onScheduleEvent.add(self, ScheduleViewController.onLoadSchedule)
-        ScheduleManager.instanse.onTimeUpdateEvent.add(self, ScheduleViewController.onTimeUpdate)
+        ScheduleManager.instanse.onUpdateEventTimer.add(self, ScheduleViewController.onUpdateEventTimer)
        
         let appearance = UITabBarItem.appearance()
         let attributes = [NSFontAttributeName:UIFont(name: ".SFUIDisplay-Light", size: 18) as! AnyObject]
@@ -58,7 +55,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     
     func curl(transition: UIViewAnimationTransition){
         adapter.loadCDay()
-        onTimeUpdate()
+        onUpdateEventTimer()
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
         UIView.setAnimationDuration(NSTimeInterval(1))
@@ -134,7 +131,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         (cDay, cWeekType) = ScheduleManager.instanse.cDayWType
         adapter.loadCDay()
     }
-    func onTimeUpdate() {
+    func onUpdateEventTimer() {
         if ScheduleManager.instanse.cDayWType.day === cDay {
             let t = TimeProvider.cDayTimeStamp
             let cEvent = cDay.events.filter{t >= $0.eventFields.startAt && t <= $0.eventFields.endAt}.first

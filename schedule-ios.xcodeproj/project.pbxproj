@@ -43,6 +43,7 @@
 		8BC0D3C21C7E0A4200FE597C /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0D3C11C7E0A4200FE597C /* ScheduleManager.swift */; };
 		8BC0D3C41C7E0A4F00FE597C /* GroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0D3C31C7E0A4F00FE597C /* GroupManager.swift */; };
 		8BC0D3C61C7E0A9F00FE597C /* GroupListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0D3C51C7E0A9F00FE597C /* GroupListener.swift */; };
+		8BC1777C1CB8FBCF0038D5FD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC1777B1CB8FBCF0038D5FD /* Settings.swift */; };
 		8BD0C3A51C77773E008BD083 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD0C3A41C77773E008BD083 /* Api.swift */; };
 		8BD0C3A81C77782A008BD083 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD0C3A71C77782A008BD083 /* Command.swift */; };
 		8BD0C3AA1C777C63008BD083 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD0C3A91C777C63008BD083 /* Request.swift */; };
@@ -93,6 +94,7 @@
 		8BC0D3C11C7E0A4200FE597C /* ScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
 		8BC0D3C31C7E0A4F00FE597C /* GroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupManager.swift; sourceTree = "<group>"; };
 		8BC0D3C51C7E0A9F00FE597C /* GroupListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListener.swift; sourceTree = "<group>"; };
+		8BC1777B1CB8FBCF0038D5FD /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		8BD0C3A41C77773E008BD083 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		8BD0C3A71C77782A008BD083 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		8BD0C3A91C777C63008BD083 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				4D3456CE1CB0310F0095B2FB /* InternetManager.swift */,
 				4D3456D01CB035F80095B2FB /* NotificationCenter.swift */,
 				4D65CFC41CB8215A00DE9260 /* Color.swift */,
+				8BC1777B1CB8FBCF0038D5FD /* Settings.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				8B98DD8A1C848179005D6A69 /* ScheduleListener.swift in Sources */,
 				8BC0D3BE1C7DF7B200FE597C /* AlaTransport.swift in Sources */,
 				8BD0C3AA1C777C63008BD083 /* Request.swift in Sources */,
+				8BC1777C1CB8FBCF0038D5FD /* Settings.swift in Sources */,
 				4D65CFC51CB8215F00DE9260 /* Color.swift in Sources */,
 				8B1F3E461C76145B00865CDF /* schedule_ios.xcdatamodeld in Sources */,
 				8B46A9991CAA77350082975B /* SearchingGroup.swift in Sources */,

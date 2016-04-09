@@ -23,6 +23,8 @@ class Group: NSManagedObject {
                 print("EXCEPTION -> GROUP -> removing from db")
             }
         }
+        Settings.scheduleUpdateTimeStamp = 0
+        
         self.init(entity: NSEntityDescription.entityForName("Group", inManagedObjectContext:DBManager.context)!, insertIntoManagedObjectContext: DBManager.context)
         id_ = Int16(id)
         name_ = name

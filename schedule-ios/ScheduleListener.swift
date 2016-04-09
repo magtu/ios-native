@@ -1,4 +1,4 @@
 protocol ScheduleListener: ResponseListener {
-    func onUpdate(updateAt: Double)
-    func onUpdateFailed()
+    func onUpdateSchedule(updateAt: Double)
+    func onUpdateScheduleFailed()
 }

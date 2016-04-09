@@ -28,7 +28,7 @@ class JSONProcessor: Processor {
             case Api.SCHEDULE.id:
                 (listener as! GroupsListner).onGetSchOfSelGroupFailed()
             case Api.UPDATE_OF_SCHEDULE.id:
-                (listener as! ScheduleListener).onUpdateFailed()
+                (listener as! ScheduleListener).onUpdateScheduleFailed()
             
             default:break
         }
@@ -55,9 +55,11 @@ class JSONProcessor: Processor {
 // 03. UPDATE
 // ============================================================================================
 func update(json: JSON, listener: ScheduleListener) throws {
-    listener.onUpdate(try json["updated_at"].double~!)
+    listener.onUpdateSchedule(try json["updated_at"].double~!)
     }
 }
+// ============================================================================================
+// ============================================================================================
 
 extension JSON {
     var weeks: [Week]? {
