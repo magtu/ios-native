@@ -39,7 +39,8 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         ScheduleManager.instanse.onUpdateEventTimer.add(self, ScheduleViewController.onUpdateEventTimer)
        
         let appearance = UITabBarItem.appearance()
-        let attributes = [NSFontAttributeName:UIFont(name: ".SFUIDisplay-Light", size: 18) as! AnyObject]
+        
+        let attributes = [NSFontAttributeName:UIFont.systemFontOfSize(18) ]
         appearance.setTitleTextAttributes(attributes, forState: .Normal)
 
         tabBar.delegate = self

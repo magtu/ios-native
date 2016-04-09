@@ -14,6 +14,7 @@ class HeaderViewCell: UITableViewCell {
     
     func create(dayName: String, showCDayIndicator: Bool) {
         name.text = dayName
+        
         cDayIndicator.hidden = !showCDayIndicator
     }
 }
