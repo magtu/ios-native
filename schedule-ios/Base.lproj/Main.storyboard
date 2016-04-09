@@ -71,7 +71,7 @@
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMx-vP-tSy">
                                 <rect key="frame" x="122" y="302" width="76" height="30"/>
-                                <state key="normal" title=" Загрузить"/>
+                                <state key="normal" title="Повторить"/>
                                 <connections>
                                     <action selector="loadgroupsClick:" destination="hhw-NF-txO" eventType="touchUpInside" id="OTs-e8-zBd"/>
                                 </connections>
