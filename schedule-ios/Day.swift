@@ -13,6 +13,6 @@ class Day : NSManagedObject{
         self.init(entity: NSEntityDescription.entityForName("Day", inManagedObjectContext:DBManager.context)!, insertIntoManagedObjectContext: DBManager.context)
         day_id_ = Int16(id)
         day_ = name
-        events_ = NSOrderedSet(array: events)
+        events_ = NSOrderedSet(array: events.sort{$0.0.eventFields.indx < $0.1.eventFields.indx})
     }
 }

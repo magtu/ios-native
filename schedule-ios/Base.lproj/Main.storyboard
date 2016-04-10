@@ -192,7 +192,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <subviews>
                                     <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="7" translatesAutoresizingMaskIntoConstraints="NO" id="sW8-Od-a65">
-                                        <rect key="frame" x="109" y="35" width="103" height="37"/>
+                                        <rect key="frame" x="109" y="39" width="103" height="37"/>
                                         <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="currentPageIndicatorTintColor" red="0.050980392159999999" green="0.1960784314" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                     </pageControl>
@@ -222,7 +222,7 @@
                                         </items>
                                     </navigationBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gHd-8g-c7I">
-                                        <rect key="frame" x="18" y="57" width="284" height="457"/>
+                                        <rect key="frame" x="18" y="72" width="284" height="442"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -332,7 +332,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdg-8n-DCQ">
                                                             <rect key="frame" x="55" y="64" width="36" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -391,8 +391,8 @@
                                     <constraint firstItem="lAb-xx-GhD" firstAttribute="leading" secondItem="3Yg-U4-l7b" secondAttribute="leading" id="Lxt-gi-1XY"/>
                                     <constraint firstItem="lAb-xx-GhD" firstAttribute="top" secondItem="3Yg-U4-l7b" secondAttribute="top" id="OfH-jf-6o8"/>
                                     <constraint firstItem="sW8-Od-a65" firstAttribute="centerX" secondItem="3Yg-U4-l7b" secondAttribute="centerX" id="WlH-7k-Bzt"/>
-                                    <constraint firstItem="gHd-8g-c7I" firstAttribute="top" secondItem="sW8-Od-a65" secondAttribute="bottom" constant="-15" id="Zzv-I5-pim"/>
-                                    <constraint firstItem="sW8-Od-a65" firstAttribute="top" secondItem="3Yg-U4-l7b" secondAttribute="top" constant="35" id="dXg-5y-CoU"/>
+                                    <constraint firstItem="gHd-8g-c7I" firstAttribute="top" secondItem="sW8-Od-a65" secondAttribute="bottom" constant="-4" id="Zzv-I5-pim"/>
+                                    <constraint firstItem="sW8-Od-a65" firstAttribute="top" secondItem="3Yg-U4-l7b" secondAttribute="top" constant="39" id="dXg-5y-CoU"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="hTH-tP-vka" appends="YES" id="SEH-cj-jig"/>

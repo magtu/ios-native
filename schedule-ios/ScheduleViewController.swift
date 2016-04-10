@@ -88,7 +88,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     }
     @IBAction func frontSwipeHandle(sender: UISwipeGestureRecognizer) {
         if isTapSwipeOnNavBar(sender) {return}
-        if cDay.id + 1 < 8 {
+        if cDay.id + 1 < 7 {
             cDay = getDay(cDay.id + 1)
         }
         else {

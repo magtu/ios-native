@@ -45,6 +45,7 @@ class Event: NSManagedObject {
         type: String, subgroup:Int, teacherID: Int, teacher: String, location: String)
     {
         self.init(entity: NSEntityDescription.entityForName("Event", inManagedObjectContext:DBManager.context)!, insertIntoManagedObjectContext: DBManager.context)
+        
         event_index_ = Int16(eventIndex)
         teacher_id_ = Int16(teacherID)
         teacher_ = teacher
@@ -53,6 +54,6 @@ class Event: NSManagedObject {
         course_id_ = Int16(courseID)
         course_ = course
         type_id_ = Int16(typeID)
-        type_ = type//String(type.characters.prefix(1)).uppercaseString + String(type.characters.dropFirst())
+        type_ = type
     }
 }

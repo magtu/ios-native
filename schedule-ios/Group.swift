@@ -28,6 +28,8 @@ class Group: NSManagedObject {
         self.init(entity: NSEntityDescription.entityForName("Group", inManagedObjectContext:DBManager.context)!, insertIntoManagedObjectContext: DBManager.context)
         id_ = Int16(id)
         name_ = name
+
+        
         weeks_ = NSOrderedSet(array: weeks)
         
         DBManager.saveContext()
