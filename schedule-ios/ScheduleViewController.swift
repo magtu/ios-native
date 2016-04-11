@@ -160,6 +160,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         unblockUI()
         (cDay, cWeekType) = ScheduleManager.instanse.cDayWType
         adapter.loadCDay()
+        onUpdateEventTimer()
     }
     func onUpdateEventTimer() {
         if ScheduleManager.instanse.cDayWType.day === cDay {
