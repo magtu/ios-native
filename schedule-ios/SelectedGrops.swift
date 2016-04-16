@@ -1,6 +1,6 @@
 import Foundation
 import CoreData
-
+@objc(SelectedGroups)
 class SelectedGroups: NSManagedObject {
     @NSManaged var groups_: NSOrderedSet
     @NSManaged var currentGroup_: Int16

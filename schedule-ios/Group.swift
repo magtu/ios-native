@@ -1,4 +1,5 @@
 import CoreData
+@objc(Group)
 class Group: NSManagedObject {
     @NSManaged var id_: Int16
     @NSManaged var name_: String

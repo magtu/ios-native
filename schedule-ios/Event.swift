@@ -1,5 +1,5 @@
 import CoreData
-
+@objc(Event)
 class Event: NSManagedObject {
     @NSManaged var event_index_: Int16
     @NSManaged var course_id_: Int16

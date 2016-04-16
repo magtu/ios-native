@@ -7,10 +7,19 @@ class TableFooter: UIView {
     }
 }
 class TableHeader: UIView {
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var cDayIndicator: UIView!
+    
     override func drawRect(rect: CGRect) {
         self.roundCorners([.TopLeft, .TopRight], radius: 10)
     }
+    func create(dayName: String, showCDayIndicator: Bool) {
+        name.text = dayName
+        cDayIndicator.hidden = !showCDayIndicator
+        cDayIndicator.roundCorners([.AllCorners], radius: 10)
+    }
 }
+
 
 
 extension UIView {

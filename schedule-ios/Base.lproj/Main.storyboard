@@ -9,7 +9,7 @@
         <!--Navigation View Controller-->
         <scene sceneID="ych-27-yyT">
             <objects>
-                <navigationController navigationBarHidden="YES" id="EEl-GQ-WzN" customClass="NavigationViewController" customModule="schedule_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="EEl-GQ-WzN" customClass="NavigationViewController" customModule="Расписание_МГТУ" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kdn-3x-tDK">
@@ -28,7 +28,7 @@
         <!--Search View Controller-->
         <scene sceneID="WlT-hg-ccg">
             <objects>
-                <viewController storyboardIdentifier="SearchViewController" id="hhw-NF-txO" customClass="SearchViewController" customModule="schedule_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="hhw-NF-txO" customClass="SearchViewController" customModule="Расписание_МГТУ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q2H-Iu-6dP"/>
                         <viewControllerLayoutGuide type="bottom" id="wF6-pG-FME"/>
@@ -155,7 +155,7 @@
         <!--Schedule View Controller-->
         <scene sceneID="fxO-lJ-1qf">
             <objects>
-                <viewController storyboardIdentifier="ScheduleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A6O-a5-kZP" customClass="ScheduleViewController" customModule="schedule_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScheduleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A6O-a5-kZP" customClass="ScheduleViewController" customModule="Расписание_МГТУ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jjg-Bd-jso"/>
                         <viewControllerLayoutGuide type="bottom" id="Pgf-E8-Nht"/>
@@ -222,55 +222,39 @@
                                         </items>
                                     </navigationBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gHd-8g-c7I">
-                                        <rect key="frame" x="18" y="72" width="284" height="442"/>
+                                        <rect key="frame" x="18" y="72" width="284" height="447"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <view key="tableFooterView" contentMode="scaleToFill" id="frB-8m-fKK" customClass="TableFooter" customModule="schedule_ios" customModuleProvider="target">
+                                        <view key="tableHeaderView" contentMode="scaleToFill" id="4jJ-pM-k3F">
+                                            <rect key="frame" x="0.0" y="0.0" width="284" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Воскресение" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7B-Fz-YHu">
+                                                    <rect key="frame" x="8" y="11" width="268" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kx9-Zd-Tga">
+                                                    <rect key="frame" x="18" y="17" width="10" height="10"/>
+                                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="10" id="OoZ-bV-3dp"/>
+                                                        <constraint firstAttribute="width" constant="10" id="Xag-B1-WEI"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view key="tableFooterView" contentMode="scaleToFill" id="frB-8m-fKK" customClass="TableFooter" customModule="Расписание_МГТУ" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="158" width="284" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.050980392159999999" green="0.1960784314" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="headerCell" id="tIz-y9-8F5" customClass="HeaderViewCell" customModule="schedule_ios" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="284" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tIz-y9-8F5" id="XuW-W4-4b7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Воскресение" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DV-zn-clo">
-                                                            <rect key="frame" x="8" y="11" width="268" height="22"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsJ-bL-CAc">
-                                                            <rect key="frame" x="18" y="17" width="10" height="10"/>
-                                                            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="10" id="K2p-yr-OKf"/>
-                                                                <constraint firstAttribute="width" constant="10" id="Qn3-Gj-LlQ"/>
-                                                            </constraints>
-                                                        </view>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="0DV-zn-clo" firstAttribute="top" secondItem="XuW-W4-4b7" secondAttribute="topMargin" constant="3" id="0C3-pT-VjA"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="0DV-zn-clo" secondAttribute="bottom" constant="3" id="HeZ-HK-qZd"/>
-                                                        <constraint firstItem="vsJ-bL-CAc" firstAttribute="centerY" secondItem="XuW-W4-4b7" secondAttribute="centerY" id="MdV-IU-iao"/>
-                                                        <constraint firstItem="0DV-zn-clo" firstAttribute="trailing" secondItem="XuW-W4-4b7" secondAttribute="trailingMargin" id="aHE-mZ-nHk"/>
-                                                        <constraint firstItem="0DV-zn-clo" firstAttribute="leading" secondItem="XuW-W4-4b7" secondAttribute="leadingMargin" id="aSR-pA-WaS"/>
-                                                        <constraint firstItem="vsJ-bL-CAc" firstAttribute="leading" secondItem="XuW-W4-4b7" secondAttribute="leadingMargin" constant="10" id="idw-dF-Kd2"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <color key="backgroundColor" red="0.050980392159999999" green="0.1960784314" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
-                                                <connections>
-                                                    <outlet property="cDayIndicator" destination="vsJ-bL-CAc" id="ph7-Ic-2QT"/>
-                                                    <outlet property="name" destination="0DV-zn-clo" id="Jhg-EN-mg6"/>
-                                                </connections>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="86" id="54Q-Yd-jvl" customClass="EventViewCell" customModule="schedule_ios" customModuleProvider="target">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="86" id="54Q-Yd-jvl" customClass="EventViewCell" customModule="Расписание_МГТУ" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="72" width="284" height="86"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54Q-Yd-jvl" id="G3a-lN-gnS">
@@ -385,7 +369,7 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="gHd-8g-c7I" secondAttribute="trailing" constant="18" id="1jw-6T-aRn"/>
-                                    <constraint firstAttribute="bottom" secondItem="gHd-8g-c7I" secondAttribute="bottom" constant="5" id="9TA-Mq-Y4T"/>
+                                    <constraint firstAttribute="bottom" secondItem="gHd-8g-c7I" secondAttribute="bottom" id="9TA-Mq-Y4T"/>
                                     <constraint firstAttribute="trailing" secondItem="lAb-xx-GhD" secondAttribute="trailing" id="FDe-K6-u1B"/>
                                     <constraint firstItem="gHd-8g-c7I" firstAttribute="leading" secondItem="3Yg-U4-l7b" secondAttribute="leading" constant="18" id="Kn8-rI-3t9"/>
                                     <constraint firstItem="lAb-xx-GhD" firstAttribute="leading" secondItem="3Yg-U4-l7b" secondAttribute="leading" id="Lxt-gi-1XY"/>

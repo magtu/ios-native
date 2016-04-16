@@ -1,5 +1,5 @@
 import CoreData
-
+@objc(Day)
 class Day : NSManagedObject{
     @NSManaged var day_id_: Int16
     @NSManaged var day_   : String

@@ -1,5 +1,5 @@
 import CoreData
-
+@objc(Week)
 class Week: NSManagedObject {
     @NSManaged private var week_id_: Int16
     @NSManaged private var week_: String

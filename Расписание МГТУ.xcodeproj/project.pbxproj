@@ -26,7 +26,7 @@
 		8B1F02551CAAB7A2003A19F8 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F02541CAAB7A2003A19F8 /* NavigationViewController.swift */; };
 		8B1F3E3E1C76145B00865CDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F3E3D1C76145B00865CDF /* AppDelegate.swift */; };
 		8B1F3E431C76145B00865CDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F3E411C76145B00865CDF /* Main.storyboard */; };
-		8B1F3E461C76145B00865CDF /* schedule_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F3E441C76145B00865CDF /* schedule_ios.xcdatamodeld */; };
+		8B1F3E461C76145B00865CDF /* Расписание МГТУ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F3E441C76145B00865CDF /* Расписание МГТУ.xcdatamodeld */; };
 		8B1F3E4B1C76145B00865CDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F3E491C76145B00865CDF /* LaunchScreen.storyboard */; };
 		8B46A9991CAA77350082975B /* SearchingGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B46A9981CAA77350082975B /* SearchingGroup.swift */; };
 		8B59D1651C90A501003084F8 /* ObserverSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B59D1641C90A501003084F8 /* ObserverSet.swift */; };
@@ -73,10 +73,10 @@
 		8B1C47941C9AEA17005DB2F5 /* TimeProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeProvider.swift; sourceTree = "<group>"; };
 		8B1F02501CAA9489003A19F8 /* SelectedGrops.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedGrops.swift; sourceTree = "<group>"; };
 		8B1F02541CAAB7A2003A19F8 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
-		8B1F3E3A1C76145B00865CDF /* schedule-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schedule-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B1F3E3A1C76145B00865CDF /* Расписание МГТУ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Расписание МГТУ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1F3E3D1C76145B00865CDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B1F3E421C76145B00865CDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8B1F3E451C76145B00865CDF /* schedule_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = schedule_ios.xcdatamodel; sourceTree = "<group>"; };
+		8B1F3E451C76145B00865CDF /* Расписание МГТУ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Расписание МГТУ.xcdatamodel"; sourceTree = "<group>"; };
 		8B1F3E4A1C76145B00865CDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B1F3E4C1C76145B00865CDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B46A9981CAA77350082975B /* SearchingGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchingGroup.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				8B1F02531CAA9ABE003A19F8 /* models */,
-				8B1F3E441C76145B00865CDF /* schedule_ios.xcdatamodeld */,
+				8B1F3E441C76145B00865CDF /* Расписание МГТУ.xcdatamodeld */,
 				4D9B430C1C9EB5AC00A69E08 /* DBManager.swift */,
 			);
 			name = db;
@@ -188,7 +188,7 @@
 		8B1F3E3B1C76145B00865CDF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8B1F3E3A1C76145B00865CDF /* schedule-ios.app */,
+				8B1F3E3A1C76145B00865CDF /* Расписание МГТУ.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -306,9 +306,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8B1F3E391C76145B00865CDF /* schedule-ios */ = {
+		8B1F3E391C76145B00865CDF /* Расписание МГТУ */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B1F3E4F1C76145B00865CDF /* Build configuration list for PBXNativeTarget "schedule-ios" */;
+			buildConfigurationList = 8B1F3E4F1C76145B00865CDF /* Build configuration list for PBXNativeTarget "Расписание МГТУ" */;
 			buildPhases = (
 				98DEBA3FE559E6DE5615F521 /* Check Pods Manifest.lock */,
 				8B1F3E361C76145B00865CDF /* Sources */,
@@ -321,9 +321,9 @@
 			);
 			dependencies = (
 			);
-			name = "schedule-ios";
+			name = "Расписание МГТУ";
 			productName = "schedule-ios";
-			productReference = 8B1F3E3A1C76145B00865CDF /* schedule-ios.app */;
+			productReference = 8B1F3E3A1C76145B00865CDF /* Расписание МГТУ.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -342,7 +342,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8B1F3E351C76145B00865CDF /* Build configuration list for PBXProject "schedule-ios" */;
+			buildConfigurationList = 8B1F3E351C76145B00865CDF /* Build configuration list for PBXProject "Расписание МГТУ" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -355,7 +355,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8B1F3E391C76145B00865CDF /* schedule-ios */,
+				8B1F3E391C76145B00865CDF /* Расписание МГТУ */,
 			);
 		};
 /* End PBXProject section */
@@ -447,7 +447,7 @@
 				8BD0C3AA1C777C63008BD083 /* Request.swift in Sources */,
 				8BC1777C1CB8FBCF0038D5FD /* Settings.swift in Sources */,
 				4D65CFC51CB8215F00DE9260 /* Color.swift in Sources */,
-				8B1F3E461C76145B00865CDF /* schedule_ios.xcdatamodeld in Sources */,
+				8B1F3E461C76145B00865CDF /* Расписание МГТУ.xcdatamodeld in Sources */,
 				8B46A9991CAA77350082975B /* SearchingGroup.swift in Sources */,
 				8B59D1651C90A501003084F8 /* ObserverSet.swift in Sources */,
 				8B1C47951C9AEA17005DB2F5 /* TimeProvider.swift in Sources */,
@@ -584,7 +584,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.hideman.schedule-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Расписание МГТУ";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -600,7 +600,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.hideman.schedule-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Расписание МГТУ";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -608,7 +608,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8B1F3E351C76145B00865CDF /* Build configuration list for PBXProject "schedule-ios" */ = {
+		8B1F3E351C76145B00865CDF /* Build configuration list for PBXProject "Расписание МГТУ" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B1F3E4D1C76145B00865CDF /* Debug */,
@@ -617,7 +617,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B1F3E4F1C76145B00865CDF /* Build configuration list for PBXNativeTarget "schedule-ios" */ = {
+		8B1F3E4F1C76145B00865CDF /* Build configuration list for PBXNativeTarget "Расписание МГТУ" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B1F3E501C76145B00865CDF /* Debug */,
@@ -629,13 +629,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8B1F3E441C76145B00865CDF /* schedule_ios.xcdatamodeld */ = {
+		8B1F3E441C76145B00865CDF /* Расписание МГТУ.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8B1F3E451C76145B00865CDF /* schedule_ios.xcdatamodel */,
+				8B1F3E451C76145B00865CDF /* Расписание МГТУ.xcdatamodel */,
 			);
-			currentVersion = 8B1F3E451C76145B00865CDF /* schedule_ios.xcdatamodel */;
-			path = schedule_ios.xcdatamodeld;
+			currentVersion = 8B1F3E451C76145B00865CDF /* Расписание МГТУ.xcdatamodel */;
+			path = "Расписание МГТУ.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
