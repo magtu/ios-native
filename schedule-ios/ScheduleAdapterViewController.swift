@@ -7,7 +7,6 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
     var vc: ScheduleViewController!
     var eventCells: [EventViewCell] = []
     
-    
     func bind(table: UITableView, vc: ScheduleViewController) {
         self.table = table
         table.dataSource = self
@@ -16,23 +15,19 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if day != nil {return day!.events.count + 1 } else {return 0}
+        if day != nil {return day!.events.count} else {return 0}
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row != 0  {
-            let cell = eventCells[indexPath.row-1]
+            let cell = eventCells[indexPath.row]
             return cell
-            
-        } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! HeaderViewCell
-            cell.create(day!.name, showCDayIndicator: ScheduleManager.instanse.cDayWType.day == day)
-            return cell
-        }
     }
         
     func loadCDay(){
         
         self.day = vc.cDay
+        
+        if day != nil {(table.tableHeaderView as! TableHeader).create(day!.name, showCDayIndicator: ScheduleManager.instanse.cDayWType.day == day)}
+        
         eventCells = day!.events.map{
             let c = self.table.dequeueReusableCellWithIdentifier("eventCell") as! EventViewCell
             c.create($0)
