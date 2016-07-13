@@ -338,7 +338,7 @@
 				TargetAttributes = {
 					8B1F3E391C76145B00865CDF = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = EWV657H93T;
+						DevelopmentTeam = YZYN244G92;
 					};
 				};
 			};
@@ -583,7 +583,7 @@
 				INFOPLIST_FILE = "schedule-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hideman.schedule-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "mgtu.schedule-ios";
 				PRODUCT_NAME = "Расписание МГТУ";
 				PROVISIONING_PROFILE = "";
 			};
@@ -599,7 +599,7 @@
 				INFOPLIST_FILE = "schedule-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.hideman.schedule-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "mgtu.schedule-ios";
 				PRODUCT_NAME = "Расписание МГТУ";
 				PROVISIONING_PROFILE = "";
 			};
