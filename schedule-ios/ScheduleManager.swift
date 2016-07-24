@@ -52,6 +52,7 @@ class ScheduleManager: ScheduleListener {
     // ============================================================================================
     func getDay(cDayID: Int, weekType: WeekType) -> Day {
         return weeks[weekType]!.days.filter{cDayID == $0.id}.first!
+        
     }
     func getSchedule(){
         getNewCSchedule()

@@ -20,6 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Crashlytics.self])
+        
+        var pageControl = UIPageControl.appearance()
+        
+        pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
+        
+        pageControl.currentPageIndicatorTintColor = UIColor.blackColor()
+        
+        pageControl.backgroundColor = UIColor.whiteColor()
+
+        
         return true
     }
 

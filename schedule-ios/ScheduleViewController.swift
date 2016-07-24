@@ -1,15 +1,11 @@
 import UIKit
-class ScheduleViewController: UIViewController, UITabBarDelegate {
+class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewControllerDataSource {
     // ============================================================================================
     // FIELDS
     // ============================================================================================
-    @IBOutlet weak var table: UITableView!
+    var pageViewController: UIPageViewController!
     @IBOutlet weak var tabBar: UITabBar!
-    @IBOutlet weak var footerView: TableFooter!
-    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var navItem: UINavigationItem!
-    @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loadingLabel: UILabel!
     
@@ -18,7 +14,6 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         get {return self.day}
         set {
             self.day = newValue
-            pageControl.currentPage = day.id - 1
         }
     }
     var adapter: ScheduleAdapterViewController!
@@ -26,16 +21,22 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     var cWeekType: WeekType! {
         get {return self.weekType}
         set {
-                self.weekType = newValue
-                tabBar.selectedItem = tabBar.items![newValue == .EVEN ? 0 : 1]
-            }
+            self.weekType = newValue
+            tabBar.selectedItem = tabBar.items![newValue == .EVEN ? 0 : 1]
+        }
     }
-    
+    var startVC: ScheduleTableViewController!
     // ============================================================================================
     // LIFECYCLE
     // ============================================================================================
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        pageViewController = storyboard?.instantiateViewControllerWithIdentifier("pagevc") as! UIPageViewController
+        pageViewController.dataSource = self
+        
+      //  startVC = storyboard?.instantiateViewControllerWithIdentifier("ScheduleTableViewController") as! ScheduleTableViewController
+        //pageViewController.setViewControllers([startVC], direction: .Forward, animated: true, completion: nil)
         
         navItem.title = GroupManager.instanse.currentGroup!.name
         
@@ -50,33 +51,68 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         appearance.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Selected)
         
         tabBar.delegate = self
-
-        table.contentSize = CGSizeMake(table.frame.size.width, table.contentSize.height);
-
-        table.estimatedRowHeight = 86
-        table.rowHeight = UITableViewAutomaticDimension
+        
+//        startVC.table.contentSize = CGSizeMake(table.frame.size.width, table.contentSize.height);
+        
+        startVC.table.estimatedRowHeight = 86
+        startVC.table.rowHeight = UITableViewAutomaticDimension
         adapter = ScheduleAdapterViewController()
-        adapter.bind(table, vc: self)
+        adapter.bind(startVC.table, vc: self)
         
         loadSchedule()
     }
     
-    func curl(transition: UIViewAnimationTransition){
+    func viewControllerAtIndex(index: Int) -> ScheduleTableViewController? {
+        if  (index >= 7) || (index < 0) {
+            return nil
+        }
+        startVC.index = index
+        cDay = getDay(index)
+        
         adapter.loadCDay()
         onUpdateEventTimer()
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
-        UIView.setAnimationDuration(NSTimeInterval(0.5))
-        UIView.setAnimationTransition(transition, forView: table.superview!, cache: false)
         
-        UIView.commitAnimations()
+        return startVC
     }
     
-    private func isTapSwipeOnNavBar(sender: UISwipeGestureRecognizer) -> Bool {
-        return (navBar.bounds.size.height >= sender.locationInView(view).y) ? true : false
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        let vc = viewController as! ScheduleTableViewController
+        var index = vc.index as Int
+        if (index < 0 || index == NSNotFound) { return nil }
+        
+        index -= 1
+        return viewControllerAtIndex(index)
     }
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        let vc = viewController as! ScheduleTableViewController
+        var index = vc.index as Int
+        if (index == NSNotFound || index + 1 >= 7) { return nil }
+        
+        index += 1
+        return viewControllerAtIndex(index)
+    }
+    
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return 7
+    }
+    
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
+    
+    
+    /*func curl(transition: UIViewAnimationTransition){
+     
+     UIView.beginAnimations(nil, context: nil)
+     UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
+     UIView.setAnimationDuration(NSTimeInterval(0.5))
+     UIView.setAnimationTransition(transition, forView: table.superview!, cache: false)
+     
+     UIView.commitAnimations()
+     }*/
+    
     @IBAction func backSwipeHandle(sender: UISwipeGestureRecognizer) {
-        if isTapSwipeOnNavBar(sender) {return}
         if cDay.id - 1 > 0 {
             cDay = getDay(cDay.id - 1)
         }
@@ -84,18 +120,18 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
             cWeekType = cWeekType == .ODD ? .EVEN : .ODD
             cDay = getDay(6)
         }
-        curl(.CurlDown)
+        
     }
     @IBAction func frontSwipeHandle(sender: UISwipeGestureRecognizer) {
-        if isTapSwipeOnNavBar(sender) {return}
+        
         if cDay.id + 1 < 7 {
             cDay = getDay(cDay.id + 1)
         }
         else {
             cWeekType = cWeekType == .ODD ? .EVEN : .ODD
             cDay = getDay(1)
-        } 
-        curl(.CurlUp)
+        }
+        
     }
     
     @IBAction func toCDayClick(sender: UIBarButtonItem) {
@@ -104,7 +140,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         
         let t: UIViewAnimationTransition = cDay.id > now.day.id ? .CurlDown : .CurlUp
         (cDay, cWeekType) = now
-        curl(t)
+        
     }
     
     
@@ -112,17 +148,17 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         if item.tag == 0 && cWeekType != .EVEN {
             cWeekType = .EVEN
             cDay = getDay(cDay.id)
-            curl(.FlipFromLeft)
+            
         }
         else if item.tag == 1 && cWeekType != .ODD {
             cWeekType = .ODD
             cDay = getDay(cDay.id)
-            curl(.FlipFromRight)
-        }        
+            
+        }
     }
-   
-    func getDay(ID: Int) -> Day {
-       return ScheduleManager.instanse.getDay(ID, weekType: cWeekType)
+    
+    func getDay(id: Int) -> Day {
+        return ScheduleManager.instanse.getDay(id+1, weekType: cWeekType)
     }
     
     @IBAction func onMenuClick(sender: AnyObject) {
@@ -130,7 +166,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     }
     
     func blockUIForloading(){
-        contentView.hidden = true
+        view.hidden = true
         loadingLabel.hidden = false
         activityIndicator.startAnimating()
         activityIndicator.hidden = false
@@ -140,7 +176,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     func unblockUI() {
         tabBar.hidden = false
         loadingLabel.hidden = true
-        contentView.hidden = false
+        view.hidden = false
         activityIndicator.stopAnimating()
         activityIndicator.hidden = true
     }
@@ -152,7 +188,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
     // ============================================================================================
     // MANAGER REQUEST
     // ============================================================================================
-    func loadSchedule() {ScheduleManager.instanse.getSchedule()}    
+    func loadSchedule() {ScheduleManager.instanse.getSchedule()}
     // ============================================================================================
     // MANAGER RESPONSE
     // ============================================================================================
