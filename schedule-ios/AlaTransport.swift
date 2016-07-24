@@ -11,26 +11,24 @@ class AlaTransport: Transport {
     func send(request request: Request, processor: Processor, listener: ResponseListener) {
         if !InternetManager.isConnectedToNetwork() {
             listener.onInternetConnectionFailed()
-            return 
+            return
         }
         
         let url = DOMAIN_URL + API + VERSION + request.urlPath
+        
         print(url + (request.params.isEmpty ? "" : "?" + request.params.description))
-        Alamofire.request(request.command.method, url, parameters: request.params).responseJSON { response in
+        Alamofire.request(request.command.method, url, parameters: request.params).response { (_,_httpResponce,_data,_error) in
             
-            if response.result.isFailure {processor.processFailed(request, listener: listener)}
-            else {
-                if !processor.process(request, response: response.data!, listener: listener) {
-                    if (self.countOfResends < self.LIMIT_RESEND) {
-                        sleep(1)
-                        self.countOfResends += 1
-                        self.send(request: request, processor: processor, listener: listener)
-                    }
-                    else {
-                        //Все пиздец
-                        self.countOfResends = 0
-                        processor.processFailed(request, listener: listener)
-                    }
+            if !processor.process(request, response: _data!, listener: listener) {
+                if (self.countOfResends < self.LIMIT_RESEND) {
+                    sleep(1)
+                    self.countOfResends += 1
+                    self.send(request: request, processor: processor, listener: listener)
+                }
+                else {
+                    //Все пиздец
+                    self.countOfResends = 0
+                    processor.processFailed(request, listener: listener)
                 }
             }
         }

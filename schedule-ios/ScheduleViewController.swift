@@ -44,15 +44,15 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         ScheduleManager.instanse.onLoadingScheduleEvent.add(self, ScheduleViewController.blockUIForloading)
         ScheduleManager.instanse.onLoadingScheduleFailedEvent.add(self, ScheduleViewController.unblockUIWithLoadingFailed)
         
-        
         let appearance = UITabBarItem.appearance()
         
-        let attributes = [NSFontAttributeName:UIFont.systemFontOfSize(18) ]
-        appearance.setTitleTextAttributes(attributes, forState: .Normal)
-
+        appearance.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.grayColor(), NSFontAttributeName : UIFont.systemFontOfSize(18)], forState: .Normal)
+        appearance.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Selected)
+        
         tabBar.delegate = self
 
-        table.layer.cornerRadius = 10
+        table.contentSize = CGSizeMake(table.frame.size.width, table.contentSize.height);
+
         table.estimatedRowHeight = 86
         table.rowHeight = UITableViewAutomaticDimension
         adapter = ScheduleAdapterViewController()
@@ -66,7 +66,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
         onUpdateEventTimer()
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
-        UIView.setAnimationDuration(NSTimeInterval(1))
+        UIView.setAnimationDuration(NSTimeInterval(0.5))
         UIView.setAnimationTransition(transition, forView: table.superview!, cache: false)
         
         UIView.commitAnimations()
@@ -174,5 +174,4 @@ class ScheduleViewController: UIViewController, UITabBarDelegate {
             }
         }
     }
-    
 }

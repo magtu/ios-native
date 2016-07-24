@@ -49,11 +49,11 @@
 		8BD0C3AA1C777C63008BD083 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD0C3A91C777C63008BD083 /* Request.swift */; };
 		8BE932B71C778C3A00416876 /* JSONProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE932B61C778C3A00416876 /* JSONProcessor.swift */; };
 		8BE932B91C778D4B00416876 /* ResponceListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE932B81C778D4B00416876 /* ResponceListner.swift */; };
-		92BCF8431F8B34FA29368661 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C8D98054D5ECAFD4A84E11 /* Pods.framework */; };
+		B128D11A228D1D59CDEA2B35 /* Pods_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF666567A302EDF7BDEBBA7 /* Pods_Schedule.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		192BFE2AF3026F2375A7D3E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		42BE7C524DE14112EBAFC925 /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
 		4D0452601C95D523006DB326 /* HeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewCell.swift; sourceTree = "<group>"; };
 		4D0452621C95D5B5006DB326 /* HeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewCell.xib; sourceTree = "<group>"; };
 		4D3456CE1CB0310F0095B2FB /* InternetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetManager.swift; sourceTree = "<group>"; };
@@ -68,8 +68,9 @@
 		4DD1D7BF1C95997000B3CED4 /* EventViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewCell.xib; sourceTree = "<group>"; };
 		4DD1DEF61C942E5F00DC1A15 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4DD1DEF81C942EFE00DC1A15 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
-		643DE993E8114AA87192B1C1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		69C8D98054D5ECAFD4A84E11 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70ED663ED08348F06E33B6A2 /* Pods-Расписание МГТУ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Расписание МГТУ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Расписание МГТУ/Pods-Расписание МГТУ.debug.xcconfig"; sourceTree = "<group>"; };
+		71B05C800C328CA8D2EBE995 /* Pods-Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.debug.xcconfig"; sourceTree = "<group>"; };
 		8B1C47941C9AEA17005DB2F5 /* TimeProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeProvider.swift; sourceTree = "<group>"; };
 		8B1F02501CAA9489003A19F8 /* SelectedGrops.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedGrops.swift; sourceTree = "<group>"; };
 		8B1F02541CAAB7A2003A19F8 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +81,11 @@
 		8B1F3E4A1C76145B00865CDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B1F3E4C1C76145B00865CDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B46A9981CAA77350082975B /* SearchingGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchingGroup.swift; sourceTree = "<group>"; };
+		8B4A7E061D365728001B8777 /* Alamofire_SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire_SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/Расписание_МГТУ-ccpkjemmbkpenvdgoctwtirxjlnc/Build/Products/Debug-iphoneos/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework"; sourceTree = "<group>"; };
+		8B4A7E071D365728001B8777 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/Расписание_МГТУ-ccpkjemmbkpenvdgoctwtirxjlnc/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		8B4A7E081D365728001B8777 /* Pods________________.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Pods________________.framework"; path = "Pods/../build/Debug-iphoneos/Pods________________.framework"; sourceTree = "<group>"; };
+		8B4A7E091D365728001B8777 /* ReachabilitySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReachabilitySwift.framework; path = "../../Library/Developer/Xcode/DerivedData/Расписание_МГТУ-ccpkjemmbkpenvdgoctwtirxjlnc/Build/Products/Debug-iphoneos/ReachabilitySwift/ReachabilitySwift.framework"; sourceTree = "<group>"; };
+		8B4A7E0A1D365728001B8777 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/Расписание_МГТУ-ccpkjemmbkpenvdgoctwtirxjlnc/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		8B59D1641C90A501003084F8 /* ObserverSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverSet.swift; sourceTree = "<group>"; };
 		8B7DB64F1C8B18B0007FACA6 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		8B7DB6521C8B1CE5007FACA6 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -95,11 +101,15 @@
 		8BC0D3C31C7E0A4F00FE597C /* GroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupManager.swift; sourceTree = "<group>"; };
 		8BC0D3C51C7E0A9F00FE597C /* GroupListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListener.swift; sourceTree = "<group>"; };
 		8BC1777B1CB8FBCF0038D5FD /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		8BC6AFC71D3658E200B68342 /* Alamofire-SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire-SwiftyJSON.swift"; sourceTree = "<group>"; };
 		8BD0C3A41C77773E008BD083 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		8BD0C3A71C77782A008BD083 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		8BD0C3A91C777C63008BD083 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		8BE932B61C778C3A00416876 /* JSONProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8BE932B81C778D4B00416876 /* ResponceListner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponceListner.swift; sourceTree = "<group>"; };
+		B5346A4BA1BD544F75A7AEA9 /* Pods-Расписание МГТУ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Расписание МГТУ.release.xcconfig"; path = "Pods/Target Support Files/Pods-Расписание МГТУ/Pods-Расписание МГТУ.release.xcconfig"; sourceTree = "<group>"; };
+		BAF666567A302EDF7BDEBBA7 /* Pods_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEBFD9498C15FA1C4AE8DD2B /* Pods________________.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods________________.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92BCF8431F8B34FA29368661 /* Pods.framework in Frameworks */,
+				B128D11A228D1D59CDEA2B35 /* Pods_Schedule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +168,14 @@
 		605E465E84E1931958A6AC2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B4A7E061D365728001B8777 /* Alamofire_SwiftyJSON.framework */,
+				8B4A7E071D365728001B8777 /* Alamofire.framework */,
+				8B4A7E081D365728001B8777 /* Pods________________.framework */,
+				8B4A7E091D365728001B8777 /* ReachabilitySwift.framework */,
+				8B4A7E0A1D365728001B8777 /* SwiftyJSON.framework */,
 				69C8D98054D5ECAFD4A84E11 /* Pods.framework */,
+				FEBFD9498C15FA1C4AE8DD2B /* Pods________________.framework */,
+				BAF666567A302EDF7BDEBBA7 /* Pods_Schedule.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -180,8 +197,8 @@
 			children = (
 				8B1F3E3C1C76145B00865CDF /* schedule-ios */,
 				8B1F3E3B1C76145B00865CDF /* Products */,
-				9086B4236EC4A4A9D804EBD2 /* Pods */,
 				605E465E84E1931958A6AC2F /* Frameworks */,
+				C3411431C451202308F67F77 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,6 +240,7 @@
 		8B98DD8D1C848309005D6A69 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				8BC6AFC71D3658E200B68342 /* Alamofire-SwiftyJSON.swift */,
 				8B98DD8B1C8482DB005D6A69 /* UnwrappTrows.swift */,
 				8B59D1641C90A501003084F8 /* ObserverSet.swift */,
 				8B1C47941C9AEA17005DB2F5 /* TimeProvider.swift */,
@@ -294,11 +312,13 @@
 			name = models;
 			sourceTree = "<group>";
 		};
-		9086B4236EC4A4A9D804EBD2 /* Pods */ = {
+		C3411431C451202308F67F77 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				643DE993E8114AA87192B1C1 /* Pods.debug.xcconfig */,
-				192BFE2AF3026F2375A7D3E6 /* Pods.release.xcconfig */,
+				70ED663ED08348F06E33B6A2 /* Pods-Расписание МГТУ.debug.xcconfig */,
+				B5346A4BA1BD544F75A7AEA9 /* Pods-Расписание МГТУ.release.xcconfig */,
+				71B05C800C328CA8D2EBE995 /* Pods-Schedule.debug.xcconfig */,
+				42BE7C524DE14112EBAFC925 /* Pods-Schedule.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -306,22 +326,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8B1F3E391C76145B00865CDF /* Расписание МГТУ */ = {
+		8B1F3E391C76145B00865CDF /* Schedule */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B1F3E4F1C76145B00865CDF /* Build configuration list for PBXNativeTarget "Расписание МГТУ" */;
+			buildConfigurationList = 8B1F3E4F1C76145B00865CDF /* Build configuration list for PBXNativeTarget "Schedule" */;
 			buildPhases = (
-				98DEBA3FE559E6DE5615F521 /* Check Pods Manifest.lock */,
+				4265B915F1F9AE11404C7013 /* [CP] Check Pods Manifest.lock */,
 				8B1F3E361C76145B00865CDF /* Sources */,
 				8B1F3E371C76145B00865CDF /* Frameworks */,
 				8B1F3E381C76145B00865CDF /* Resources */,
-				FA03DF626B83BADBA75F90E6 /* Embed Pods Frameworks */,
-				F4B7DDFF5039AC5AB2331E33 /* Copy Pods Resources */,
+				5FAF25BAFEA6D1139B6F72C2 /* [CP] Embed Pods Frameworks */,
+				5CAC1132D3F6931F0C50858D /* [CP] Copy Pods Resources */,
+				8B4A7E051D3656AF001B8777 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Расписание МГТУ";
+			name = Schedule;
 			productName = "schedule-ios";
 			productReference = 8B1F3E3A1C76145B00865CDF /* Расписание МГТУ.app */;
 			productType = "com.apple.product-type.application";
@@ -355,7 +376,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8B1F3E391C76145B00865CDF /* Расписание МГТУ */,
+				8B1F3E391C76145B00865CDF /* Schedule */,
 			);
 		};
 /* End PBXProject section */
@@ -376,14 +397,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		98DEBA3FE559E6DE5615F521 /* Check Pods Manifest.lock */ = {
+		4265B915F1F9AE11404C7013 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,35 +412,48 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F4B7DDFF5039AC5AB2331E33 /* Copy Pods Resources */ = {
+		5CAC1132D3F6931F0C50858D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Schedule/Pods-Schedule-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FA03DF626B83BADBA75F90E6 /* Embed Pods Frameworks */ = {
+		5FAF25BAFEA6D1139B6F72C2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Schedule/Pods-Schedule-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8B4A7E051D3656AF001B8777 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 28f45c94adfb26aa4722301bbd4c54d8be8a3449 f033648b768eb1235f5faa17553df0fa157b7538d3936af7cb7be761e519735c";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -575,15 +609,19 @@
 		};
 		8B1F3E501C76145B00865CDF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 643DE993E8114AA87192B1C1 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 71B05C800C328CA8D2EBE995 /* Pods-Schedule.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "schedule-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "mgtu.schedule-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = magtu.schedule;
 				PRODUCT_NAME = "Расписание МГТУ";
 				PROVISIONING_PROFILE = "";
 			};
@@ -591,15 +629,19 @@
 		};
 		8B1F3E511C76145B00865CDF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 192BFE2AF3026F2375A7D3E6 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 42BE7C524DE14112EBAFC925 /* Pods-Schedule.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "schedule-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "mgtu.schedule-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = magtu.schedule;
 				PRODUCT_NAME = "Расписание МГТУ";
 				PROVISIONING_PROFILE = "";
 			};
@@ -617,7 +659,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B1F3E4F1C76145B00865CDF /* Build configuration list for PBXNativeTarget "Расписание МГТУ" */ = {
+		8B1F3E4F1C76145B00865CDF /* Build configuration list for PBXNativeTarget "Schedule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B1F3E501C76145B00865CDF /* Debug */,

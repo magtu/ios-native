@@ -26,7 +26,8 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
         
         self.day = vc.cDay
         
-        if day != nil {(table.tableHeaderView as! TableHeader).create(day!.name, showCDayIndicator: ScheduleManager.instanse.cDayWType.day == day)}
+        (table.tableHeaderView as! TableHeader).create(day!.name, showCDayIndicator: ScheduleManager.instanse.cDayWType.day == day)
+        
         
         eventCells = day!.events.map{
             let c = self.table.dequeueReusableCellWithIdentifier("eventCell") as! EventViewCell
