@@ -219,29 +219,31 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3n9-zL-JW2">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZdD-Pr-fdY">
                                 <rect key="frame" x="0.0" y="44" width="320" height="475"/>
-                                <connections>
-                                    <segue destination="00S-8L-lsL" kind="embed" id="WYR-xF-9hb"/>
-                                </connections>
-                            </containerView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZdD-Pr-fdY" secondAttribute="trailing" id="2VN-KB-1VD"/>
                             <constraint firstAttribute="trailing" secondItem="VXX-lB-mZ9" secondAttribute="trailing" id="5Rg-2g-d81"/>
+                            <constraint firstItem="VXX-lB-mZ9" firstAttribute="top" secondItem="ZdD-Pr-fdY" secondAttribute="bottom" id="8Rf-EK-utR"/>
                             <constraint firstItem="Xj5-lj-Mqk" firstAttribute="centerX" secondItem="PAI-B4-Kv0" secondAttribute="centerX" id="Btv-ti-qNy"/>
                             <constraint firstAttribute="trailing" secondItem="1Q4-MT-TGa" secondAttribute="trailing" id="KAt-x9-1eJ"/>
                             <constraint firstItem="1Q4-MT-TGa" firstAttribute="leading" secondItem="PAI-B4-Kv0" secondAttribute="leading" id="Mfq-FT-6WH"/>
                             <constraint firstItem="gN6-pB-7Xt" firstAttribute="centerX" secondItem="PAI-B4-Kv0" secondAttribute="centerX" id="R1i-uO-MYI"/>
                             <constraint firstItem="Pgf-E8-Nht" firstAttribute="top" secondItem="VXX-lB-mZ9" secondAttribute="bottom" id="TGR-Cx-SLV"/>
                             <constraint firstItem="1Q4-MT-TGa" firstAttribute="top" secondItem="jjg-Bd-jso" secondAttribute="bottom" constant="-20" id="UM9-wP-IF2"/>
+                            <constraint firstItem="ZdD-Pr-fdY" firstAttribute="top" secondItem="Tii-zY-I8G" secondAttribute="bottom" id="Z8N-a5-pPt"/>
                             <constraint firstItem="Tii-zY-I8G" firstAttribute="leading" secondItem="PAI-B4-Kv0" secondAttribute="leading" id="c8E-7b-wzg"/>
                             <constraint firstAttribute="trailing" secondItem="Tii-zY-I8G" secondAttribute="trailing" id="fJl-pM-FbP"/>
                             <constraint firstItem="Tii-zY-I8G" firstAttribute="top" secondItem="jjg-Bd-jso" secondAttribute="bottom" id="fQn-VN-bYp"/>
                             <constraint firstItem="Xj5-lj-Mqk" firstAttribute="centerY" secondItem="PAI-B4-Kv0" secondAttribute="centerY" id="kak-Y3-baf"/>
                             <constraint firstItem="VXX-lB-mZ9" firstAttribute="leading" secondItem="PAI-B4-Kv0" secondAttribute="leading" id="ojh-y9-zNQ"/>
                             <constraint firstItem="gN6-pB-7Xt" firstAttribute="top" secondItem="Xj5-lj-Mqk" secondAttribute="bottom" constant="8" id="vkE-DM-LzH"/>
+                            <constraint firstItem="ZdD-Pr-fdY" firstAttribute="leading" secondItem="PAI-B4-Kv0" secondAttribute="leading" id="yw7-m5-fYg"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -254,6 +256,7 @@
                         <outlet property="loadingLabel" destination="gN6-pB-7Xt" id="OD4-lb-Rzt"/>
                         <outlet property="navItem" destination="xg5-vw-aSB" id="vgX-3Z-7i1"/>
                         <outlet property="tabBar" destination="VXX-lB-mZ9" id="hy3-ab-byj"/>
+                        <outlet property="tableContainer" destination="ZdD-Pr-fdY" id="k0m-fv-vJ7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Cw-wN-H6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -273,13 +276,17 @@
         <!--Schedule Table View Controller-->
         <scene sceneID="tYp-nl-1TY">
             <objects>
-                <viewController id="00S-8L-lsL" customClass="ScheduleTableViewController" customModule="Расписание_МГТУ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScheduleTableViewController" id="00S-8L-lsL" customClass="ScheduleTableViewController" customModule="Расписание_МГТУ" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RIP-ou-1VP"/>
+                        <viewControllerLayoutGuide type="bottom" id="uZI-eb-aXE"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="emd-sT-TVo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-Xy-gr9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-Xy-gr9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -431,12 +438,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kRb-Xy-gr9" firstAttribute="leading" secondItem="emd-sT-TVo" secondAttribute="leadingMargin" id="68F-H3-DQ2"/>
+                            <constraint firstItem="kRb-Xy-gr9" firstAttribute="leading" secondItem="emd-sT-TVo" secondAttribute="leading" id="68F-H3-DQ2"/>
                             <constraint firstItem="kRb-Xy-gr9" firstAttribute="bottom" secondItem="emd-sT-TVo" secondAttribute="bottomMargin" id="KrB-Xw-AMv"/>
                             <constraint firstItem="kRb-Xy-gr9" firstAttribute="top" secondItem="emd-sT-TVo" secondAttribute="topMargin" id="bOq-vB-z81"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kRb-Xy-gr9" secondAttribute="trailing" id="uQ7-JR-7h9"/>
+                            <constraint firstAttribute="trailing" secondItem="kRb-Xy-gr9" secondAttribute="trailing" id="uQ7-JR-7h9"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="table" destination="kRb-Xy-gr9" id="hZx-AT-Tl1"/>
                     </connections>

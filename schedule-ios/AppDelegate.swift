@@ -21,21 +21,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Crashlytics.self])
         
-        var pageControl = UIPageControl.appearance()
-        
+        let pageControl = UIPageControl.appearance()
         pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
-        
         pageControl.currentPageIndicatorTintColor = UIColor.blackColor()
         
         pageControl.backgroundColor = UIColor.whiteColor()
-
-        
+    /*
+        let evs = [Event(eventIndex: 1, courseID: 0, course: "a", typeID: 0, type: "a", subgroup: 0, teacherID: 0, teacher: "a", location: "a"), Event(eventIndex: 2, courseID: 1, course: "b", typeID: 1, type: "b", subgroup: 1, teacherID: 1, teacher: "b", location: "b")]
+        let ds = [Day(id: 1, name: "A", events: evs), Day(id: 2, name: "A", events: evs), Day(id: 3, name: "A", events: evs), Day(id: 4, name: "A", events: evs),Day(id: 5, name: "A", events: evs),Day(id: 6, name: "A", events: evs), Day(id: 7, name: "A", events: evs)]
+        let w = [Week(id: 0, type: .EVEN, days: ds), Week(id: 1, type: .ODD, days: ds)]
+        Group(id: 0, name: "a", weeks: w)
+        */
         return true
     }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+      // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
 
     func applicationDidEnterBackground(application: UIApplication) {

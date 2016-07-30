@@ -8,6 +8,8 @@ class ScheduleTableViewController: UIViewController {
     var index: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        table.estimatedRowHeight = 86
+        table.rowHeight = UITableViewAutomaticDimension
         
     }
 }
