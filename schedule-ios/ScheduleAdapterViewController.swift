@@ -39,7 +39,7 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
             for i in 0 ... e.count - 2 {
                 ni = i + 1
                 if e[i].eventFields.0 == e[ni].eventFields.0 {
-                    eventCells[i].rmSeparator()
+//                    eventCells[i].rmSeparator()
                     eventCells[ni].rmTime()
                 }
             }

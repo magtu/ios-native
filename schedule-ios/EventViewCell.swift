@@ -6,7 +6,6 @@ class EventViewCell: UITableViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var groupLabel: UILabel!
-    @IBOutlet weak var separator: UIView!
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var teacherNameLabel: UILabel!
     var event: Event!
@@ -27,13 +26,10 @@ class EventViewCell: UITableViewCell {
         locationLabel.text = event.location
         groupLabel.text = event.subgroup.str
         teacherNameLabel.text = event.teacher
-        separator.hidden = false
+        
         timeLabel.hidden = false
     }
     
-    func rmSeparator() {
-        separator.hidden = true
-    }
     func rmTime() {
         timeLabel.hidden = true
     }
