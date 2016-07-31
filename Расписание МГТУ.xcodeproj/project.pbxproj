@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4D0452611C95D525006DB326 /* HeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0452601C95D523006DB326 /* HeaderViewCell.swift */; };
-		4D0452631C95D5B5006DB326 /* HeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0452621C95D5B5006DB326 /* HeaderViewCell.xib */; };
 		4D3456CF1CB0310F0095B2FB /* InternetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3456CE1CB0310F0095B2FB /* InternetManager.swift */; };
 		4D3456D11CB035F80095B2FB /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3456D01CB035F80095B2FB /* NotificationCenter.swift */; };
 		4D65CFC51CB8215F00DE9260 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65CFC41CB8215A00DE9260 /* Color.swift */; };
@@ -20,6 +19,7 @@
 		4DD1D7C01C95997000B3CED4 /* EventViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1D7BE1C95997000B3CED4 /* EventViewCell.swift */; };
 		4DD1DEF71C942E5F00DC1A15 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1DEF61C942E5F00DC1A15 /* SearchViewController.swift */; };
 		4DD1DEF91C942EFE00DC1A15 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD1DEF81C942EFE00DC1A15 /* ScheduleViewController.swift */; };
+		8B09708C1D4E1AFD00BB6AF4 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09708B1D4E1AFD00BB6AF4 /* Schedule.swift */; };
 		8B1C47951C9AEA17005DB2F5 /* TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1C47941C9AEA17005DB2F5 /* TimeProvider.swift */; };
 		8B1F02521CAA9489003A19F8 /* SelectedGrops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F02501CAA9489003A19F8 /* SelectedGrops.swift */; };
 		8B1F02551CAAB7A2003A19F8 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F02541CAAB7A2003A19F8 /* NavigationViewController.swift */; };
@@ -55,7 +55,6 @@
 /* Begin PBXFileReference section */
 		42BE7C524DE14112EBAFC925 /* Pods-Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.release.xcconfig"; sourceTree = "<group>"; };
 		4D0452601C95D523006DB326 /* HeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewCell.swift; sourceTree = "<group>"; };
-		4D0452621C95D5B5006DB326 /* HeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewCell.xib; sourceTree = "<group>"; };
 		4D3456CE1CB0310F0095B2FB /* InternetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetManager.swift; sourceTree = "<group>"; };
 		4D3456D01CB035F80095B2FB /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		4D65CFC41CB8215A00DE9260 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		69C8D98054D5ECAFD4A84E11 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70ED663ED08348F06E33B6A2 /* Pods-Расписание МГТУ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Расписание МГТУ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Расписание МГТУ/Pods-Расписание МГТУ.debug.xcconfig"; sourceTree = "<group>"; };
 		71B05C800C328CA8D2EBE995 /* Pods-Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schedule/Pods-Schedule.debug.xcconfig"; sourceTree = "<group>"; };
+		8B09708B1D4E1AFD00BB6AF4 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		8B1C47941C9AEA17005DB2F5 /* TimeProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeProvider.swift; sourceTree = "<group>"; };
 		8B1F02501CAA9489003A19F8 /* SelectedGrops.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedGrops.swift; sourceTree = "<group>"; };
 		8B1F02541CAAB7A2003A19F8 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -159,7 +159,6 @@
 			children = (
 				4DD1D7BE1C95997000B3CED4 /* EventViewCell.swift */,
 				4D0452601C95D523006DB326 /* HeaderViewCell.swift */,
-				4D0452621C95D5B5006DB326 /* HeaderViewCell.xib */,
 				4D77DC1C1CA83B2300E41B4B /* TableFooterView.swift */,
 			);
 			name = models;
@@ -178,6 +177,14 @@
 				BAF666567A302EDF7BDEBBA7 /* Pods_Schedule.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B09708D1D4E1B0300BB6AF4 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				8B09708B1D4E1AFD00BB6AF4 /* Schedule.swift */,
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 		8B1F02531CAA9ABE003A19F8 /* models */ = {
@@ -266,6 +273,7 @@
 		8BC0D3C01C7E0A0B00FE597C /* schedule */ = {
 			isa = PBXGroup;
 			children = (
+				8B09708D1D4E1B0300BB6AF4 /* models */,
 				8BC0D3C11C7E0A4200FE597C /* ScheduleManager.swift */,
 				8B98DD891C848179005D6A69 /* ScheduleListener.swift */,
 			);
@@ -387,7 +395,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B1F3E4B1C76145B00865CDF /* LaunchScreen.storyboard in Resources */,
-				4D0452631C95D5B5006DB326 /* HeaderViewCell.xib in Resources */,
 				8B1F3E431C76145B00865CDF /* Main.storyboard in Resources */,
 				4D8358FE1CB1B06700A023E6 /* icons.xcassets in Resources */,
 			);
@@ -485,6 +492,7 @@
 				8B59D1651C90A501003084F8 /* ObserverSet.swift in Sources */,
 				8B1C47951C9AEA17005DB2F5 /* TimeProvider.swift in Sources */,
 				8BC0D3C61C7E0A9F00FE597C /* GroupListener.swift in Sources */,
+				8B09708C1D4E1AFD00BB6AF4 /* Schedule.swift in Sources */,
 				8B1F02551CAAB7A2003A19F8 /* NavigationViewController.swift in Sources */,
 				8B7DB6501C8B18B0007FACA6 /* Group.swift in Sources */,
 				4DD1DEF71C942E5F00DC1A15 /* SearchViewController.swift in Sources */,

@@ -18,19 +18,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     //============================================================================================
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if AppDelegate.nc.viewControllers.count == 1 {
-            backButton.hidden = true
-        }
         
+        if AppDelegate.nc.viewControllers.count == 1 { backButton.hidden = true }
         tableView.rowHeight = UITableViewAutomaticDimension
         
         searchBar.delegate = self
         let textFieldInsideSearchBar = searchBar.valueForKey("searchField") as? UITextField
-            textFieldInsideSearchBar?.textColor = UIColor.blackColor()
-       /* let textFieldInsideSearchBarLabel = textFieldInsideSearchBar!.valueForKey("placeholderLabel") as? UILabel
-            textFieldInsideSearchBarLabel?.textColor = UIColor.whiteColor()
-        */
+        textFieldInsideSearchBar?.textColor = UIColor.blackColor()
+        
         GroupManager.instanse.onGroupsEvent.add(self, SearchViewController.onGroups)
         GroupManager.instanse.onGroupsEventFailed.add(self, SearchViewController.onGroupsFailed)
         GroupManager.instanse.onGetSchOfSelGroupEvent.add(self, SearchViewController.readyGoToSchedule)
