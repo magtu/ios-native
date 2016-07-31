@@ -12,6 +12,7 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
         table.dataSource = self
         table.delegate = self
         self.vc = vc
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -21,7 +22,8 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
             let cell = eventCells[indexPath.row]
             return cell
     }
-        
+
+    
     func loadCDay(){
         self.day = vc.cDay
         (table.tableHeaderView as! TableHeader).create(day!.name, showCDayIndicator: ScheduleManager.instanse.cDayWType.day == day)
@@ -40,7 +42,7 @@ class ScheduleAdapterViewController:NSObject, UITableViewDelegate, UITableViewDa
                 ni = i + 1
                 if e[i].eventFields.0 == e[ni].eventFields.0 {
 //                    eventCells[i].rmSeparator()
-                    eventCells[ni].rmTime()
+                   // eventCells[ni].rmTime()
                 }
             }
         }

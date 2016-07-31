@@ -3,11 +3,11 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
     // ============================================================================================
     // @IBOutlets
     // ============================================================================================
-    @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var tableContainer: UIView!
+    @IBOutlet weak var segmentConroll: UISegmentedControl!
     // ============================================================================================
     // FIELDS
     // ============================================================================================
@@ -15,19 +15,13 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
     var cDay: Day!
     var adapter: ScheduleAdapterViewController!
     var weekType: WeekType!
-    var cWeekType: WeekType! {
-        get {return self.weekType}
-        set {
-            self.weekType = newValue
-            tabBar.selectedItem = tabBar.items![newValue == .EVEN ? 0 : 1]
-        }
-    }
+    var cWeekType: WeekType!
+
     // ============================================================================================
     // LIFECYCLE
     // ============================================================================================
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ScheduleManager.instanse.onScheduleEvent.add(self, ScheduleViewController.onLoadSchedule)
         ScheduleManager.instanse.onUpdateEventTimer.add(self, ScheduleViewController.onUpdateEventTimer)
         ScheduleManager.instanse.onLoadingScheduleEvent.add(self, ScheduleViewController.blockUIForloading)
@@ -36,14 +30,17 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
         prepareToShow()
         loadSchedule()
     }
+    
     func updateVC() {
         adapter.loadCDay()
         onUpdateEventTimer()
+        
     }
     // ============================================================================================
     // TABLE SETTINGS
     // ============================================================================================
     //get next vc
+    
     func viewControllerAtIndex(index: Int) -> ScheduleTableViewController? {
         if  (index >= 7) || (index < 0) {
             return nil
@@ -81,7 +78,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 0
+        return cDay == nil ? 0 : cDay.id - 1
     }
     
     @IBAction func toCDayClick(sender: UIBarButtonItem) {
@@ -94,6 +91,10 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
     @IBAction func onMenuClick(sender: AnyObject) {
         navTo(.SearchViewController)
     }
+    @IBAction func segmentControllClick(sender: UISegmentedControl) {
+        //sender.selectedSegmentIndex == 0
+    }
+    
     
     func getDay(id: Int) -> Day {
         return ScheduleManager.instanse.getDay(id+1, weekType: cWeekType)
@@ -131,11 +132,9 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
         loadingLabel.hidden = false
         activityIndicator.startAnimating()
         activityIndicator.hidden = false
-        tabBar.hidden = true
     }
     
     func unblockUI() {
-        tabBar.hidden = false
         loadingLabel.hidden = true
         view.hidden = false
         activityIndicator.stopAnimating()
@@ -162,8 +161,10 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
         appearance.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.grayColor(), NSFontAttributeName : UIFont.systemFontOfSize(18)], forState: .Normal)
         appearance.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Selected)
         
-        tabBar.delegate = self
-        
+        segmentConroll.layer.cornerRadius = 5
+        segmentConroll.clipsToBounds = true
+        segmentConroll.layer.borderWidth = 1
+        segmentConroll.layer.borderColor = segmentConroll.backgroundColor?.CGColor
         adapter = ScheduleAdapterViewController()
         adapter.bind(startVC.table, vc: self)
     }

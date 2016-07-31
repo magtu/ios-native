@@ -13,7 +13,7 @@ class EventViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -28,6 +28,10 @@ class EventViewCell: UITableViewCell {
         teacherNameLabel.text = event.teacher
         
         timeLabel.hidden = false
+        layer.borderColor = UIColor.whiteColor().CGColor
+        layer.borderWidth = 5
+        layer.cornerRadius = 10
+        layer.masksToBounds = true
     }
     
     func rmTime() {

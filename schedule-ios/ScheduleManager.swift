@@ -14,7 +14,6 @@ class ScheduleManager: ScheduleListener {
     // ============================================================================================
     // EVENTS
     // ============================================================================================
-    
     var onUpdateScheduleEvent: ObserverSet<()> = ObserverSet()
     var onUpdateScheduleFailedEvent: ObserverSet<()> = ObserverSet()
     
