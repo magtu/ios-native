@@ -27,8 +27,8 @@ class Event: NSManagedObject {
     var subgroup: (indx:Int, str:String) {
         switch subgroup_{
         case 0:  return (0, "Вся группа")
-        case 1:  return (1,"1 гр.")
-        case 2:  return (2,"2 гр.")
+        case 1:  return (1, "1 подгруппа")
+        case 2:  return (2,"2 подгруппа")
         default: return (-1,"")
         }
     }
