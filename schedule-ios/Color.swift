@@ -1,8 +1,10 @@
 import UIKit
 import Foundation
 
-class Color: UIColor {
+class Colors: UIColor {
    static let BLUE = UIColor(0x0D32A8)
+   static let VIOLET = UIColor(red:0.31, green:0.30, blue:0.82, alpha:1.00)
+   static let WHITE  = UIColor.whiteColor()
 }
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
@@ -16,4 +18,6 @@ extension UIColor {
     convenience init(_ netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
+    
+    
 }

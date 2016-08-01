@@ -8,4 +8,8 @@ class Schedule {
        evenWeek = even
        oddWeek  = odd
     }
+        
+    subscript(type: WeekType) -> Week {
+        return type == .EVEN ? evenWeek : oddWeek
+    }
 }

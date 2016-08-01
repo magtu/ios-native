@@ -22,10 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         
         let pageControl = UIPageControl.appearance()
-        pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
-        pageControl.currentPageIndicatorTintColor = UIColor.blackColor()
-        
-        pageControl.backgroundColor = UIColor.whiteColor()
+        pageControl.pageIndicatorTintColor = UIColor(red:0.91, green:0.91, blue:0.91, alpha:1.00)
+        pageControl.currentPageIndicatorTintColor = UIColor(red:0.31, green:0.30, blue:0.82, alpha:1.00)
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
     /*
         let evs = [Event(eventIndex: 1, courseID: 0, course: "a", typeID: 0, type: "a", subgroup: 0, teacherID: 0, teacher: "a", location: "a"), Event(eventIndex: 2, courseID: 1, course: "b", typeID: 1, type: "b", subgroup: 1, teacherID: 1, teacher: "b", location: "b")]
         let ds = [Day(id: 1, name: "A", events: evs), Day(id: 2, name: "A", events: evs), Day(id: 3, name: "A", events: evs), Day(id: 4, name: "A", events: evs),Day(id: 5, name: "A", events: evs),Day(id: 6, name: "A", events: evs), Day(id: 7, name: "A", events: evs)]

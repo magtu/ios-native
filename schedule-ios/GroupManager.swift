@@ -31,7 +31,6 @@ class GroupManager: GroupsListner{
     // ============================================================================================
     func onGetSchOfSelGroup(group: Group) {
         currentGroup = group
-        
         onGetSchOfSelGroupEvent.notify()
     }
     

@@ -10,13 +10,16 @@ class ScheduleManager: ScheduleListener {
         updateEventTimer.onTimerEvent.add(self, ScheduleManager.updateEventTimerTick)
         GroupManager.instanse.onGetSchOfSelGroupEvent.add(self, ScheduleManager.loadingScheduleComplite)
         GroupManager.instanse.onGetSchOfSelGroupEventFailed.add(self, ScheduleManager.loadingScheduleFailed)
+        
+        let group = GroupManager.instanse.currentGroup!
+        schedule = Schedule(even: group.weeks[1], odd: group.weeks[0])
+        
+        updateEventTimer.start(1)
+        getTimestampOfCGroupSchedule()
     }
     // ============================================================================================
     // EVENTS
     // ============================================================================================
-    var onUpdateScheduleEvent: ObserverSet<()> = ObserverSet()
-    var onUpdateScheduleFailedEvent: ObserverSet<()> = ObserverSet()
-    
     var onLoadingScheduleEvent: ObserverSet<()> = ObserverSet()
     var onScheduleEvent: ObserverSet<()> = ObserverSet()
     var onLoadingScheduleFailedEvent: ObserverSet<()> = ObserverSet()
@@ -26,10 +29,10 @@ class ScheduleManager: ScheduleListener {
     // ============================================================================================
     // FIELDS
     // ============================================================================================
-    private var weeks: [WeekType: Week]!
+    private var schedule: Schedule!
     var cDayWType: (day: Day!, weekType: WeekType!){
         let cur  = TimeProvider.cDayWType
-        let week = weeks[cur.weekType]!
+        let week = schedule[cur.weekType]
         let day  = week.days.filter{$0.id == cur.dayID}.first!
         return (day, cur.weekType)
     }
@@ -39,10 +42,6 @@ class ScheduleManager: ScheduleListener {
     private func updateEventTimerTick() {
         onUpdateEventTimer.notify()
     }
-    private func getNewCSchedule(){
-        let group = GroupManager.instanse.currentGroup!
-        weeks = [group.weeks[0].type : group.weeks[0], group.weeks[1].type : group.weeks[1]]
-    }
     private func getTimestampOfCGroupSchedule(){
         Api.instance.updateOfGroup(GroupManager.instanse.currentGroup!.id, listener: self)
     }
@@ -50,14 +49,7 @@ class ScheduleManager: ScheduleListener {
     // REQUEST
     // ============================================================================================
     func getDay(cDayID: Int, weekType: WeekType) -> Day {
-        return weeks[weekType]!.days.filter{cDayID == $0.id}.first!
-        
-    }
-    func getSchedule(){
-        getNewCSchedule()
-        onScheduleEvent.notify()
-        updateEventTimer.start(1)
-        getTimestampOfCGroupSchedule()
+        return schedule[weekType].days.filter{cDayID == $0.id}.first!
     }
     // ============================================================================================
     // RESPONSE
@@ -81,7 +73,6 @@ class ScheduleManager: ScheduleListener {
     
     func loadingScheduleComplite() {
         if updatetmstp != nil {
-            getNewCSchedule()
             Settings.scheduleUpdateTimeStamp = updatetmstp!
             updatetmstp = nil
             onScheduleEvent.notify()
