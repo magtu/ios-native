@@ -200,13 +200,14 @@
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Q4-MT-TGa" userLabel="view">
                                 <rect key="frame" x="0.0" y="514" width="320" height="54"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2TF-a1-cdc">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2TF-a1-cdc" customClass="segmentControl" customModule="Расписание_МГТУ" customModuleProvider="target">
                                         <rect key="frame" x="16" y="13" width="288" height="29"/>
-                                        <color key="backgroundColor" red="0.27450980390000002" green="0.23529411759999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         <segments>
                                             <segment title="Четная"/>
                                             <segment title="Нечетная"/>
                                         </segments>
+                                        <color key="tintColor" red="0.27450980390000002" green="0.23529411759999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="segmentControllClick:" destination="A6O-a5-kZP" eventType="valueChanged" id="PBb-bk-57d"/>
                                         </connections>
@@ -282,7 +283,7 @@
                         <outlet property="loadingLabel" destination="gN6-pB-7Xt" id="OD4-lb-Rzt"/>
                         <outlet property="navItem" destination="xg5-vw-aSB" id="vgX-3Z-7i1"/>
                         <outlet property="oddRoundView" destination="oAB-z3-2KO" id="g8j-lw-5l9"/>
-                        <outlet property="segmentConroll" destination="2TF-a1-cdc" id="W9e-ai-Cpz"/>
+                        <outlet property="segmentControl" destination="2TF-a1-cdc" id="W9e-ai-Cpz"/>
                         <outlet property="tableContainer" destination="ZdD-Pr-fdY" id="k0m-fv-vJ7"/>
                     </connections>
                 </viewController>
@@ -323,12 +324,12 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Воскресение" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgd-j6-DNr">
-                                            <rect key="frame" x="40" y="12" width="252" height="20"/>
+                                            <rect key="frame" x="28" y="12" width="264" height="20"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSd-D9-Qkp">
-                                            <rect key="frame" x="20" y="17" width="10" height="10"/>
+                                            <rect key="frame" x="8" y="17" width="10" height="10"/>
                                             <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="10" id="2rG-X9-hca"/>
@@ -339,7 +340,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Vgd-j6-DNr" secondAttribute="trailing" constant="8" id="AUJ-Uw-78P"/>
-                                        <constraint firstItem="SSd-D9-Qkp" firstAttribute="leading" secondItem="9yn-2W-tcw" secondAttribute="leading" constant="20" id="Bwr-dA-Tzl"/>
+                                        <constraint firstItem="SSd-D9-Qkp" firstAttribute="leading" secondItem="9yn-2W-tcw" secondAttribute="leading" constant="8" id="Bwr-dA-Tzl"/>
                                         <constraint firstItem="Vgd-j6-DNr" firstAttribute="centerY" secondItem="9yn-2W-tcw" secondAttribute="centerY" id="UWm-xt-50C"/>
                                         <constraint firstItem="SSd-D9-Qkp" firstAttribute="centerY" secondItem="9yn-2W-tcw" secondAttribute="centerY" id="pS8-3i-V5U"/>
                                         <constraint firstItem="Vgd-j6-DNr" firstAttribute="leading" secondItem="SSd-D9-Qkp" secondAttribute="trailing" constant="10" id="z9t-AR-4kC"/>
@@ -451,6 +452,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="left" destination="z9t-AR-4kC" id="cbp-u7-Nvb"/>
                         <outlet property="table" destination="kRb-Xy-gr9" id="hZx-AT-Tl1"/>
                     </connections>
                 </viewController>

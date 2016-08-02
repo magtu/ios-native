@@ -5,6 +5,8 @@ class ScheduleTableViewController: UIViewController {
     // FIELDS
     // ============================================================================================
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var left: NSLayoutConstraint!
+
     var index = 0
     var adapter = ScheduleAdapter()
     var day: Day!
@@ -15,6 +17,7 @@ class ScheduleTableViewController: UIViewController {
         table.rowHeight = UITableViewAutomaticDimension
         ScheduleManager.instanse.onUpdateEventTimer.add(self, ScheduleTableViewController.onUpdateEventTimer)
         adapter.bind(table)
+        left.constant = ScheduleManager.instanse.cDayWType.day == day ? 10 : 0
         adapter.loadCDay(day)
     }
     

@@ -3,7 +3,7 @@ import UIKit
 class HeaderViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var cDayIndicator: UIView!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -14,7 +14,6 @@ class HeaderViewCell: UITableViewCell {
     
     func create(dayName: String, showCDayIndicator: Bool) {
         name.text = dayName
-        
         cDayIndicator.hidden = !showCDayIndicator
     }
 }

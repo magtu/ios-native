@@ -28,6 +28,7 @@
 		8B1F3E461C76145B00865CDF /* Расписание МГТУ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F3E441C76145B00865CDF /* Расписание МГТУ.xcdatamodeld */; };
 		8B1F3E4B1C76145B00865CDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1F3E491C76145B00865CDF /* LaunchScreen.storyboard */; };
 		8B27C9E01D4F76FC00FE5889 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27C9DF1D4F76FC00FE5889 /* RoundView.swift */; };
+		8B433F821D50B0D0005E9A9D /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B433F811D50B0D0005E9A9D /* SegmentControl.swift */; };
 		8B46A9991CAA77350082975B /* SearchingGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B46A9981CAA77350082975B /* SearchingGroup.swift */; };
 		8B488F2F1D44E2D500A05DC0 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B488F2E1D44E2D500A05DC0 /* ScheduleTableViewController.swift */; };
 		8B59D1651C90A501003084F8 /* ObserverSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B59D1641C90A501003084F8 /* ObserverSet.swift */; };
@@ -81,6 +82,7 @@
 		8B1F3E4A1C76145B00865CDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B1F3E4C1C76145B00865CDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B27C9DF1D4F76FC00FE5889 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		8B433F811D50B0D0005E9A9D /* SegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
 		8B46A9981CAA77350082975B /* SearchingGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchingGroup.swift; sourceTree = "<group>"; };
 		8B488F2E1D44E2D500A05DC0 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		8B4A7E061D365728001B8777 /* Alamofire_SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire_SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/Расписание_МГТУ-ccpkjemmbkpenvdgoctwtirxjlnc/Build/Products/Debug-iphoneos/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				4D0452601C95D523006DB326 /* HeaderViewCell.swift */,
 				4D77DC1C1CA83B2300E41B4B /* TableFooterView.swift */,
 				8B27C9DF1D4F76FC00FE5889 /* RoundView.swift */,
+				8B433F811D50B0D0005E9A9D /* SegmentControl.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				8BC0D3BE1C7DF7B200FE597C /* AlaTransport.swift in Sources */,
 				8BD0C3AA1C777C63008BD083 /* Request.swift in Sources */,
 				8BC1777C1CB8FBCF0038D5FD /* Settings.swift in Sources */,
+				8B433F821D50B0D0005E9A9D /* SegmentControl.swift in Sources */,
 				4D65CFC51CB8215F00DE9260 /* Color.swift in Sources */,
 				8B1F3E461C76145B00865CDF /* Расписание МГТУ.xcdatamodeld in Sources */,
 				8B46A9991CAA77350082975B /* SearchingGroup.swift in Sources */,

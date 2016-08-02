@@ -7,7 +7,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var tableContainer: UIView!
-    @IBOutlet weak var segmentConroll: UISegmentedControl!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var evenRoundView: RoundView!
     @IBOutlet weak var oddRoundView: RoundView!
     // ============================================================================================
@@ -25,15 +25,19 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
         ScheduleManager.instanse.onScheduleEvent.add(self, ScheduleViewController.onLoadSchedule)
         
         prepareToShow()
-        ScheduleManager.instanse.cDayWType.weekType == .EVEN ? showEvenRoundView() : showOddRoundView()
+        ScheduleManager.instanse.cDayWType.weekType == .EVEN ? setEvenSegment() : setOddSegment()
     }
-    func showEvenRoundView() {
+    func setEvenSegment() {
         evenRoundView.hidden = false
+        evenRoundView.backgroundColor = Colors.WHITE
         oddRoundView.hidden  = true
+        segmentControl.selectedSegmentIndex = 0
     }
-    func showOddRoundView() {
+    func setOddSegment() {
         evenRoundView.hidden = true
         oddRoundView.hidden  = false
+        oddRoundView.backgroundColor = Colors.WHITE
+        segmentControl.selectedSegmentIndex = 1
     }
     func onLoadSchedule() {
         //TODO
@@ -88,11 +92,11 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
         let type: WeekType = sender.selectedSegmentIndex == 0 ? .EVEN : .ODD
         setDayofWeek(ScheduleManager.instanse.cDayWType.day, weekType: type)
         if type == .EVEN {
-            evenRoundView.backgroundColor = Colors.VIOLET
-            oddRoundView.backgroundColor = Colors.WHITE
-        } else {
-            oddRoundView.backgroundColor = Colors.VIOLET
             evenRoundView.backgroundColor = Colors.WHITE
+            oddRoundView.backgroundColor =  Colors.VIOLET
+        } else {
+            oddRoundView.backgroundColor = Colors.WHITE
+            evenRoundView.backgroundColor = Colors.VIOLET
         }
     }
     
@@ -132,10 +136,8 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
     
     func prepareToShow() {
         navItem.title = GroupManager.instanse.currentGroup!.name
-        
         pageViewController = storyboard?.instantiateViewControllerWithIdentifier("pagevc") as! UIPageViewController
         pageViewController.dataSource = self
-        
         
         let vc = storyboard?.instantiateViewControllerWithIdentifier("ScheduleTableViewController") as! ScheduleTableViewController
         vc.day = ScheduleManager.instanse.getDay(ScheduleManager.instanse.cDayWType.day.id, weekType: ScheduleManager.instanse.cDayWType.weekType)
@@ -149,11 +151,6 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
         let appearance = UITabBarItem.appearance()
         appearance.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.grayColor(), NSFontAttributeName : UIFont.systemFontOfSize(18)], forState: .Normal)
         appearance.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Selected)
-        
-        segmentConroll.layer.cornerRadius = 5
-        segmentConroll.clipsToBounds = true
-        segmentConroll.layer.borderWidth = 1
-        segmentConroll.layer.borderColor = segmentConroll.backgroundColor?.CGColor
         
         _ = vc.view
     }
