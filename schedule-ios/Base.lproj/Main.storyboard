@@ -28,7 +28,6 @@
         <!--Search View Controller-->
         <scene sceneID="WlT-hg-ccg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oax-sx-P59" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SearchViewController" id="hhw-NF-txO" customClass="SearchViewController" customModule="Расписание_МГТУ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q2H-Iu-6dP"/>
@@ -155,6 +154,7 @@
                         <outlet property="tableView" destination="aZf-qk-UMp" id="Mfd-kk-k3o"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oax-sx-P59" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="752" y="-207"/>
         </scene>
@@ -317,7 +317,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="127" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-Xy-gr9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="112" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-Xy-gr9">
                                 <rect key="frame" x="10" y="0.0" width="300" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -355,15 +355,15 @@
                                     </connections>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="127" id="Avz-rO-npW" customClass="EventViewCell" customModule="Расписание_МГТУ" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="300" height="127"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="112" id="Avz-rO-npW" customClass="EventViewCell" customModule="Расписание_МГТУ" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="300" height="112"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Avz-rO-npW" id="bHx-rB-wae">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="127"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Методы управления знаниями" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k07-hv-Pyx">
-                                                    <rect key="frame" x="74" y="12" width="212" height="21"/>
+                                                    <rect key="frame" x="74" y="12" width="212" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -373,7 +373,7 @@
                                                     <color key="trackTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </progressView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Лекция" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWy-86-8mY">
-                                                    <rect key="frame" x="135" y="98" width="151" height="15"/>
+                                                    <rect key="frame" x="135" y="83" width="151" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="151" id="Wpb-mV-dxt"/>
                                                     </constraints>
@@ -382,13 +382,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сторожева Е. В." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tc4-2A-Rjy">
-                                                    <rect key="frame" x="135" y="77" width="151" height="15"/>
+                                                    <rect key="frame" x="135" y="62" width="151" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1-6205М" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzI-ZY-ba9">
-                                                    <rect key="frame" x="14" y="74" width="119" height="21"/>
+                                                    <rect key="frame" x="14" y="59" width="119" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="119" id="tZx-fV-nEK"/>
                                                     </constraints>
@@ -404,7 +404,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 подгруппа" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpa-no-G6Q">
-                                                    <rect key="frame" x="14" y="98" width="119" height="15"/>
+                                                    <rect key="frame" x="14" y="83" width="119" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="119" id="C76-do-fx0"/>
                                                     </constraints>
@@ -439,7 +439,7 @@
                                                 <constraint firstItem="fIe-c2-NWR" firstAttribute="leading" secondItem="bHx-rB-wae" secondAttribute="leading" constant="14" id="q5P-Qe-EhY"/>
                                                 <constraint firstItem="rWy-86-8mY" firstAttribute="trailing" secondItem="tc4-2A-Rjy" secondAttribute="trailing" id="sdz-Xt-aOo"/>
                                                 <constraint firstItem="tc4-2A-Rjy" firstAttribute="leading" secondItem="SzI-ZY-ba9" secondAttribute="trailing" constant="2" id="uuY-4L-cGD"/>
-                                                <constraint firstItem="SzI-ZY-ba9" firstAttribute="top" secondItem="k07-hv-Pyx" secondAttribute="bottom" constant="41" id="wzT-cm-lge"/>
+                                                <constraint firstItem="SzI-ZY-ba9" firstAttribute="top" secondItem="k07-hv-Pyx" secondAttribute="bottom" constant="27" id="wzT-cm-lge"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">

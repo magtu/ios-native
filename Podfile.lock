@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (3.4.1)
-  - Crashlytics (3.7.1):
+  - Alamofire (3.4.2)
+  - Crashlytics (3.8.0):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.7)
+  - Fabric (1.6.8)
   - ReachabilitySwift (2.3.3)
   - SwiftyJSON (2.3.2)
 
@@ -19,13 +19,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ReachabilitySwift:
-    :commit: cbbfc0907e8a67107289be9d1180538c3fbccd93
+    :commit: 225f5af85fe2f776c0ab2e5f3d7a25c38fa1532f
     :git: https://github.com/ashleymills/Reachability.swift
 
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  Crashlytics: 3cdd4c9655be68032a0cf0379e0fb5ef6af22cad
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  Alamofire: 6aa33201d20d069e1598891cf928883ff1888c7a
+  Crashlytics: 8601d9c74a4c4d28f3e7f408bf4c0e490c70e8b4
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 

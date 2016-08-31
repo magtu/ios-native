@@ -18,7 +18,7 @@ class AlaTransport: Transport {
         
         print(url + (request.params.isEmpty ? "" : "?" + request.params.description))
         Alamofire.request(request.command.method, url, parameters: request.params).response { (_,_httpResponce,_data,_error) in
-            print( _data!)
+            
             if !processor.process(request, response: _data!, listener: listener) {
                 if (self.countOfResends < self.LIMIT_RESEND) {
                     sleep(1)
