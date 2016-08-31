@@ -4,7 +4,7 @@ import SwiftyJSON
 class AlaTransport: Transport {
     let API = "api/"
     let VERSION = "v1/"
-    var DOMAIN_URL = "http://xn--80agz0af.xn--p1ai/"
+    var DOMAIN_URL = "xn--e1aybc.xn--80agz0af.xn--p1ai"//"http://xn--80agz0af.xn--p1ai/"
     let LIMIT_RESEND = 3
     var countOfResends = 0
     
@@ -18,7 +18,7 @@ class AlaTransport: Transport {
         
         print(url + (request.params.isEmpty ? "" : "?" + request.params.description))
         Alamofire.request(request.command.method, url, parameters: request.params).response { (_,_httpResponce,_data,_error) in
-            
+            print( _data!)
             if !processor.process(request, response: _data!, listener: listener) {
                 if (self.countOfResends < self.LIMIT_RESEND) {
                     sleep(1)

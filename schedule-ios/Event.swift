@@ -11,17 +11,17 @@ class Event: NSManagedObject {
     @NSManaged var teacher_: String
     @NSManaged var location_: String
     
-    var eventFields: (indx:Int, str:String, startAt:Int, endAt: Int) {
+    var eventFields: (indx:Int, StartStr:String, EndStr: String, startAt:Int, endAt: Int) {
         switch event_index_ {
-        case 1: return (1,"08:00", 28800, 34200)
-        case 2: return (2,"09:40", 34800, 40200)
-        case 3: return (3,"11:20", 40800, 46200)
-        case 4: return (4,"13:30", 48600, 54000)
-        case 5: return (5,"15:10", 54600, 60000)
-        case 6: return (6,"16:50", 60600, 66000)
-        case 7: return (7,"18:30", 66600, 72000)
-        case 8: return (8,"20:10", 72600, 78000)
-        default:return (0,"",0,0)
+        case 1: return (1,"08:00","09:30", 28800, 34200)
+        case 2: return (2,"09:40","11:10", 34800, 40200)
+        case 3: return (3,"11:20","12:50", 40800, 46200)
+        case 4: return (4,"13:30","15:00", 48600, 54000)
+        case 5: return (5,"15:10","16:40", 54600, 60000)
+        case 6: return (6,"16:50","18:20", 60600, 66000)
+        case 7: return (7,"18:30","20:00", 66600, 72000)
+        case 8: return (8,"20:10","21:40", 72600, 78000)
+        default:return (0,"","",0,0)
         }
     }
     var subgroup: (indx:Int, str:String) {

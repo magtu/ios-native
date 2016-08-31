@@ -10,6 +10,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var evenRoundView: RoundView!
     @IBOutlet weak var oddRoundView: RoundView!
+    
     // ============================================================================================
     // FIELDS
     // ============================================================================================

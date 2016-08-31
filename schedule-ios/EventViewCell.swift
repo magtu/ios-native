@@ -9,6 +9,7 @@ class EventViewCell: UITableViewCell {
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var teacherNameLabel: UILabel!
     var event: Event!
+    @IBOutlet weak var endTimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +21,8 @@ class EventViewCell: UITableViewCell {
     
     func create(event: Event){
         self.event = event
-        timeLabel.text = event.eventFields.str
+        timeLabel.text = event.eventFields.StartStr
+        endTimeLabel.text = event.eventFields.EndStr        
         nameLabel.text = event.course
         typeLabel.text = event.type
         locationLabel.text = event.location
