@@ -200,7 +200,7 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZdD-Pr-fdY">
-                                <rect key="frame" x="0.0" y="64" width="320" height="450"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="461"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Q4-MT-TGa" userLabel="view">
@@ -270,7 +270,7 @@
                             <constraint firstAttribute="trailing" secondItem="Tii-zY-I8G" secondAttribute="trailing" id="fJl-pM-FbP"/>
                             <constraint firstItem="Tii-zY-I8G" firstAttribute="top" secondItem="jjg-Bd-jso" secondAttribute="bottom" id="fQn-VN-bYp"/>
                             <constraint firstAttribute="bottom" secondItem="1Q4-MT-TGa" secondAttribute="bottom" id="g7z-Vw-QdM"/>
-                            <constraint firstItem="1Q4-MT-TGa" firstAttribute="top" secondItem="ZdD-Pr-fdY" secondAttribute="bottom" id="gaP-TS-1Of"/>
+                            <constraint firstItem="1Q4-MT-TGa" firstAttribute="top" secondItem="ZdD-Pr-fdY" secondAttribute="bottom" constant="-11" id="gaP-TS-1Of"/>
                             <constraint firstAttribute="trailing" secondItem="1Q4-MT-TGa" secondAttribute="trailing" id="jhb-GR-2hR"/>
                             <constraint firstItem="Xj5-lj-Mqk" firstAttribute="centerY" secondItem="PAI-B4-Kv0" secondAttribute="centerY" id="kak-Y3-baf"/>
                             <constraint firstItem="1Q4-MT-TGa" firstAttribute="leading" secondItem="PAI-B4-Kv0" secondAttribute="leading" id="ufu-I2-c3G"/>
@@ -409,7 +409,6 @@
                                                         <constraint firstAttribute="width" constant="119" id="C76-do-fx0"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                    <color key="textColor" red="0.53725490196078429" green="0.53333333333333333" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 подгруппа" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="op3-cg-H1e">

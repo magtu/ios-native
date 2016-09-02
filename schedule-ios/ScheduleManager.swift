@@ -75,8 +75,10 @@ class ScheduleManager: ScheduleListener {
         if updatetmstp != nil {
             Settings.scheduleUpdateTimeStamp = updatetmstp!
             updatetmstp = nil
-            onScheduleEvent.notify()
         }
+        let group = GroupManager.instanse.currentGroup!
+        schedule = Schedule(even: group.weeks[1], odd: group.weeks[0])
+        onScheduleEvent.notify()
     }
     func loadingScheduleFailed() {
         if updatetmstp != nil {
@@ -91,6 +93,4 @@ class ScheduleManager: ScheduleListener {
         print("ScheduleManager.onInternetConnectionFailed()")
         //onLoadingScheduleFailedEvent.notify()
     }
-    
-    
 }

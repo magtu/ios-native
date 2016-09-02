@@ -1,5 +1,5 @@
 import UIKit
-class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewControllerDataSource {
+class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     // ============================================================================================
     // @IBOutlets
     // ============================================================================================
@@ -10,7 +10,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var evenRoundView: RoundView!
     @IBOutlet weak var oddRoundView: RoundView!
-    
+    var cDayID: Int?
     // ============================================================================================
     // FIELDS
     // ============================================================================================
@@ -78,14 +78,19 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
         return viewControllerAtIndex(index)
     }
     
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        let vc = pageViewController.viewControllers?.last as! ScheduleTableViewController
+        cDayID = vc.day.id
+    }
+    
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 7
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return ScheduleManager.instanse.cDayWType.day.id - 1
+        if cDayID != nil {return cDayID! - 1 } else {return ScheduleManager.instanse.cDayWType.day.id - 1 }
     }
-    
+
     @IBAction func onMenuClick(sender: AnyObject) {
         navTo(.SearchViewController)
     }
@@ -103,7 +108,8 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
     
     func setDayofWeek(day: Day, weekType: WeekType) {
         let vc = storyboard?.instantiateViewControllerWithIdentifier("ScheduleTableViewController") as! ScheduleTableViewController
-        vc.day = ScheduleManager.instanse.getDay(day.id, weekType: weekType)
+        
+        vc.day = ScheduleManager.instanse.getDay(cDayID!, weekType: weekType)
         vc.index = vc.day.id - 1
         
         pageViewController.setViewControllers([vc], direction: weekType == .EVEN ? .Reverse : .Forward, animated: true, completion: nil)
@@ -139,11 +145,12 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
         navItem.title = GroupManager.instanse.currentGroup!.name
         pageViewController = storyboard?.instantiateViewControllerWithIdentifier("pagevc") as! UIPageViewController
         pageViewController.dataSource = self
+        pageViewController.delegate = self
         
         let vc = storyboard?.instantiateViewControllerWithIdentifier("ScheduleTableViewController") as! ScheduleTableViewController
         vc.day = ScheduleManager.instanse.getDay(ScheduleManager.instanse.cDayWType.day.id, weekType: ScheduleManager.instanse.cDayWType.weekType)
         vc.index = vc.day.id - 1
-        
+        cDayID = vc.day.id
         pageViewController.setViewControllers([vc], direction: .Forward, animated: true, completion: nil)
         addChildViewController(pageViewController)
         pageViewController.view.frame = CGRectMake(0, 0, tableContainer.frame.size.width, tableContainer.frame.size.height)

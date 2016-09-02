@@ -19,15 +19,12 @@ class TimeProvider {
     static var cDayTimeStamp: Int {
         let dateComponent = calendar.components([.Hour, .Minute, .Second], fromDate: today) 
         return (dateComponent.hour + 5) * 3600 + dateComponent.minute * 60 + dateComponent.second
-
-//        return calendar.components([.Hour, .Minute], fromDate: today).hour * 60              + calendar.components([.Hour, .Minute], fromDate: today).minute
     }
     //TODO: CHECK ON DEVICE
     static var cDayWType: (dayID: Int, weekType: WeekType) {
         let dateComponent = calendar.components([.WeekOfYear, .Weekday], fromDate: today)
         
         let wT : WeekType = abs(startWeekNumber - dateComponent.weekOfYear) % 2 == 0 ? .EVEN : .ODD
-//        print("now : \(wT) day \(dateComponent.weekday)")
        let d = dateComponent.weekday == 1 ? 7 : dateComponent.weekday - 1
         return (d, wT)
     }
