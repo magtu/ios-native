@@ -4,8 +4,8 @@ import SwiftyJSON
 class AlaTransport: Transport {
     let API = "api/"
     let VERSION = "v1/"
-    var DOMAIN_URL = "http://xn--e1aybc.xn--80agz0af.xn--p1ai/"//"http://xn--80agz0af.xn--p1ai/"
-    let LIMIT_RESEND = 3
+    var DOMAIN_URL = "http://xn--80agz0af.xn--p1ai/"
+    let LIMIT_RESEND = 2
     var countOfResends = 0
     
     func send(request request: Request, processor: Processor, listener: ResponseListener) {

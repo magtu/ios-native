@@ -56,6 +56,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         searchingGroups = groups.filter{ g in
             return g.name.lowercaseString.rangeOfString(searchText.lowercaseString, options: NSStringCompareOptions.AnchoredSearch) != nil
         }
+        if searchingGroups.isEmpty && !searchText.isEmpty {
+            searchingGroups.append(SearchingGroup(id: -1, name: "Нет совпадений"))
+            tableView.allowsSelection = false
+        } else {
+            tableView.allowsSelection = true
+        }
+        
         tableView.reloadData()
     }
     @IBAction func loadgroupsClick(sender: UIButton) {

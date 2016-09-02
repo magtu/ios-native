@@ -22,7 +22,9 @@ class ScheduleAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     func loadCDay(cDay: Day){
         self.day = cDay
-        (table.tableHeaderView as! TableHeader).create(day!.name, showCDayIndicator: ScheduleManager.instanse.cDayWType.day == day)
+        print(cDay)
+        print(ScheduleManager.instanse.cDayWType.day)
+        (table.tableHeaderView as! TableHeader).create(day!.name, showCDayIndicator: ScheduleManager.instanse.cDayWType.day === day)
         
         eventCells = day.events.map{
             let c = self.table.dequeueReusableCellWithIdentifier("eventCell") as! EventViewCell
