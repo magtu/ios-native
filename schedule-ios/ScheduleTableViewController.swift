@@ -13,7 +13,7 @@ class ScheduleTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        table.estimatedRowHeight = 86
+        table.estimatedRowHeight = 200
         table.rowHeight = UITableViewAutomaticDimension
         ScheduleManager.instanse.onUpdateEventTimer.add(self, ScheduleTableViewController.onUpdateEventTimer)
         adapter.bind(table)

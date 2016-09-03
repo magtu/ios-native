@@ -14,7 +14,6 @@ class ScheduleManager: ScheduleListener {
         let group = GroupManager.instanse.currentGroup!
         schedule = Schedule(even: group.weeks[1], odd: group.weeks[0])
         
-        updateEventTimer.start(1)
         getTimestampOfCGroupSchedule()
     }
     // ============================================================================================

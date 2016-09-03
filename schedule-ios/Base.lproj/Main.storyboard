@@ -357,7 +357,7 @@
                                     </connections>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="112" id="Avz-rO-npW" customClass="EventViewCell" customModule="Расписание_МГТУ" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="eventCell" id="Avz-rO-npW" customClass="EventViewCell" customModule="Расписание_МГТУ" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="300" height="112"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Avz-rO-npW" id="bHx-rB-wae">
@@ -377,7 +377,6 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Лекция" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWy-86-8mY">
                                                     <rect key="frame" x="135" y="83" width="151" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                    <color key="textColor" red="0.53725490196078429" green="0.53333333333333333" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сторожева Е. В." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tc4-2A-Rjy">
@@ -419,19 +418,22 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="op3-cg-H1e" firstAttribute="leading" secondItem="fIe-c2-NWR" secondAttribute="leading" id="1uQ-v7-CaK"/>
+                                                <constraint firstAttribute="bottom" secondItem="rWy-86-8mY" secondAttribute="bottom" constant="14" id="4s0-ZB-DzI"/>
                                                 <constraint firstItem="rWy-86-8mY" firstAttribute="trailing" secondItem="tc4-2A-Rjy" secondAttribute="trailing" id="5FT-kl-leB"/>
-                                                <constraint firstItem="rWy-86-8mY" firstAttribute="centerY" secondItem="tpa-no-G6Q" secondAttribute="centerY" id="9bi-Xv-Gka"/>
                                                 <constraint firstItem="tc4-2A-Rjy" firstAttribute="trailing" secondItem="k07-hv-Pyx" secondAttribute="trailing" id="AFr-AL-tkM"/>
                                                 <constraint firstItem="op3-cg-H1e" firstAttribute="top" secondItem="fIe-c2-NWR" secondAttribute="bottom" constant="3" id="FRv-wv-lxa"/>
                                                 <constraint firstItem="fIe-c2-NWR" firstAttribute="top" secondItem="bHx-rB-wae" secondAttribute="top" constant="12" id="ICp-n1-b26"/>
                                                 <constraint firstItem="k07-hv-Pyx" firstAttribute="top" secondItem="fIe-c2-NWR" secondAttribute="top" id="ItL-MT-xTU"/>
+                                                <constraint firstItem="tc4-2A-Rjy" firstAttribute="top" secondItem="k07-hv-Pyx" secondAttribute="bottom" constant="30" id="J7p-lU-gwP"/>
                                                 <constraint firstItem="k07-hv-Pyx" firstAttribute="leading" secondItem="fIe-c2-NWR" secondAttribute="trailing" constant="9" id="KTd-yr-SP1"/>
                                                 <constraint firstAttribute="trailing" secondItem="k07-hv-Pyx" secondAttribute="trailing" constant="14" id="PaW-pT-q1n"/>
+                                                <constraint firstItem="tpa-no-G6Q" firstAttribute="centerY" secondItem="rWy-86-8mY" secondAttribute="centerY" id="Pjm-lw-Q0g"/>
                                                 <constraint firstItem="rWy-86-8mY" firstAttribute="leading" secondItem="tpa-no-G6Q" secondAttribute="trailing" constant="2" id="TZP-vP-ial"/>
                                                 <constraint firstItem="tpa-no-G6Q" firstAttribute="top" secondItem="SzI-ZY-ba9" secondAttribute="bottom" constant="-3" id="VJy-F9-VyJ"/>
                                                 <constraint firstItem="op3-cg-H1e" firstAttribute="trailing" secondItem="fIe-c2-NWR" secondAttribute="trailing" id="Yrg-ZB-OdL"/>
                                                 <constraint firstItem="tc4-2A-Rjy" firstAttribute="leading" secondItem="SzI-ZY-ba9" secondAttribute="trailing" constant="2" id="Z6N-n7-D1A"/>
-                                                <constraint firstItem="tc4-2A-Rjy" firstAttribute="centerY" secondItem="SzI-ZY-ba9" secondAttribute="centerY" id="iLW-ov-hIB"/>
+                                                <constraint firstItem="rWy-86-8mY" firstAttribute="top" secondItem="tc4-2A-Rjy" secondAttribute="bottom" constant="5" id="b6G-4e-nZT"/>
+                                                <constraint firstItem="SzI-ZY-ba9" firstAttribute="centerY" secondItem="tc4-2A-Rjy" secondAttribute="centerY" id="hep-MB-YiR"/>
                                                 <constraint firstItem="SzI-ZY-ba9" firstAttribute="leading" secondItem="op3-cg-H1e" secondAttribute="leading" id="jVg-4a-Zyu"/>
                                                 <constraint firstAttribute="bottom" secondItem="tpa-no-G6Q" secondAttribute="bottom" constant="14" id="lD5-1I-HNb"/>
                                                 <constraint firstItem="fIe-c2-NWR" firstAttribute="leading" secondItem="bHx-rB-wae" secondAttribute="leading" constant="14" id="nbX-Mo-0OZ"/>

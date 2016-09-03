@@ -42,7 +42,13 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
         segmentControl.selectedSegmentIndex = 1
     }
     func onLoadSchedule() {
-        //TODO
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("ScheduleTableViewController") as! ScheduleTableViewController
+        vc.day = ScheduleManager.instanse.getDay(ScheduleManager.instanse.cDayWType.day.id, weekType: ScheduleManager.instanse.cDayWType.weekType)
+        vc.index = vc.day.id - 1
+        cDayID = vc.day.id
+        cWeekType = ScheduleManager.instanse.cDayWType.weekType
+        pageViewController.setViewControllers([vc], direction: .Forward, animated: true, completion: nil)
+        unblockUI()
     }
     // ============================================================================================
     // TABLE SETTINGS
