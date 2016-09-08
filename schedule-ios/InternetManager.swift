@@ -1,57 +1,43 @@
-import Foundation
 import ReachabilitySwift
 
-class InternetManager {
-    static var onInternetConnectEvent = ObserverSet<Void>()
-    static var onInternetDisconectEvent = ObserverSet<Void>()
+public class ReachabilityHelper {
+    public static var instance = ReachabilityHelper()
+    public private(set) static var isReachable = false
+    private let reachability: Reachability
     
-    static private var reachability:Reachability!
+    public var reachableEvent: ObserverSet<Void> = ObserverSet()
+    public var unreachableEvent: ObserverSet<Void> = ObserverSet()
     
-    class func creat() {
+    private var reach: Reachability!
+    
+    init() {
         do {
-            InternetManager.reachability = try Reachability.reachabilityForInternetConnection()
-            NSNotificationCenter.defaultCenter().addObserver(
-                self,
-                selector: #selector(InternetManager.reachabilityChanged(_:)),
-                name: ReachabilityChangedNotification,object: InternetManager.reachability)
-            
-            try InternetManager.reachability.startNotifier()
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            fatalError("Unable to create Reachability")
         }
-        catch {
-            print("EXCEPTION: INTERNET MANAGER CREATE()")
-        }
-    }
-    
-    
-    @objc class func reachabilityChanged(note: NSNotification) {
-        let reachability = note.object as! Reachability
-        if reachability.isReachable() {
-            InternetManager.isConnectedToNetwork() ?
-                InternetManager.onInternetConnectEvent.notify() :
-                InternetManager.onInternetDisconectEvent.notify()
-        } else {
-            InternetManager.onInternetDisconectEvent.notify()
-        }
-    }
-    
-    class func isConnectedToNetwork()->Bool{
-        var Status = false
-        let url = NSURL(string: "http://google.com/")
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "HEAD"
-        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
-        request.timeoutInterval = 10.0
         
-        var response: NSURLResponse?
+        reachability.whenReachable = { _ in
+            ReachabilityHelper.isReachable = true
+            self.reachableEvent.notify()
+        }
+        reachability.whenUnreachable = { _ in
+            ReachabilityHelper.isReachable = false
+            self.unreachableEvent.notify()
+        }
+        
+        if reachability.currentReachabilityStatus != .NotReachable {
+            ReachabilityHelper.isReachable = true
+            self.reachableEvent.notify()
+        } else {
+            ReachabilityHelper.isReachable = false
+            self.unreachableEvent.notify()
+        }
+        
         do {
-            try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response) as NSData?
+            try reachability.startNotifier()
+        } catch {
+            fatalError("Unable to start notifier (Reachability)")
         }
-        catch {}
-        if let httpResponse = response as? NSHTTPURLResponse {
-            if httpResponse.statusCode == 200 {
-                Status = true
-            }
-        }
-        return Status
     }
 }

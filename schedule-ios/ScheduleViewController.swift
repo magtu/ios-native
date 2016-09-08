@@ -34,6 +34,7 @@ class ScheduleViewController: UIViewController, UITabBarDelegate, UIPageViewCont
         evenRoundView.backgroundColor = Colors.WHITE
         oddRoundView.hidden  = true
         segmentControl.selectedSegmentIndex = 0
+        
     }
     func setOddSegment() {
         evenRoundView.hidden = true

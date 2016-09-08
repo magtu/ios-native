@@ -9,7 +9,7 @@ class AlaTransport: Transport {
     var countOfResends = 0
     
     func send(request request: Request, processor: Processor, listener: ResponseListener) {
-        if !InternetManager.isConnectedToNetwork() {
+        if !ReachabilityHelper.isReachable {
             listener.onInternetConnectionFailed()
             return
         }
